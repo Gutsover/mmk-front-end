@@ -1,0 +1,21 @@
+@import '../../styles.scss';
+
+.container {
+    background: $home-page;
+    display: flex;
+    align-items: center;
+
+    .decoration {
+        display: flex;
+        align-items: center;
+    }
+    .line {
+        height: 3px;
+        width: 160px;
+        background-color: $whitesmoke;
+        margin: 25px;
+    }
+    img {
+        height: 300px;
+    }
+}

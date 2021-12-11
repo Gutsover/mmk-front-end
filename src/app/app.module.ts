@@ -3,10 +3,14 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HomeHeaderComponent } from './home-header/home-header.component';
+import { FormSigninHomeComponent } from './form-signin-home/form-signin-home.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeHeaderComponent,
+    FormSigninHomeComponent
   ],
   imports: [
     BrowserModule,
