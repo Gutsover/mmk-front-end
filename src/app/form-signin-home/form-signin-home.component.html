@@ -1,17 +1,93 @@
-<div class="container">
-  <div class="decoration">
-    <div class="line"></div>
-    <img src="..\assets\logo2x.png" alt="Logo de ProxiBank MMK" />
-    <div class="line"></div>
+<div class="container pad">
+  <div class="deco">
+    <div class="deco__line"></div>
+    <img
+      src="..\assets\logo2x.png"
+      class="deco__logo"
+      alt="Logo de ProxiBank MMK"
+    />
+    <div class="deco__line"></div>
   </div>
-  <div class="form-container">
-    <form action="">
-      <label for="login">Identifiant</label>
-      <input class="input-global" type="text" placeholder="login" required />
 
-      <label for="login">Mot de passe</label>
-      <input class="input-global" type="text" required />
+  <div class="form-container radius shadow">
+    <form action="" class="form">
+      <label for="login" class="form__label">Identifiant</label>
+      <input
+        class="form__input input-global"
+        type="text"
+        placeholder="login"
+        required
+      />
+      <label for="login" class="form__label">Mot de passe</label>
+      <input
+        class="form__input input-global"
+        type="password"
+        placeholder="password"
+        required
+      />
     </form>
-    <button type="submit" class="btn-global">se connecter</button>
+    <button type="submit" class="form-container__btn btn-global">
+      se connecter
+    </button>
+  </div>
+</div>
+
+<div class="container-cards pad">
+  <div class="card radius shadow">
+    <div class="card__header">
+      <img
+        src="assets\communication.jpeg"
+        alt="image illustrant la communication"
+        class="card__header__img"
+      />
+    </div>
+    <div class="card__body">
+      <h1 class="card__body__title">
+        Proxi Bank, c’est en communiquant qu’on avance
+      </h1>
+      <p class="card__body__article">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur
+        totam, sapiente dolorem eligendi ducimus consequatur eos labore
+        accusantium maxime laboriosam?
+      </p>
+    </div>
+  </div>
+
+  <div class="card radius shadow">
+    <div class="card__header">
+      <img
+        src="assets\towers.jpeg"
+        alt="Image représentants des buildings"
+        class="card__header__img"
+      />
+    </div>
+    <div class="card__body">
+      <h1 class="card__body__title">Nos agences en France</h1>
+      <p class="card__body__article">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur
+        totam, sapiente dolorem eligendi ducimus consequatur eos labore
+        accusantium maxime laboriosam?
+      </p>
+    </div>
+  </div>
+
+  <div class="card radius shadow">
+    <div class="card__header">
+      <img
+        src="assets\owner.jpeg"
+        alt="Photo noir et blanc du directeur de Proxi Bank SI"
+        class="card__header__img"
+      />
+    </div>
+    <div class="card__body">
+      <h1 class="card__body__title">Notes du directeur de Proxi Bank SI</h1>
+      <p class="card__body__article">
+        <i>
+          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur
+          totam, sapiente dolorem eligendi ducimus consequatur eos labore
+          accusantium maxime!"
+        </i>
+      </p>
+    </div>
   </div>
 </div>
