@@ -7,6 +7,8 @@ import { HomeHeaderComponent } from './header/home-header.component';
 import { FormSigninHomeComponent } from './form-signin-home/form-signin-home.component';
 import { SidebarComponent } from './view/sidebar/sidebar.component';
 import { FooterComponent } from './footer/footer.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { FooterComponent } from './footer/footer.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule 
   ],
   providers: [],
   bootstrap: [AppComponent]

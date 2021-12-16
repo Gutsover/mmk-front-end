@@ -10,25 +10,29 @@
   </div>
 
   <div class="form-container radius shadow">
-    <form action="" class="form">
+    <form action="" class="form" (ngSubmit)="validation()">
       <label for="login" class="form__label">Identifiant</label>
       <input
+        [(ngModel)]="username"
         class="form__input input-global"
         type="text"
         placeholder="login"
+        name="username"
         required
       />
       <label for="login" class="form__label">Mot de passe</label>
       <input
+        [(ngModel)] = "password"
         class="form__input input-global"
         type="password"
         placeholder="password"
+        name="password"
         required
       />
+      <button type="submit" class="btn-global form-container__btn">
+        se connecter
+      </button>
     </form>
-    <button type="submit" class="form-container__btn btn-global">
-      se connecter
-    </button>
   </div>
 </div>
 
