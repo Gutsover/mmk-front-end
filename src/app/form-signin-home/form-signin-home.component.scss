@@ -42,9 +42,7 @@
     }
     .form-container__btn {
       margin-top: 15px;
-      background-color: $blue-logo;
-      text-transform: uppercase;
-      color: $whitesmoke;
+      
     }
   }
 }
@@ -52,13 +50,14 @@
 .container-cards {
   background: $blue-logo;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   height: 400px;
 
   .card {
     background-color: $whitesmoke;
-    width: 25%;
+    width: 18%;
     overflow: hidden;
+    margin-right: 1rem;
 
     .card__header {
       position: relative;
@@ -71,9 +70,8 @@
     }
 
     .card__body {
-      padding: 2%;
+      padding: 05%;
       margin-top: 0;
-      height: 45%;
       .card__body__title {
         font-size: 1.5em;
         color: $blue-logo;
