@@ -1,17 +1,23 @@
+
 import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-home-header',
   templateUrl: './home-header.component.html',
-  styleUrls: ['./home-header.component.scss']
+  styleUrls: ['./home-header.component.scss'],
 })
 export class HomeHeaderComponent implements OnInit {
 
-  today = Date.now();
+  today = new Date().toLocaleDateString();
+  time!: string;
+  
+  constructor() {
 
-  constructor() { }
+    setInterval(() => {
+      this.time = new Date().toLocaleTimeString();
+   }, 1000);
 
-  ngOnInit(): void {
   }
 
+  ngOnInit(): void {}
 }
