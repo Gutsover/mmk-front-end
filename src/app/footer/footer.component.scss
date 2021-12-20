@@ -1,0 +1,19 @@
+@import "../../styles.scss";
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    p {
+        margin-right: 2rem;
+        font-size: 14px;
+    }
+
+    a {
+        text-decoration: none;
+        color: $black-dracula;
+        &:hover {
+            color: $black-tr;
+        }
+    }
+}
