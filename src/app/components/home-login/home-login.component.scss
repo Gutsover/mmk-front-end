@@ -1,0 +1,24 @@
+@import "../../../styles.scss";
+
+.form-container {
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    height: 270px;
+    background-color: $blue-logo;
+    font-family: $barlow;
+    .form {
+      display: flex;
+      flex-direction: column;
+      align-content: space-between;
+      font-size: 18px;
+      .form__label,
+      .form__input {
+        margin-bottom: 15px;
+      }
+    }
+    .form-container__btn {
+      margin-top: 15px;
+      
+    }
+  }
