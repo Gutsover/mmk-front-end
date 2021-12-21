@@ -1,0 +1,10 @@
+@import "../../../styles.scss";
+
+.container {
+    display: flex;
+    align-items: center;
+    background-color: $background-dash;
+    width: calc(100%-200px);
+    height: calc(100% - 128px);
+    margin-left: 200px;
+}

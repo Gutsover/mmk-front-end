@@ -1,0 +1,24 @@
+@import "../../../styles.scss";
+
+.greeting {
+  padding: 2rem;
+  background-color: $whitesmoke;
+  border-radius: 15px;
+  margin-right: 4rem;
+  height: 100%;
+
+  .greeting__title {
+    font-size: (36 / 16) * 1rem;
+    color: $text-black;
+    margin-bottom: 1rem;
+    .bold {
+      font-weight: 900;
+    }
+  }
+  .greeting__subtitle {
+    font-weight: 400;
+    .subtitle__orange {
+      color: $orange;
+    }
+  }
+}
