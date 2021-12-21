@@ -17,6 +17,10 @@ import { ClientIdentityComponent } from './components/client-identity/client-ide
 import { ClientAccountComponent } from './components/client-account/client-account.component';
 import { ClientCardComponent } from './components/client-card/client-card.component';
 import { ClientViewComponent } from './view/client-view/client-view.component'
+import { GreetingComponent } from './components/greeting/greeting.component';
+import { LocationComponent } from './components/location/location.component';
+import { TodoComponent } from './components/todo/todo.component';
+import { AgenciesComponent } from './components/agencies/agencies.component'
 
 @NgModule({
   declarations: [
@@ -32,7 +36,11 @@ import { ClientViewComponent } from './view/client-view/client-view.component'
     ClientIdentityComponent,
     ClientAccountComponent,
     ClientCardComponent,
-    ClientViewComponent
+    ClientViewComponent,
+    GreetingComponent,
+    LocationComponent,
+    TodoComponent,
+    AgenciesComponent
   ],
   imports: [
     BrowserModule,

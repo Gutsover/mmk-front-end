@@ -1,0 +1,19 @@
+@import "../../../styles.scss";
+
+.location {
+  display: flex;
+  align-items: center;
+  padding: 2rem;
+  font-size: (28 / 16) * 1rem;
+  background-color: $whitesmoke;
+  border-radius: 15px;
+  height: 100%;
+  .location__title {
+    .title__icon {
+      margin-right: 1rem;
+    }
+  }
+  .title__orange {
+    color: $orange;
+  }
+}
