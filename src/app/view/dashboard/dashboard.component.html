@@ -1,14 +1,15 @@
 <app-home-header></app-home-header>
-<div class="flex-main">
-  <app-sidebar></app-sidebar>
-  <main class="main dashboard">
-    <div class="dashboard__top">
-      <app-greeting></app-greeting>
-      <app-location></app-location>
-    </div>
-    <div class="dashboard__bottom">
-      <app-todo></app-todo>
-      <app-agencies></app-agencies>
-    </div>
-  </main>
-</div>
+<app-sidebar></app-sidebar>
+
+<main class="main container dashboard">
+  <div class="dashboard__top">
+    <app-greeting></app-greeting>
+    <app-location></app-location>
+  </div>
+  <div class="dashboard__bottom">
+    <app-todo></app-todo>
+    <app-agencies></app-agencies>
+  </div>
+</main>
+
+<app-footer></app-footer>
