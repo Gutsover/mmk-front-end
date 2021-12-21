@@ -11,7 +11,11 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { DashboardComponent } from './view/dashboard/dashboard.component';
 import { HomeLogoComponent } from './components/home-logo/home-logo.component';
-import { HomeLoginComponent } from './components/home-login/home-login.component'
+import { HomeLoginComponent } from './components/home-login/home-login.component';
+import { GreetingComponent } from './components/greeting/greeting.component';
+import { LocationComponent } from './components/location/location.component';
+import { TodoComponent } from './components/todo/todo.component';
+import { AgenciesComponent } from './components/agencies/agencies.component'
 
 @NgModule({
   declarations: [
@@ -22,7 +26,11 @@ import { HomeLoginComponent } from './components/home-login/home-login.component
     FooterComponent,
     DashboardComponent,
     HomeLogoComponent,
-    HomeLoginComponent
+    HomeLoginComponent,
+    GreetingComponent,
+    LocationComponent,
+    TodoComponent,
+    AgenciesComponent
   ],
   imports: [
     BrowserModule,

@@ -1,57 +1,14 @@
+<app-home-header></app-home-header>
 <div class="flex-main">
   <app-sidebar></app-sidebar>
   <main class="main dashboard">
     <div class="dashboard__top">
-      <div class="dashboard__todo">
-        <p class="todo__title">
-          A faire
-          <img
-            class="title__icon"
-            srcset="/assets/img/icons/todo.svg"
-            src="/assets/img/icons/todo.png"
-          />
-        </p>
-        <div class="todo__tasks">
-          <div class="tasks__task">
-            <div class="task__checkbox"></div>
-            <button class="task__delete"></button>
-            <p class="task__desc">Audit</p>
-          </div>
-          <div class="tasks__task">
-            <div class="task__checkbox"></div>
-            <button class="task__delete"></button>
-            <p class="task__desc">Créer un compte pour BA Damien Chitard</p>
-          </div>
-          <div class="tasks__task">
-            <div class="task__checkbox"></div>
-            <button class="task__delete"></button>
-            <p class="task__desc">Organiser l’afterwork</p>
-          </div>
-          <div class="tasks__task">
-            <div class="task__checkbox"></div>
-            <button class="task__delete"></button>
-            <p class="task__desc">Faire les comptes</p>
-          </div>
-        </div>
-      </div>
-      <div class="dashboard__agencies">
-        <div class="agencies__title">
-          <img
-            class="title__icon"
-            srcset="/assets/img/icons/agency.svg"
-            src="/assets/img/icons/agency.png"
-          />Agences et contacts
-        </div>
-        <ul class="agencies__list">
-          <li class="list__item">Toulouse +003 56 78 89 45</li>
-          <li class="list__item">Toulouse +003 56 78 89 45</li>
-          <li class="list__item">Toulouse +003 56 78 89 45</li>
-          <li class="list__item">Toulouse +003 56 78 89 45</li>
-          <li class="list__item">Toulouse +003 56 78 89 45</li>
-          <li class="list__item">Toulouse +003 56 78 89 45</li>
-        </ul>
-      </div>
+      <app-greeting></app-greeting>
+      <app-location></app-location>
     </div>
-    <div class="dashboard__bottom"></div>
+    <div class="dashboard__bottom">
+      <app-todo></app-todo>
+      <app-agencies></app-agencies>
+    </div>
   </main>
 </div>
