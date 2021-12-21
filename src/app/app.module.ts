@@ -8,7 +8,8 @@ import { FormSigninHomeComponent } from './form-signin-home/form-signin-home.com
 import { SidebarComponent } from './view/sidebar/sidebar.component';
 import { FooterComponent } from './footer/footer.component';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
+import { DashboardComponent } from './view/dashboard/dashboard.component'
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { HttpClientModule } from '@angular/common/http'
     HomeHeaderComponent,
     FormSigninHomeComponent,
     SidebarComponent,
-    FooterComponent
+    FooterComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
