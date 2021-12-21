@@ -4,8 +4,9 @@
   width: 100%;
   .dashboard__top {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     .dashboard__todo {
+      flex: 1;
       margin: 2rem;
       background-color: $whitesmoke;
       padding: 2rem 4rem;
@@ -44,6 +45,7 @@
       }
     }
     .dashboard__agencies {
+      flex: 1;
       margin: 2rem;
       background-color: $blue-logo;
       padding: 2rem 4rem;
