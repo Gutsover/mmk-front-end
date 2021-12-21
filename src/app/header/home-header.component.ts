@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeHeaderComponent implements OnInit {
 
+  user = null;
   today = new Date().toLocaleDateString();
   time!: string;
   
