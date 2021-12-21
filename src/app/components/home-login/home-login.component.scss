@@ -1,19 +1,22 @@
 @import "../../../styles.scss";
 
 .form-container {
-    margin: auto;
   height: 100%;
   justify-content: center;
   align-items: center;
   background-color: #54a8b0;
   font-family: $barlow;
   color: $whitesmoke;
-  background-image: url(../../../assets/Mask_Group.png);
+  background-image: url(../../../assets/img/Mask_Group.png);
   background-repeat: no-repeat;
   background-size: cover;
-
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   h2 {
     text-align: center;
+    margin-bottom: 4rem;
   }
 
   .form {
@@ -22,12 +25,18 @@
     align-content: space-between;
     padding: 3rem;
     font-size: 18px;
+    width: 100%;
+    padding: 0 6rem;
+
     .form__label,
     .form__input {
       margin-bottom: 15px;
     }
     .form-container__btn {
-      margin: 3rem auto;
+      width: auto;
+      height: auto;
+      padding: 1rem 2rem;
+      margin: 2rem auto;
     }
   }
 }
