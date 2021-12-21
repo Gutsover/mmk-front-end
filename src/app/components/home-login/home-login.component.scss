@@ -1,24 +1,33 @@
 @import "../../../styles.scss";
 
 .form-container {
-    justify-content: center;
-    align-items: center;
-    width: 40%;
-    height: 270px;
-    background-color: $blue-logo;
-    font-family: $barlow;
-    .form {
-      display: flex;
-      flex-direction: column;
-      align-content: space-between;
-      font-size: 18px;
-      .form__label,
-      .form__input {
-        margin-bottom: 15px;
-      }
+    margin: auto;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  background-color: #54a8b0;
+  font-family: $barlow;
+  color: $whitesmoke;
+  background-image: url(../../../assets/Mask_Group.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  h2 {
+    text-align: center;
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    padding: 3rem;
+    font-size: 18px;
+    .form__label,
+    .form__input {
+      margin-bottom: 15px;
     }
     .form-container__btn {
-      margin-top: 15px;
-      
+      margin: 3rem auto;
     }
   }
+}

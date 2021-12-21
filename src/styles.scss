@@ -36,6 +36,10 @@ body {
   margin: 0;
 }
 
+h2 {
+  font-size: 2rem;
+}
+
 .pad {
   padding: 1rem;
 }
@@ -53,9 +57,10 @@ body {
 }
 
 .input-global {
-  background-color: transparent;
+  background-color: $whitesmoke;
+  padding: 1rem;
   border: none;
-  border-bottom: 1px solid $black-tr;
+  border-radius: 5px;
   color: $black-tr;
 }
 input:focus {
