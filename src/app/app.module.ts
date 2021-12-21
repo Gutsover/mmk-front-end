@@ -11,7 +11,12 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { DashboardComponent } from './view/dashboard/dashboard.component';
 import { HomeLogoComponent } from './components/home-logo/home-logo.component';
-import { HomeLoginComponent } from './components/home-login/home-login.component'
+import { HomeLoginComponent } from './components/home-login/home-login.component';
+import { ClientsListComponent } from './components/clients-list/clients-list.component';
+import { ClientIdentityComponent } from './components/client-identity/client-identity.component';
+import { ClientAccountComponent } from './components/client-account/client-account.component';
+import { ClientCardComponent } from './components/client-card/client-card.component';
+import { ClientViewComponent } from './view/client-view/client-view.component'
 
 @NgModule({
   declarations: [
@@ -22,7 +27,12 @@ import { HomeLoginComponent } from './components/home-login/home-login.component
     FooterComponent,
     DashboardComponent,
     HomeLogoComponent,
-    HomeLoginComponent
+    HomeLoginComponent,
+    ClientsListComponent,
+    ClientIdentityComponent,
+    ClientAccountComponent,
+    ClientCardComponent,
+    ClientViewComponent
   ],
   imports: [
     BrowserModule,
