@@ -69,14 +69,14 @@ input:focus {
   border-radius: 7px;
   text-transform: uppercase;
   color: $whitesmoke;
-  transition: all 0.2s ease-out;
+  transition: all 0.08s ease-out;
   border: none;
   cursor: pointer;
   &:hover {
     background-color: $whitesmoke;
   }
   &:active {
-    transform: scale(.9);
+    transform: scale(0.9);
     box-shadow: $shadow;
   }
 }
@@ -95,4 +95,12 @@ input:focus {
     color: $orange;
     border: 1px solid $orange;
   }
+}
+
+.flex-main {
+  display: flex;
+}
+.main {
+  margin-left: 200px;
+  padding: 4rem;
 }
