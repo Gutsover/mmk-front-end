@@ -3,11 +3,10 @@
 .container {
   display: flex;
   align-items: center;
-  background-color: $background-main;
-  background-image: url("../../../assets/img/Mask_Group.png");
+  background-color: $blue-glace;
   background-repeat: no-repeat;
   background-size: cover;
   width: calc(100%-200px);
-  height: calc(100% - 78px);
+  height: calc(100% - 109px);
   margin-left: 200px;
 }
