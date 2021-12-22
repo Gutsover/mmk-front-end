@@ -153,3 +153,16 @@ app-todo {
 app-agencies {
   flex: 1;
 }
+app-clients-list {
+  grid-row: span 2;
+}
+app-client-identity {
+  grid-column-end: span 2;
+}
+app-clients-card {
+}
+app-client-account {
+  grid-column-start: 2;
+  grid-row-start: 2;
+  grid-column-end: span 3;
+}
