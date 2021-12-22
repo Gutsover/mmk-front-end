@@ -4,14 +4,10 @@
   width: calc(100%-200px);
   height: 100%;
   background-color: $blue-glace;
-
   .dashboard__top {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 4rem;
-  }
-  .dashboard__bottom {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-gap: 4rem;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 25% 1fr;
   }
 }
