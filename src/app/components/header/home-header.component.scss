@@ -6,6 +6,7 @@ header {
     display: flex;
     align-items: center;
     background-color: $blue-logo;
+    border-bottom: 2px solid $whitesmoke;
     .logo {
         img {
             width: 40px;
