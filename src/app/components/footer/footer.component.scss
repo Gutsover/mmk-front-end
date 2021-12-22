@@ -1,7 +1,6 @@
 @import "../../../styles.scss";
 
 .container {
-    z-index: -10;
     position: fixed;
     bottom: 0;
     width: 100%;
@@ -9,17 +8,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: $background-dash;
     p {
         margin-right: 2rem;
         font-size: 14px;
+        color: #dbd4d4;
     }
 
     a {
         text-decoration: none;
-        color: $black-dracula;
+        color: #dbd4d4;
         &:hover {
-            color: $black-tr;
+            color: $whitesmoke;
         }
     }
 }
