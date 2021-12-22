@@ -1,11 +1,16 @@
 @import "../../../styles.scss";
 
 .container {
-  // display: flex;
-  // align-items: center;
-  // background-color: $blue-glace;
-  // background-repeat: no-repeat;
-  // background-size: cover;
-  // width: calc(100%-200px);
-  // margin-left: 200px;
+  width: calc(100%-200px);
+  height: 100%;
+  background-color: $blue-glace;
+  .main {
+   display: flex;
+
+   .container__cards {
+     display: flex;
+     flex-wrap: wrap;
+   }
+
+  }
 }
