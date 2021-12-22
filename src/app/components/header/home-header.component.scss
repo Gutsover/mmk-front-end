@@ -5,8 +5,7 @@ header {
     height: 78px;
     display: flex;
     align-items: center;
-    background-color: $whitesmoke;
-    box-shadow: $shadow;
+    background-color: $blue-logo;
     .logo {
         img {
             width: 40px;
@@ -17,9 +16,10 @@ header {
     .container {
         margin: auto;
         p {
+            color: whitesmoke;
             font-size: 20px;
             span {
-                color: $blue-logo;
+                color: $yellow;
             }
         }
     }
