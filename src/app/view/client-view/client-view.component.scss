@@ -6,10 +6,13 @@
   background-color: $blue-glace;
   .main {
    display: flex;
+   justify-content: space-around;
+   //align-items: center;
 
    .container__cards {
      display: flex;
      flex-wrap: wrap;
+     justify-content: space-around;
    }
 
   }
