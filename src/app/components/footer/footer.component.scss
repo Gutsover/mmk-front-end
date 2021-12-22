@@ -11,14 +11,14 @@
     p {
         margin-right: 2rem;
         font-size: 14px;
-        color: #dbd4d4;
+        color: $text-black;
     }
 
     a {
         text-decoration: none;
-        color: #dbd4d4;
+        color: $text-black;
         &:hover {
-            color: $whitesmoke;
+            color: $black-dracula;
         }
     }
 }
