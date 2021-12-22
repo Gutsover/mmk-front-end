@@ -2,14 +2,15 @@
 
 header {
     width: 100%;
-    height: 78px;
+    height: 109px;
     display: flex;
+    padding: 16px 32px;
     align-items: center;
-    background-color: $blue-logo;
-    border-bottom: 2px solid $whitesmoke;
+    background-color: $blue-glace;
+    //border-bottom: 2px solid $whitesmoke;
     .logo {
         img {
-            width: 40px;
+            width: 72px;
             height: auto;
         }
     }
@@ -17,7 +18,7 @@ header {
     .container {
         margin: auto;
         p {
-            color: whitesmoke;
+            color: $black-dracula;
             font-size: 20px;
             span {
                 color: $yellow;
