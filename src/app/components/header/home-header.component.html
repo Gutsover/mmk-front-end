@@ -1,9 +1,11 @@
 <header>
   <div class="container">
-    <p>
-      Bonjour <span *ngIf="">{{ user }}</span
-      >, nous sommes le <span class="is-bold">{{ today }}</span> , il est
-      <span class="is-bold">{{ time }}</span>
-    </p>
+    <div class="container__controls">
+      <a href="#" class="controls__outline btn-global btn-global-blue--outline"
+        >Profil</a
+      ><button class="controls__filled btn-global btn-global-orange">
+        Deconnexion
+      </button>
+    </div>
   </div>
 </header>
