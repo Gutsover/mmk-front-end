@@ -2,19 +2,12 @@
 
 .container {
   width: calc(100%-200px);
-  height: calc(100% - 128px);
-  background-color: $black-dracula;
-  background-image: url("../../../assets/img/Mask_Group.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-
+  height: 100%;
+  background-color: $blue-glace;
   .dashboard__top {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 4rem;
-  }
-  .dashboard__bottom {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-gap: 4rem;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 25% 1fr;
   }
 }

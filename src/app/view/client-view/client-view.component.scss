@@ -1,13 +1,12 @@
 @import "../../../styles.scss";
 
 .container {
-  display: flex;
-  align-items: center;
-  background-color: $black-dracula;
-  background-image: url("../../../assets/img/Mask_Group.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: calc(100%-200px);
-  height: calc(100% - 128px);
-  margin-left: 200px;
+  background-color: $blue-glace;
+  height: 100%;
+  .main {
+    display: grid;
+    grid-gap: 4rem;
+    grid-template-columns: 25% repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
 }

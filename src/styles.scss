@@ -7,12 +7,15 @@ $orange: #ffb878;
 $orange-dark: #e0883b;
 $yellow: #ffd478;
 $whitesmoke: #f5f5f5;
-$background-white: rgba(245,245,245, 0.9);
-$background-blue: rgba(84, 168, 176, 0.85);
 $black-dracula: #2d3436;
 $black-tr: #2d343666;
 $text-black: #525252;
-$background-dash: #E6F1F4;
+$blue-glace: #e6f1f4;
+//$background-dash: #e6f1f4;
+$background-white: rgba(245, 245, 245, 0.9);
+$background-blue: rgba(84, 168, 176, 0.85);
+$background-main: rgb(221, 216, 216);
+
 // Color-gradient
 $home-page: linear-gradient(
   100deg,
@@ -24,10 +27,9 @@ $sidebar: linear-gradient(
   rgba(84, 168, 176, 1) 0%,
   rgba(45, 52, 54, 1) 100%
 );
-$shadow: -1px 2px 10px 2px rgba(45, 52, 54, 0.3);
+$shadow: -1px 1px 5px 1px rgba(33, 36, 37, 0.1);
 // Font
 $lato: "Lato", sans-serif;
-$barlow: "Barlow", sans-serif;
 
 html {
   font-family: $lato;
@@ -74,13 +76,16 @@ input:focus {
 }
 
 .btn-global {
-  width: 120px;
-  height: 35px;
+  // width: 120px;
+  // height: 35px;
+  padding: 0.5rem 1rem;
   border-radius: 7px;
-  text-transform: uppercase;
+  font-family: $lato;
+  font-size: 14px;
+  // text-transform: uppercase;
   color: $whitesmoke;
   transition: all 0.08s ease-out;
-  border: none;
+  border: 1px solid transparent;
   cursor: pointer;
   &:hover {
     background-color: $whitesmoke;
@@ -96,6 +101,17 @@ input:focus {
   &:hover {
     color: $blue-logo;
     border: 1px solid $blue-logo;
+  }
+}
+
+.btn-global-blue--outline {
+  border: 3px solid $blue-logo;
+  color: $text-black;
+  padding: 0.5rem 1rem;
+  font-size: 14px;
+  &:hover {
+    color: $blue-logo;
+    border: 3px solid $blue-logo;
   }
 }
 
@@ -118,22 +134,32 @@ a {
 }
 .main {
   margin-left: 200px;
-  padding: 4rem;
+  padding: 0 4rem;
   background-color: #e6f1f4;
 }
 
 app-greeting {
-  flex: 1;
 }
 
 app-location {
-  flex: 1;
 }
 
 app-todo {
-  flex: 1;
 }
 
 app-agencies {
   flex: 1;
+}
+app-clients-list {
+  grid-row: span 2;
+}
+app-client-identity {
+  grid-column-end: span 2;
+}
+app-clients-card {
+}
+app-client-account {
+  grid-column-start: 2;
+  grid-row-start: 2;
+  grid-column-end: span 3;
 }
