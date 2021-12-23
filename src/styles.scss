@@ -99,6 +99,13 @@ input:focus {
   }
 }
 
+.clickable-icon {
+  transition: all 0.08s ease-out;
+  &:hover {
+    transform: scale(1.2);
+  }
+}
+
 .btn-global-blue {
   background-color: $blue-logo;
   &:hover {
