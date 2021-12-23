@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,7 +21,9 @@ import { ClientViewComponent } from './view/client-view/client-view.component';
 import { GreetingComponent } from './components/greeting/greeting.component';
 import { LocationComponent } from './components/location/location.component';
 import { TodoComponent } from './components/todo/todo.component';
-import { AgenciesComponent } from './components/agencies/agencies.component'
+import { AgenciesComponent } from './components/agencies/agencies.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ModalClientIdentityComponent } from './components/modals/modal-client-identity/modal-client-identity.component'
 
 @NgModule({
   declarations: [
@@ -40,13 +43,17 @@ import { AgenciesComponent } from './components/agencies/agencies.component'
     GreetingComponent,
     LocationComponent,
     TodoComponent,
-    AgenciesComponent
+    AgenciesComponent,
+    ModalClientIdentityComponent
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule 
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]
