@@ -4,7 +4,7 @@ import { FormSigninHomeComponent } from './view/form-signin-home/form-signin-hom
 import { DashboardComponent } from './view/dashboard/dashboard.component';
 import { ClientViewComponent } from './view/client-view/client-view.component';
 const routes: Routes = [
-  { path: '', component: DashboardComponent },
+  { path: 'dashboard', component: DashboardComponent },
   { path: 'login', component: FormSigninHomeComponent },
   { path: 'client', component: ClientViewComponent }
 ];
