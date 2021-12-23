@@ -1,9 +1,8 @@
 @import "../../../styles.scss";
 
 .container {
-  width: calc(100%-200px);
-  height: 100%;
   background-color: $blue-glace;
+  height: 100%;
   .main {
    display: flex;
    justify-content: space-around;
@@ -14,6 +13,9 @@
      flex-wrap: wrap;
      justify-content: space-around;
    }
-
+    display: grid;
+    grid-gap: 4rem;
+    grid-template-columns: 25% repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
   }
 }
