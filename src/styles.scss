@@ -1,4 +1,13 @@
-/* You can add global styles to this file, and also import other style files */
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '~@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap");
 
 // Colors
@@ -41,6 +50,7 @@ html,
 body {
   height: 100%;
   margin: 0;
+  font-family: $lato !important;
 }
 
 h2 {
@@ -148,6 +158,54 @@ a {
   background-color: #e6f1f4;
 }
 
+// _______ MODAL ____________
+.modal {
+  position: absolute;
+  background-color: $whitesmoke;
+  top: 20%;
+  left: 40%;
+  .modal__title {
+    display: flex;
+    text-transform: uppercase;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    background-color: $yellow;
+    color: $whitesmoke;
+    font-size: 22px;
+    box-shadow: 1px 3px 4px 1px rgba(0,0,0,0.15);
+    h5 {
+      margin-right: 4rem;
+    }
+  }
+  .modal__body {
+    padding: 2rem;
+
+    .form__label {
+      font-size: 18px;
+    }
+
+    .form__body {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+  .form__body__btn {
+    margin-top: 4rem;
+    margin-left: 45%;
+  }
+}
+.input-global-modal {
+  background-color: $whitesmoke;
+  padding: 0.5rem;
+  color: $black-tr;
+  border: none;
+  border-bottom: 1px solid $black-tr;
+  font-size: 16px;
+}
+// __________________________
+
 app-greeting {
 }
 
@@ -173,3 +231,6 @@ app-client-account {
   grid-row-start: 2;
   grid-column-end: span 3;
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
