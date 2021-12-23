@@ -4,15 +4,6 @@
   background-color: $blue-glace;
   height: 100%;
   .main {
-   display: flex;
-   justify-content: space-around;
-   //align-items: center;
-
-   .container__cards {
-     display: flex;
-     flex-wrap: wrap;
-     justify-content: space-around;
-   }
     display: grid;
     grid-gap: 4rem;
     grid-template-columns: 25% repeat(3, 1fr);
