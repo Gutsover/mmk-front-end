@@ -23,7 +23,12 @@ import { LocationComponent } from './components/location/location.component';
 import { TodoComponent } from './components/todo/todo.component';
 import { AgenciesComponent } from './components/agencies/agencies.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ModalClientIdentityComponent } from './components/modals/modal-client-identity/modal-client-identity.component'
+import { ModalClientIdentityComponent } from './components/modals/modal-client-identity/modal-client-identity.component';
+import { AdvisorsListComponent } from './view/advisors-list/advisors-list.component';
+import { AdvisorsComponent } from './components/admin/advisors/advisors.component';
+import { AdvisorsIdentityComponent } from './components/admin/advisors-identity/advisors-identity.component';
+import { AdvisorsClientListComponent } from './components/admin/advisors-client-list/advisors-client-list.component';
+import { ClientItemComponent } from './components/client-item/client-item.component'
 
 @NgModule({
   declarations: [
@@ -44,7 +49,12 @@ import { ModalClientIdentityComponent } from './components/modals/modal-client-i
     LocationComponent,
     TodoComponent,
     AgenciesComponent,
-    ModalClientIdentityComponent
+    ModalClientIdentityComponent,
+    AdvisorsListComponent,
+    AdvisorsComponent,
+    AdvisorsIdentityComponent,
+    AdvisorsClientListComponent,
+    ClientItemComponent
     
   ],
   imports: [
