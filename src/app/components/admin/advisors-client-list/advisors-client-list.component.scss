@@ -1,0 +1,45 @@
+@import "../../../../styles.scss";
+
+.container {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  align-content: space-between;
+  background-color: $background-white;
+
+  .container__title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    h4 {
+      position: relative;
+      &::after {
+        content: "";
+        position: absolute;
+        width: 100px;
+        height: 2px;
+        bottom: -20px;
+        left: 0;
+        background-color: $orange;
+      }
+    }
+    .container__title__options {
+      a img {
+        width: 18px;
+      }
+      .first-child {
+        margin-right: 20px;
+      }
+    }
+  }
+
+  .container__main {
+    margin-top: 45px;
+    p {
+      line-height: 30px;
+      img {
+        margin-right: 30px;
+      }
+    }
+  }
+}
