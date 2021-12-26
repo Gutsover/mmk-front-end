@@ -1,6 +1,6 @@
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
-@use '~@angular/material' as mat;
+@use "~@angular/material" as mat;
 // Plus imports for other components in your app.
 
 // Include the common styles for Angular Material. We include this here so that you only
@@ -64,7 +64,7 @@ h4 {
 }
 
 .pad {
-  padding: 1rem;
+  padding: 2rem;
 }
 
 .radius {
@@ -173,7 +173,7 @@ a {
     background-color: $yellow;
     color: $whitesmoke;
     font-size: 22px;
-    box-shadow: 1px 3px 4px 1px rgba(0,0,0,0.15);
+    box-shadow: 1px 3px 4px 1px rgba(0, 0, 0, 0.15);
     h5 {
       margin-right: 4rem;
     }
@@ -205,16 +205,6 @@ a {
   font-size: 16px;
 }
 // __________________________
-
-app-greeting {
-}
-
-app-location {
-}
-
-app-todo {
-}
-
 app-agencies {
   flex: 1;
 }
@@ -224,13 +214,28 @@ app-clients-list {
 app-client-identity {
   grid-column-end: span 2;
 }
-app-clients-card {
-}
 app-client-account {
   grid-column-start: 2;
   grid-row-start: 2;
   grid-column-end: span 3;
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+app-advisors {
+  grid-row: span 2;
+}
+
+app-advisors-identity {
+  grid-column: span 3;
+}
+
+app-advisors-client-list {
+  grid-column: span 3;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
