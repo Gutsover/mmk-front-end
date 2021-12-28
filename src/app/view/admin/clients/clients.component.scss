@@ -1,0 +1,74 @@
+@import '../../../../styles.scss';
+
+.container {
+  background-color: $blue-glace;
+  height: 100%;
+  .main {
+    font-family: Lato;
+  }
+}
+.clients{
+  .clients__title{
+    font-weight: 900;
+    font-size: 36px;
+    line-height: 43px;
+    color: $orange;
+    margin-bottom: 4rem;
+  }
+  .clients__list{
+    display: flex;
+    //text-align: center;
+    justify-content: space-around;
+  }
+  .list__enteprise{
+    width: 45%;
+    background-color: #fff;
+    padding: 2rem 4rem;
+    .enteprise__title{
+      display: inline-block;
+      text-transform: uppercase;
+      font-size: 20px;
+      font-weight:800;
+      color: $blue-logo;
+      position: relative;
+      &::after{
+        display: block;
+        position: relative;
+        background-color: $yellow;
+        content: "";
+        width: 80%;
+        height: 3px;
+        margin: 1.5rem 0;
+        left: 0;
+        top: 0;
+      }
+    }
+  }
+  .list__particular{
+    width: 45%;
+    background-color: #fff;
+    padding: 2rem;
+    .particular__title{
+      display: inline-block;
+      text-transform: uppercase;
+      font-size: 20px;
+      font-weight:800;
+      color: $blue-logo;
+      position: relative;
+      &::after{
+        display: block;
+        position: relative;
+        background-color: $yellow;
+        content: "";
+        width: 80%;
+        height: 3px;
+        margin: 1.5rem 0;
+        left: 0;
+        top: 0;
+      }
+    }
+  }
+  .list__item{
+      margin-bottom: 2rem;
+  }
+}

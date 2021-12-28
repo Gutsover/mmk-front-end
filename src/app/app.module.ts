@@ -30,7 +30,8 @@ import {AdvisorsIdentityComponent} from './components/admin/advisors-identity/ad
 import {AdvisorsClientListComponent} from './components/admin/advisors-client-list/advisors-client-list.component';
 import {ClientItemComponent} from './components/client-item/client-item.component';
 import { AuditComponent } from './view/audit/audit.component';
-import { AuditClientCardComponent } from './components/audit-client-card/audit-client-card.component'
+import { AuditClientCardComponent } from './components/audit-client-card/audit-client-card.component';
+import { ClientsComponent } from './view/admin/clients/clients.component'
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { AuditClientCardComponent } from './components/audit-client-card/audit-c
     AdvisorsClientListComponent,
     ClientItemComponent,
     AuditComponent,
-    AuditClientCardComponent
+    AuditClientCardComponent,
+    ClientsComponent
 
   ],
   imports: [
