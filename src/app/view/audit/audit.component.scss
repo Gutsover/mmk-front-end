@@ -1,0 +1,33 @@
+
+@import "../../../styles.scss";
+
+.container {
+  background-color: $blue-glace;
+  height: 100%;
+  .main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: Lato;
+    .audit__title{
+      color: $orange;
+      font-style: normal;
+      font-weight: 900;
+      font-size: 36px;
+      line-height: 43px;
+      margin-bottom: 1rem;
+    }
+    .audit__amount{
+      font-family: Lato;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 300;
+      margin-bottom: 1rem;
+      &--red{
+        color: $reddish;
+        font-weight: 800;
+      }
+    }
+  }
+}
