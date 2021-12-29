@@ -1,0 +1,46 @@
+<div class="modal shadow radius" id="modalExternalAccount">
+  <div class="modal__title">
+    <h5>Virement interne</h5>
+    <a
+      ><img
+        src="../../../assets/img/icons/close-white.svg"
+        alt="fermer la pop-up"
+        class="clickable-icon"
+        mat-dialog-close
+    /></a>
+  </div>
+  <div class="modal__body">
+    <form action="" class="form">
+      <div class="form__body__check">
+        <div class="form__body__check__debit">
+          <h6>Compte à débiter</h6>
+          <div class="choice">
+            <input class="" type="checkbox" name="currentAccount" />
+            <label for="currentAccount" class="form__label"
+              >Compte courant</label
+            >
+          </div>
+          <div class="choice">
+            <input class="" type="checkbox" name="savingsAccount" />
+            <label for="savingsAccount" class="form__label"
+              >Compte épargne</label
+            >
+          </div>
+        </div>
+
+        <div class="form__body__receiver">
+          <h6>Numéro du compte à approvisionner</h6>
+          <label for="currentAccount" class="form__label">Compte receveur</label>
+          <input class="input-global-modal" type="text" name="receiverAccount" />
+        </div>
+      </div>
+
+      <button
+        class="btn-global btn-global-orange form__body__btn"
+        mat-dialog-close
+      >
+        valider
+      </button>
+    </form>
+  </div>
+</div>
