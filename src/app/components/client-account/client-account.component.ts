@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { ModalClientExternalTransferComponent } from '../modals/modal-client-external-transfer/modal-client-external-transfer.component';
 import { ModalClientInternalTransferComponent } from '../modals/modal-client-internal-transfer/modal-client-internal-transfer.component';
 
 @Component({
@@ -13,6 +14,9 @@ export class ClientAccountComponent implements OnInit {
 
   openModalInternalTransfer() {
     const dialogRef = this.dialog.open(ModalClientInternalTransferComponent);
+  }
+  openModalExternalTransfer() {
+    const dialogRef = this.dialog.open(ModalClientExternalTransferComponent);
   }
 
   ngOnInit(): void {
