@@ -28,7 +28,8 @@ import { AdvisorsListComponent } from './view/advisors-list/advisors-list.compon
 import { AdvisorsComponent } from './components/admin/advisors/advisors.component';
 import { AdvisorsIdentityComponent } from './components/admin/advisors-identity/advisors-identity.component';
 import { AdvisorsClientListComponent } from './components/admin/advisors-client-list/advisors-client-list.component';
-import { ClientItemComponent } from './components/client-item/client-item.component'
+import { ClientItemComponent } from './components/client-item/client-item.component';
+import { ModalClientInternalTransferComponent } from './components/modals/modal-client-internal-transfer/modal-client-internal-transfer.component'
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { ClientItemComponent } from './components/client-item/client-item.compon
     AdvisorsComponent,
     AdvisorsIdentityComponent,
     AdvisorsClientListComponent,
-    ClientItemComponent
+    ClientItemComponent,
+    ModalClientInternalTransferComponent
     
   ],
   imports: [
