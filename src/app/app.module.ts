@@ -32,7 +32,8 @@ import { ClientItemComponent } from './components/client-item/client-item.compon
 import { ModalClientInternalTransferComponent } from './components/modals/modal-client-internal-transfer/modal-client-internal-transfer.component';
 import { ModalClientExternalTransferComponent } from './components/modals/modal-client-external-transfer/modal-client-external-transfer.component';
 import { AddCreditCardComponent } from './components/modals/add-credit-card/add-credit-card.component';
-import { DeleteCreditCardComponent } from './components/modals/delete-credit-card/delete-credit-card.component'
+import { DeleteCreditCardComponent } from './components/modals/delete-credit-card/delete-credit-card.component';
+import { CreateNewAccountComponent } from './components/modals/create-new-account/create-new-account.component'
 
 @NgModule({
   declarations: [
@@ -62,7 +63,8 @@ import { DeleteCreditCardComponent } from './components/modals/delete-credit-car
     ModalClientInternalTransferComponent,
     ModalClientExternalTransferComponent,
     AddCreditCardComponent,
-    DeleteCreditCardComponent
+    DeleteCreditCardComponent,
+    CreateNewAccountComponent
     
   ],
   imports: [
