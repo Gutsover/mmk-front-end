@@ -31,7 +31,8 @@ import { AdvisorsClientListComponent } from './components/admin/advisors-client-
 import { ClientItemComponent } from './components/client-item/client-item.component';
 import { ModalClientInternalTransferComponent } from './components/modals/modal-client-internal-transfer/modal-client-internal-transfer.component';
 import { ModalClientExternalTransferComponent } from './components/modals/modal-client-external-transfer/modal-client-external-transfer.component';
-import { AddCreditCardComponent } from './components/modals/add-credit-card/add-credit-card.component'
+import { AddCreditCardComponent } from './components/modals/add-credit-card/add-credit-card.component';
+import { DeleteCreditCardComponent } from './components/modals/delete-credit-card/delete-credit-card.component'
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import { AddCreditCardComponent } from './components/modals/add-credit-card/add-
     ClientItemComponent,
     ModalClientInternalTransferComponent,
     ModalClientExternalTransferComponent,
-    AddCreditCardComponent
+    AddCreditCardComponent,
+    DeleteCreditCardComponent
     
   ],
   imports: [
