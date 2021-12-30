@@ -2,11 +2,12 @@
   <div class="container__title">
     <h4>
       Carte(s)
-      <a href="#"
+      <a
         ><img
           src="../../../assets/img/icons/plus.svg"
           alt="Ajouter une nouvelle carte de crédit"
           class="clickable-icon"
+          (click) = "openModalAddCreditCard()"
       /></a>
     </h4>
   </div>
@@ -19,7 +20,7 @@
       />
       <div class="container__main__card--actions">
         <button class="is-bold is-activated" (click)="activateOrDeactivate()" title="la carte est actuellement {{ isActivateText }}">{{ statusCard }}</button>
-        <a href="#"
+        <a
           ><img
             src="../../../assets/img/icons/trash.svg"
             alt="Supprimer la carte de crédit"

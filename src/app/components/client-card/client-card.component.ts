@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { AddCreditCardComponent } from '../modals/add-credit-card/add-credit-card.component';
 
 @Component({
   selector: 'app-client-card',
@@ -12,7 +14,6 @@ export class ClientCardComponent implements OnInit {
 
   activateOrDeactivate() {
     this.isActive = !this.isActive;
-    console.log(this.isActive);
 
     if (this.isActive) {
       this.isActivateText = ' activée';
@@ -23,7 +24,11 @@ export class ClientCardComponent implements OnInit {
     }
   }
 
-  constructor() {}
+  constructor(public dialog: MatDialog) {}
+
+  openModalAddCreditCard() {
+    const dialogRef = this.dialog.open(AddCreditCardComponent);
+  }
 
   ngOnInit(): void {}
 }
