@@ -3,10 +3,11 @@
   //width: 450px;
   height: 100%;
   background-color: $background-white;
+  padding: 1.2rem;
 
   .container__title {
     h4 img {
-      margin-left: 2rem;
+      margin-left: 1.2rem;
     }
   }
   .container__main {
@@ -20,11 +21,13 @@
       align-items: center;
 
       .container__main__card--actions {
-        margin-right: 1rem;
+        display: flex;
         .is-activated {
-          color: $orange;
-          font-size: 20px;
-          margin-right: 2rem;
+          border: none;
+          background-color: transparent;
+          color: $black-dracula;
+          font-size: 12px;
+          margin-right: 1.5rem;
         }
       }
     }
