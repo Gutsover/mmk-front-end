@@ -1,0 +1,28 @@
+@import "../../../../styles.scss";
+
+.form {
+  .form__body__check {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 4rem;
+
+    .form__body__check__debit {
+        margin-right: 4rem;
+    }
+
+    h6 {
+        color: $blue-logo;
+        text-transform: uppercase;
+        margin-bottom: 1.8rem;
+    }
+
+    .choice input {
+        margin-right: 1.8rem;
+        cursor: pointer;
+    }
+
+    [type="checkbox"]:checked + label {
+        color: $blue-logo;
+    }
+  }
+}

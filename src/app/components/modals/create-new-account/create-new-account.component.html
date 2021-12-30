@@ -1,0 +1,35 @@
+<div class="modal shadow radius" id="addNewAccount">
+  <div class="modal__title">
+    <h5>Créer un nouveau compte</h5>
+    <a
+      ><img
+        src="../../../assets/img/icons/close-white.svg"
+        alt="fermer la pop-up"
+        class="clickable-icon"
+        mat-dialog-close
+    /></a>
+  </div>
+  <div class="modal__body">
+    <form action="" class="form">
+      <h6 class="is-bold">Type de compte :</h6>
+      <div class="choice">
+        <div class="choice__account">
+          <input class="" type="checkbox" name="currentAccount" />
+          <label for="currentAccount" class="form__label">Compte courant</label>
+        </div>
+
+        <div class="choice__account">
+          <input class="" type="checkbox" name="savesAccount" />
+          <label for="savesAccount" class="form__label">Compte épargne</label>
+        </div>
+      </div>
+
+      <button
+        class="btn-global btn-global-orange form__body__btn"
+        mat-dialog-close
+      >
+        valider
+      </button>
+    </form>
+  </div>
+</div>
