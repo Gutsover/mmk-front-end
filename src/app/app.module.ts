@@ -31,7 +31,8 @@ import {AdvisorsIdentityComponent} from './components/admin/advisors-identity/ad
 import {AdvisorsClientListComponent} from './components/admin/advisors-client-list/advisors-client-list.component';
 import {ClientItemComponent} from './components/client-item/client-item.component';
 import { AuditComponent } from './view/audit/audit.component';
-import { AuditClientCardComponent } from './components/audit-client-card/audit-client-card.component'
+import { AuditClientCardComponent } from './components/audit-client-card/audit-client-card.component';
+import { ClientsComponent } from './view/admin/clients/clients.component'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -94,7 +95,8 @@ import { CreateNewAccountComponent } from './components/modals/create-new-accoun
     ClientItemComponent,
     audit
     AuditComponent,
-    AuditClientCardComponent
+    AuditClientCardComponent,
+    ClientsComponent
 
 
     ModalClientInternalTransferComponent,
