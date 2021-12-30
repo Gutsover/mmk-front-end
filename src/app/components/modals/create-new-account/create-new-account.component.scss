@@ -1,0 +1,20 @@
+@import "../../../../styles.scss";
+
+.form {
+    h6 {
+        font-size: 22px;
+        color: $blue-logo;
+        padding: 1rem;
+    }
+
+    .choice {
+        display: flex;
+        flex-direction: column;
+
+        .choice__account {
+            input {
+                margin-right: 1.5rem;
+            }
+        }
+    }
+}
