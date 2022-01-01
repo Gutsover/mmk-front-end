@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { LoginService } from '../../services/login.service';
 
 @Component({
@@ -7,7 +8,7 @@ import { LoginService } from '../../services/login.service';
   styleUrls: ['./home-login.component.scss'],
 })
 export class HomeLoginComponent implements OnInit {
-  constructor(private loginService: LoginService) {}
+  constructor(private loginService: LoginService, private router: Router) {}
 
   username: string = '';
   password: string = '';
@@ -19,9 +20,16 @@ export class HomeLoginComponent implements OnInit {
     };
     toSend.username = this.username;
     toSend.password = this.password;
-    this.loginService
-      .login(toSend)
-      .subscribe((employee) => console.log(employee));
+
+    this.loginService.login(toSend).subscribe(
+      (data) => {
+        if (data.accessToken) {
+          localStorage.setItem('id_token', data.accessToken);
+          this.router.navigate(['/dashboard']);
+        }
+      },
+      (error) => alert('No user found, please check your password / username')
+    );
   }
 
   ngOnInit(): void {}
