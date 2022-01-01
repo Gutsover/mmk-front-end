@@ -11,3 +11,14 @@
     grid-template-rows: 25% 1fr;
   }
 }
+
+@media screen and (max-width: 950px) {
+  .container {
+    margin: 0;
+    width: 100%;
+    .dashboard__top {
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(2, 15%) repeat(2, 1fr);
+    }
+  }
+}

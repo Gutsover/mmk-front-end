@@ -4,7 +4,7 @@
   display: flex;
   align-items: center;
   padding: 2rem;
-  font-size: (28 / 16) * 1rem;
+  font-size: clamp(1.125rem, 2vw + 1rem, 2.25rem);
   background-color: $background-white;
   border-radius: 15px;
   height: 100%;

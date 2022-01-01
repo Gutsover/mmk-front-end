@@ -1,10 +1,10 @@
-import {NgModule} from '@angular/core';
-import {BrowserModule} from '@angular/platform-browser';
-import {MatDialogModule} from '@angular/material/dialog';
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { AuditComponent } from './view/audit/audit.component';
 import { AuditClientCardComponent } from './components/audit-client-card/audit-client-card.component';
-import { ClientsComponent } from './view/admin/clients/clients.component'
+import { ClientsComponent } from './view/admin/clients/clients.component';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -37,8 +37,7 @@ import { ModalClientInternalTransferComponent } from './components/modals/modal-
 import { ModalClientExternalTransferComponent } from './components/modals/modal-client-external-transfer/modal-client-external-transfer.component';
 import { AddCreditCardComponent } from './components/modals/add-credit-card/add-credit-card.component';
 import { DeleteCreditCardComponent } from './components/modals/delete-credit-card/delete-credit-card.component';
-import { CreateNewAccountComponent } from './components/modals/create-new-account/create-new-account.component'
-
+import { CreateNewAccountComponent } from './components/modals/create-new-account/create-new-account.component';
 
 @NgModule({
   declarations: [
@@ -72,9 +71,7 @@ import { CreateNewAccountComponent } from './components/modals/create-new-accoun
     ModalClientExternalTransferComponent,
     AddCreditCardComponent,
     DeleteCreditCardComponent,
-    CreateNewAccountComponent
-    
-
+    CreateNewAccountComponent,
   ],
   imports: [
     BrowserModule,
@@ -85,6 +82,6 @@ import { CreateNewAccountComponent } from './components/modals/create-new-accoun
     MatDialogModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}
