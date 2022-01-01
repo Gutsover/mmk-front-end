@@ -13,7 +13,7 @@ import { FormSigninHomeComponent } from './view/form-signin-home/form-signin-hom
 import { SidebarComponent } from './components/admin/sidebar/sidebar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { DashboardComponent } from './view/dashboard/dashboard.component';
 import { HomeLogoComponent } from './components/home-logo/home-logo.component';
 import { HomeLoginComponent } from './components/home-login/home-login.component';
@@ -38,6 +38,7 @@ import { ModalClientExternalTransferComponent } from './components/modals/modal-
 import { AddCreditCardComponent } from './components/modals/add-credit-card/add-credit-card.component';
 import { DeleteCreditCardComponent } from './components/modals/delete-credit-card/delete-credit-card.component';
 import { CreateNewAccountComponent } from './components/modals/create-new-account/create-new-account.component';
+import { JwtInterceptor } from './jwt-interceptor';
 
 @NgModule({
   declarations: [
@@ -81,7 +82,13 @@ import { CreateNewAccountComponent } from './components/modals/create-new-accoun
     BrowserAnimationsModule,
     MatDialogModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: JwtInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

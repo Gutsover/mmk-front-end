@@ -25,6 +25,7 @@ export class HomeLoginComponent implements OnInit {
       (data) => {
         if (data.accessToken) {
           localStorage.setItem('id_token', data.accessToken);
+          this.loginService.currentUser = data;
           this.router.navigate(['/dashboard']);
         }
       },

@@ -5,13 +5,9 @@
 
   <div class="container__clients">
     <ul>
-      <li><a href="#">Joceline JOLY</a></li>
-      <li><a href="">Léon BONNET</a></li>
-      <li><a href="">Françine DUPONT</a></li>
-      <li><a href="">Camille ROUX</a></li>
-      <li><a href="">Frédéric DUBOIS</a></li>
-      <li><a href="">Nadia LOUATI</a></li>
-      <li><a href="">Brigitte KACZMARCZYK</a></li>
+      <li *ngFor="let advisor of advisors">
+        <a href="#">{{ advisor.firstName }}</a>
+      </li>
     </ul>
   </div>
 </div>
