@@ -1,10 +1,10 @@
-import {NgModule} from '@angular/core';
-import {BrowserModule} from '@angular/platform-browser';
-import {MatDialogModule} from '@angular/material/dialog';
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { AuditComponent } from './view/audit/audit.component';
 import { AuditClientCardComponent } from './components/audit-client-card/audit-client-card.component';
-import { ClientsComponent } from './view/admin/clients/clients.component'
+import { ClientsComponent } from './view/admin/clients/clients.component';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,7 +13,7 @@ import { FormSigninHomeComponent } from './view/form-signin-home/form-signin-hom
 import { SidebarComponent } from './components/admin/sidebar/sidebar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { DashboardComponent } from './view/dashboard/dashboard.component';
 import { HomeLogoComponent } from './components/home-logo/home-logo.component';
 import { HomeLoginComponent } from './components/home-login/home-login.component';
@@ -37,8 +37,8 @@ import { ModalClientInternalTransferComponent } from './components/modals/modal-
 import { ModalClientExternalTransferComponent } from './components/modals/modal-client-external-transfer/modal-client-external-transfer.component';
 import { AddCreditCardComponent } from './components/modals/add-credit-card/add-credit-card.component';
 import { DeleteCreditCardComponent } from './components/modals/delete-credit-card/delete-credit-card.component';
-import { CreateNewAccountComponent } from './components/modals/create-new-account/create-new-account.component'
-
+import { CreateNewAccountComponent } from './components/modals/create-new-account/create-new-account.component';
+import { JwtInterceptor } from './jwt-interceptor';
 
 @NgModule({
   declarations: [
@@ -72,9 +72,7 @@ import { CreateNewAccountComponent } from './components/modals/create-new-accoun
     ModalClientExternalTransferComponent,
     AddCreditCardComponent,
     DeleteCreditCardComponent,
-    CreateNewAccountComponent
-    
-
+    CreateNewAccountComponent,
   ],
   imports: [
     BrowserModule,
@@ -84,7 +82,13 @@ import { CreateNewAccountComponent } from './components/modals/create-new-accoun
     BrowserAnimationsModule,
     MatDialogModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: JwtInterceptor,
+      multi: true,
+    },
+  ],
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

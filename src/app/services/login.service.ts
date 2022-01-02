@@ -4,13 +4,22 @@ import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class LoginService {
+  _currentUser?: any;
 
-login(loginObj: Object): Observable<Object>{
-  return this.http.post("http://localhost:8080/auth/signin", loginObj);
-}
+  login(loginObj: any): Observable<any> {
+    return this.http.post('http://localhost:8080/auth/signin', loginObj);
+  }
 
- constructor(private http: HttpClient) { } 
+  constructor(private http: HttpClient) {}
+
+  get currentUser(): any {
+    return this._currentUser;
+  }
+
+  set currentUser(user) {
+    this._currentUser = user;
+  }
 }
