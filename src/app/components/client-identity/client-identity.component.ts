@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ClientService } from 'src/app/services/client.service';
 import { ModalClientIdentityComponent } from '../modals/modal-client-identity/modal-client-identity.component';
@@ -11,13 +11,25 @@ import { ModalClientIdentityComponent } from '../modals/modal-client-identity/mo
 export class ClientIdentityComponent implements OnInit {
   constructor(public dialog: MatDialog, public clientService: ClientService) {}
 
+  @Input()
+  currentUserId: number = 0;
+
+  currentClient: any = null;
+
   openModalUpdateClient() {
     const dialogRef = this.dialog.open(ModalClientIdentityComponent);
   }
 
   fetchClientInfo(id: Number) {
-    this.clientService.getClient(1).subscribe((res) => console.log(res));
+    this.clientService
+      .getClient(id)
+      .subscribe((res) => (this.currentClient = res));
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.fetchClientInfo(this.currentUserId);
+  }
+  ngOnChanges(): void {
+    this.fetchClientInfo(this.currentUserId);
+  }
 }
