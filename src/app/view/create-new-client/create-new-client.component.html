@@ -1,0 +1,73 @@
+<app-sidebar-advisor></app-sidebar-advisor>
+
+<div class="container">
+  <app-home-header></app-home-header>
+  <div class="main radius pad">
+    <h4>Enregistrer un nouveau client</h4>
+
+    <form
+      class="form form-login"
+      (ngSubmit)="submit()"
+    >
+      <div class="form__body">
+        <label for="name" class="form__label is-bold">Nom</label>
+        <input
+          class=""
+          type="text"
+          placeholder="Nom de famille "
+          name="name"
+        />
+      </div>
+      <div class="form__body">
+        <label for="login" class="form__label is-bold">Prénom</label>
+        <input
+          class=""
+          type="text"
+          placeholder="Prénom"
+          name="lastName"
+        />
+      </div>
+      <div class="form__body">
+        <label for="lastname" class="form__label is-bold">Date de naissance</label>
+        <input
+          class=""
+          type="date"
+          placeholder="Date de naissance"
+          name="birthday"
+        />
+      </div>
+      <div class="form__body">
+        <label for="address" class="form__label is-bold">Adresse</label>
+        <input
+          class=""
+          type="text"
+          placeholder="Adresse"
+          name="address"
+        />
+      </div>
+      <div class="form__body">
+        <label for="city" class="form__label is-bold">Ville</label>
+        <input
+          class=""
+          type="text"
+          placeholder="Ville"
+          name="city"
+        />
+      </div>
+      <div class="form__body">
+        <label for="zipcode" class="form__label is-bold">Code postal</label>
+        <input
+          class=""
+          type="text"
+          placeholder="Code postal"
+          name="zipcode"
+        />
+      </div>
+      <button class="btn-global btn-global-orange form__body__btn">
+        valider
+      </button>
+    </form>
+  </div>
+</div>
+
+<app-footer></app-footer>
