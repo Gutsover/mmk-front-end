@@ -41,6 +41,9 @@ import { CreateNewAccountComponent } from './components/modals/create-new-accoun
 import { SidebarAdvisorComponent } from './components/advisor/sidebar-advisor/sidebar-advisor.component'
 
 import { JwtInterceptor } from './jwt-interceptor';
+import { DeleteClientComponent } from './components/modals/delete-client/delete-client.component';
+import { DeleteAccountComponent } from './components/modals/delete-account/delete-account.component';
+import { CreateNewClientComponent } from './view/create-new-client/create-new-client.component';
 
 @NgModule({
   declarations: [
@@ -76,7 +79,10 @@ import { JwtInterceptor } from './jwt-interceptor';
     DeleteCreditCardComponent,
     CreateNewAccountComponent,
 
-    SidebarAdvisorComponent
+    SidebarAdvisorComponent,
+      DeleteClientComponent,
+      DeleteAccountComponent,
+      CreateNewClientComponent
 
   ],
   imports: [

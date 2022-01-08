@@ -7,32 +7,38 @@ import { AdvisorsListComponent } from './view/advisors-list/advisors-list.compon
 import { AuditComponent } from './view/audit/audit.component';
 import { ClientsComponent } from './view/admin/clients/clients.component';
 import { AuthGuardService } from './services/auth-guard.service';
+import { CreateNewClientComponent } from './view/create-new-client/create-new-client.component';
 const routes: Routes = [
   {
     path: 'dashboard',
     component: DashboardComponent,
-    canActivate: [AuthGuardService],
+    // canActivate: [AuthGuardService],
   },
   { path: 'login', component: FormSigninHomeComponent },
   {
     path: 'client',
     component: ClientViewComponent,
-    canActivate: [AuthGuardService],
+    // canActivate: [AuthGuardService],
+  },
+  {
+    path: 'add-client',
+    component: CreateNewClientComponent,
+    // canActivate: [AuthGuardService],
   },
   {
     path: 'advisors',
     component: AdvisorsListComponent,
-    canActivate: [AuthGuardService],
+    // canActivate: [AuthGuardService],
   },
   {
     path: 'adm/audit',
     component: AuditComponent,
-    canActivate: [AuthGuardService],
+    // canActivate: [AuthGuardService],
   },
   {
     path: 'adm/clients',
     component: ClientsComponent,
-    canActivate: [AuthGuardService],
+    // canActivate: [AuthGuardService],
   },
 ];
 
