@@ -37,7 +37,8 @@ import { ModalClientInternalTransferComponent } from './components/modals/modal-
 import { ModalClientExternalTransferComponent } from './components/modals/modal-client-external-transfer/modal-client-external-transfer.component';
 import { AddCreditCardComponent } from './components/modals/add-credit-card/add-credit-card.component';
 import { DeleteCreditCardComponent } from './components/modals/delete-credit-card/delete-credit-card.component';
-import { CreateNewAccountComponent } from './components/modals/create-new-account/create-new-account.component'
+import { CreateNewAccountComponent } from './components/modals/create-new-account/create-new-account.component';
+import { SidebarAdvisorComponent } from './components/advisor/sidebar-advisor/sidebar-advisor.component'
 
 
 @NgModule({
@@ -72,7 +73,8 @@ import { CreateNewAccountComponent } from './components/modals/create-new-accoun
     ModalClientExternalTransferComponent,
     AddCreditCardComponent,
     DeleteCreditCardComponent,
-    CreateNewAccountComponent
+    CreateNewAccountComponent,
+    SidebarAdvisorComponent
     
 
   ],
