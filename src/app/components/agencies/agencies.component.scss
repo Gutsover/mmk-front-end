@@ -12,7 +12,7 @@
     align-items: center;
     color: $whitesmoke;
     margin-bottom: 2rem;
-    font-size: (36 / 16) * 1rem;
+    font-size: clamp(1.125rem, 2vw + 1rem, 2.25rem);
     .title__icon {
       margin-right: 1rem;
     }

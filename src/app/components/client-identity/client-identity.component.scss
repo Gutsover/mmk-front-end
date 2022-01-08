@@ -12,9 +12,6 @@
     justify-content: space-between;
     align-items: center;
     h4 {
-      font-size: 30px;
-      font-weight: bold;
-      color: $orange-dark;
       position: relative;
       &::after {
         content: "";
@@ -29,10 +26,6 @@
     .container__title__options {
       a img {
         width: 18px;
-        transition: all 0.08s ease-out;
-        &:hover {
-          transform: scale(1.2);
-        }
       }
       .first-child {
         margin-right: 20px;
@@ -50,3 +43,6 @@
     }
   }
 }
+
+
+

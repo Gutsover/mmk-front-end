@@ -1,0 +1,29 @@
+@import "../../../../styles.scss";
+
+.form {
+  h6,
+  p {
+    font-size: 18px;
+    color: $blue-logo;
+    padding: 1rem;
+    text-transform: uppercase;
+  }
+
+  .choice {
+    display: flex;
+    flex-direction: column;
+
+    .choice__card {
+      input {
+        margin-right: 1.5rem;
+      }
+      .choice input {
+        cursor: pointer;
+      }
+
+      [type="checkbox"]:checked + label {
+        color: $blue-logo;
+      }
+    }
+  }
+}

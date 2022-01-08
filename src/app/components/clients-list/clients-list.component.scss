@@ -8,7 +8,6 @@
   background-color: $background-white;
   padding: 4rem 2rem 2rem 2rem;
   height: 100%;
-
   .container__title {
     color: $blue-logo;
     margin-bottom: 3rem;
@@ -31,6 +30,7 @@
   .container__clients {
     line-height: 60px;
     a {
+      position: relative;
       color: $black-dracula;
       &:focus {
         color: $blue-logo;
@@ -42,7 +42,8 @@
         position: absolute;
         color: $blue-logo;
         font-size: 2rem;
-        left: 450px;
+        left: 220px;
+        bottom: -18px;
       }
     }
   }

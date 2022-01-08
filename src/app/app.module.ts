@@ -1,5 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { MatDialogModule } from '@angular/material/dialog';
+
+import { AuditComponent } from './view/audit/audit.component';
+import { AuditClientCardComponent } from './components/audit-client-card/audit-client-card.component';
+import { ClientsComponent } from './view/admin/clients/clients.component';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -8,7 +13,7 @@ import { FormSigninHomeComponent } from './view/form-signin-home/form-signin-hom
 import { SidebarComponent } from './components/admin/sidebar/sidebar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { DashboardComponent } from './view/dashboard/dashboard.component';
 import { HomeLogoComponent } from './components/home-logo/home-logo.component';
 import { HomeLoginComponent } from './components/home-login/home-login.component';
@@ -20,7 +25,20 @@ import { ClientViewComponent } from './view/client-view/client-view.component';
 import { GreetingComponent } from './components/greeting/greeting.component';
 import { LocationComponent } from './components/location/location.component';
 import { TodoComponent } from './components/todo/todo.component';
-import { AgenciesComponent } from './components/agencies/agencies.component'
+import { AgenciesComponent } from './components/agencies/agencies.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ModalClientIdentityComponent } from './components/modals/modal-client-identity/modal-client-identity.component';
+import { AdvisorsListComponent } from './view/advisors-list/advisors-list.component';
+import { AdvisorsComponent } from './components/admin/advisors/advisors.component';
+import { AdvisorsIdentityComponent } from './components/admin/advisors-identity/advisors-identity.component';
+import { AdvisorsClientListComponent } from './components/admin/advisors-client-list/advisors-client-list.component';
+import { ClientItemComponent } from './components/client-item/client-item.component';
+import { ModalClientInternalTransferComponent } from './components/modals/modal-client-internal-transfer/modal-client-internal-transfer.component';
+import { ModalClientExternalTransferComponent } from './components/modals/modal-client-external-transfer/modal-client-external-transfer.component';
+import { AddCreditCardComponent } from './components/modals/add-credit-card/add-credit-card.component';
+import { DeleteCreditCardComponent } from './components/modals/delete-credit-card/delete-credit-card.component';
+import { CreateNewAccountComponent } from './components/modals/create-new-account/create-new-account.component';
+import { JwtInterceptor } from './jwt-interceptor';
 
 @NgModule({
   declarations: [
@@ -40,15 +58,37 @@ import { AgenciesComponent } from './components/agencies/agencies.component'
     GreetingComponent,
     LocationComponent,
     TodoComponent,
-    AgenciesComponent
+    AgenciesComponent,
+    ModalClientIdentityComponent,
+    AdvisorsListComponent,
+    AdvisorsComponent,
+    AdvisorsIdentityComponent,
+    AdvisorsClientListComponent,
+    ClientItemComponent,
+    AuditComponent,
+    AuditClientCardComponent,
+    ClientsComponent,
+    ModalClientInternalTransferComponent,
+    ModalClientExternalTransferComponent,
+    AddCreditCardComponent,
+    DeleteCreditCardComponent,
+    CreateNewAccountComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule 
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatDialogModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: JwtInterceptor,
+      multi: true,
+    },
+  ],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

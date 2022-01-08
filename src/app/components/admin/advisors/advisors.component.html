@@ -1,0 +1,13 @@
+<div class="container radius pad shadow">
+  <div class="container__title">
+    <h3>Conseillers</h3>
+  </div>
+
+  <div class="container__clients">
+    <ul>
+      <li *ngFor="let advisor of advisors">
+        <a href="#">{{ advisor.firstName }}</a>
+      </li>
+    </ul>
+  </div>
+</div>

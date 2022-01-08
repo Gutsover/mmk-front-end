@@ -1,5 +1,36 @@
 @import "../../../styles.scss";
 .container {
+  //width: 450px;
   height: 100%;
   background-color: $background-white;
+  padding: 1.2rem;
+
+  .container__title {
+    h4 img {
+      margin-left: 1.2rem;
+    }
+  }
+  .container__main {
+    margin: 1rem 0 1rem 0;
+    h6 {
+      margin-bottom: 1rem;
+    }
+    .container__main__cards {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .container__main__card--actions {
+        display: flex;
+        .is-activated {
+          border: none;
+          background-color: transparent;
+          color: $black-dracula;
+          font-size: 12px;
+          margin-right: 1.5rem;
+          cursor: pointer;
+        }
+      }
+    }
+  }
 }

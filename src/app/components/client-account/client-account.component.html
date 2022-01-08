@@ -1,3 +1,57 @@
 <div class="container pad radius shadow">
-    <p>ta mère suce des queues en enfer la grid!</p>
+  <div class="container__title">
+    <h4>
+      Compte(s)
+      <a
+        ><img
+          src="../../../assets/img/icons/plus.svg"
+          alt="Ajouter un nouveau compte"
+          class="clickable-icon"
+          (click)="openModalCreateAccount()"
+      /></a>
+    </h4>
+  </div>
+  <div class="container__main">
+    <table class="tftable">
+      <tr>
+        <th>Identifiant du compte</th>
+        <th>Solde</th>
+        <th>Interêts</th>
+      </tr>
+      <tr>
+        <td>COURANT - ID0045786145B12</td>
+        <td class="is-bold">- 1223.79 €</td>
+        <td>1.3%</td>
+        <td>
+          <a href="#"
+            ><img
+              src="../../../assets/img/icons/trash.png"
+              alt="supprimer ce compte"
+              class="clickable-icon"
+          /></a>
+        </td>
+      </tr>
+      <tr>
+        <td>EPARGNE - ID0045786145B12</td>
+        <td class="is-bold">+ 15643.12 €</td>
+        <td>3.7%</td>
+        <td>
+          <a href="#"
+            ><img
+              src="../../../assets/img/icons/trash.png"
+              alt="supprimer ce compte"
+              class="clickable-icon"
+          /></a>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="container__actions">
+    <a class="btn-global btn-global-blue--outline" (click)="openModalInternalTransfer()">Virement interne</a>
+    <a class="btn-global btn-global-blue--outline" (click)="openModalExternalTransfer()">Virement externe</a>
+    <a class="btn-global btn-global-blue--outline"
+      >Simulation de crédit</a
+    >
+  </div>
 </div>
