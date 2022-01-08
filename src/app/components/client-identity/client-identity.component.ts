@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ClientService } from 'src/app/services/client.service';
+import { DeleteClientComponent } from '../modals/delete-client/delete-client.component';
 import { ModalClientIdentityComponent } from '../modals/modal-client-identity/modal-client-identity.component';
 
 @Component({
@@ -18,6 +19,10 @@ export class ClientIdentityComponent implements OnInit {
 
   openModalUpdateClient() {
     const dialogRef = this.dialog.open(ModalClientIdentityComponent);
+  }
+
+  openModalDeleteClient() {
+    const dialogRef = this.dialog.open(DeleteClientComponent);
   }
 
   fetchClientInfo(id: Number) {

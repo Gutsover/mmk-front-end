@@ -11,28 +11,28 @@ const routes: Routes = [
   {
     path: 'dashboard',
     component: DashboardComponent,
-    canActivate: [AuthGuardService],
+    // canActivate: [AuthGuardService],
   },
   { path: 'login', component: FormSigninHomeComponent },
   {
     path: 'client',
     component: ClientViewComponent,
-    canActivate: [AuthGuardService],
+    // canActivate: [AuthGuardService],
   },
   {
     path: 'advisors',
     component: AdvisorsListComponent,
-    canActivate: [AuthGuardService],
+    // canActivate: [AuthGuardService],
   },
   {
     path: 'adm/audit',
     component: AuditComponent,
-    canActivate: [AuthGuardService],
+    // canActivate: [AuthGuardService],
   },
   {
     path: 'adm/clients',
     component: ClientsComponent,
-    canActivate: [AuthGuardService],
+    // canActivate: [AuthGuardService],
   },
 ];
 
