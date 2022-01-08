@@ -7,6 +7,7 @@ import { AdvisorsListComponent } from './view/advisors-list/advisors-list.compon
 import { AuditComponent } from './view/audit/audit.component';
 import { ClientsComponent } from './view/admin/clients/clients.component';
 import { AuthGuardService } from './services/auth-guard.service';
+import { CreateNewClientComponent } from './view/create-new-client/create-new-client.component';
 const routes: Routes = [
   {
     path: 'dashboard',
@@ -17,6 +18,11 @@ const routes: Routes = [
   {
     path: 'client',
     component: ClientViewComponent,
+    // canActivate: [AuthGuardService],
+  },
+  {
+    path: 'add-client',
+    component: CreateNewClientComponent,
     // canActivate: [AuthGuardService],
   },
   {
