@@ -82,3 +82,8 @@
     }
   }
 }
+@media screen and (max-width: 950px) {
+  .sidebar {
+    transform: translateX(-100%);
+  }
+}

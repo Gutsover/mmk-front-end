@@ -1,3 +1,4 @@
+import { EventEmitter, Input, Output } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { ClientService } from 'src/app/services/client.service';
 
@@ -7,12 +8,17 @@ import { ClientService } from 'src/app/services/client.service';
   styleUrls: ['./clients-list.component.scss'],
 })
 export class ClientsListComponent implements OnInit {
+  @Input()
   userList: any;
 
   constructor(public clientService: ClientService) {}
 
-  ngOnInit(): void {
-    this.clientService.getClients().subscribe((res) => (this.userList = res));
-    console.log(this.userList);
+  @Output()
+  clientupdate: EventEmitter<any> = new EventEmitter();
+
+  updateClientInfo(id: number) {
+    this.clientupdate.emit(id);
   }
+
+  ngOnInit(): void {}
 }

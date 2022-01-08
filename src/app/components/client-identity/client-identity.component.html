@@ -1,7 +1,7 @@
 <div class="container pad radius shadow">
   <div class="container__title">
     <h4>
-      Jocelyne Joly
+      {{ currentClient.firstname }} {{ currentClient.lastname }}
       <img src="../../../assets/img/icons/premium.svg" alt="Client premium" />
     </h4>
     <div class="container__title__options">
@@ -25,20 +25,21 @@
       <img
         src="../../../assets/img/icons/birthday.svg"
         alt="icon de date de naissance"
-      />17/05/1979
+      />{{ currentClient.birth }}
     </p>
     <p>
       <img
         src="../../../assets/img/icons/home.svg"
         alt="icon d'adresse postale"
-      />57 rue Léon Blum Lambersart 59130
+      />{{ currentClient.address.streetNumber }}
+      {{ currentClient.address.streetName }} {{ currentClient.address.zipCode }}
+      {{ currentClient.address.city }}
     </p>
     <p>
       <img
         src="../../../assets/img/icons/phone.svg"
         alt="icon de numéro de téléphone"
       />
-      03 20 50 48 79
     </p>
   </div>
 </div>

@@ -3,8 +3,11 @@
 <div class="container">
   <app-home-header></app-home-header>
   <div class="main">
-    <app-clients-list></app-clients-list>
-    <app-client-identity></app-client-identity>
+    <app-clients-list
+      [userList]="userList"
+      (clientupdate)="updateClientInfo($event)"
+    ></app-clients-list>
+    <app-client-identity [currentUserId]="currentUserId"></app-client-identity>
     <app-client-card></app-client-card>
     <app-client-account></app-client-account>
   </div>

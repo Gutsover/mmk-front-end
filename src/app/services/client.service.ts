@@ -11,7 +11,7 @@ export class ClientService {
     return this.http.get('http://localhost:8080/client');
   }
   getClient(id: Number): Observable<Object> {
-    return this.http.get('http://localhost:8080/client/1');
+    return this.http.get(`http://localhost:8080/client/${id}`);
   }
   constructor(private http: HttpClient) {}
 }
