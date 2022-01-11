@@ -5,9 +5,20 @@
 
   <div class="container__clients">
     <ul>
-      <li *ngFor="let advisor of advisors">
-        <a href="#">{{ advisor.firstName }}</a>
+      <li
+        *ngFor="let item of advisors"
+        (click)="updateAdvisorInfo(item.id)"
+        [class.selected]="item.id === selectedItem"
+      >
+        {{ item.name }}
+        <a href=""></a>
       </li>
+      <!-- <li><a href="">Léon BONNET</a></li>
+      <li><a href="">Françine DUPONT</a></li>
+      <li><a href="">Camille ROUX</a></li>
+      <li><a href="">Frédéric DUBOIS</a></li>
+      <li><a href="">Nadia LOUATI</a></li>
+      <li><a href="">Brigitte KACZMARCZYK</a></li> -->
     </ul>
   </div>
 </div>
