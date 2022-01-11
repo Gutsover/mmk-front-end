@@ -5,9 +5,14 @@
 
   <div class="container__clients">
     <ul>
-      <li *ngFor="let item of userList" (click)="updateClientInfo(item.id)">
+      <li
+        *ngFor="let item of userList"
+        (click)="updateClientInfo(item.id)"
+        (focus)="updateClientInfo(item.id)"
+        [class.selected]="item.id === selectedItem"
+      >
         {{ item.name }}
-        <a href="#"></a>
+        <a href=""></a>
       </li>
       <!-- <li><a href="">Léon BONNET</a></li>
       <li><a href="">Françine DUPONT</a></li>

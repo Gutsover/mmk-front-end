@@ -26,25 +26,4 @@
       }
     }
   }
-
-  .container__clients {
-    line-height: 60px;
-    a {
-      position: relative;
-      color: $black-dracula;
-      &:focus {
-        color: $blue-logo;
-        font-weight: bold;
-        font-size: 17px;
-      }
-      &:focus::after {
-        content: ">";
-        position: absolute;
-        color: $blue-logo;
-        font-size: 2rem;
-        left: 220px;
-        bottom: -18px;
-      }
-    }
-  }
 }
