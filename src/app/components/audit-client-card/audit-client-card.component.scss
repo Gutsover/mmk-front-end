@@ -9,6 +9,14 @@
   background-color: #fff;
   margin: 1rem 0;
   
+  .client__name{
+    flex: 1;
+    text-align: center;
+  }
+  .client__type{
+    flex: 1;
+    text-align: center;
+  }
   &.--red{
     border-left: 10px solid $reddish;
   }
