@@ -12,7 +12,7 @@
           class="first-child clickable-icon"
           (click)="openModalUpdateClient()"
       /></a>
-      <a (click) = "openModalDeleteClient()"
+      <a (click)="openModalDeleteClient()"
         ><img
           src="../../../assets/img/icons/trash.svg"
           alt="supprimer le client"
@@ -21,25 +21,41 @@
     </div>
   </div>
   <div class="container__main">
-    <p>
-      <img
-        src="../../../assets/img/icons/birthday.svg"
-        alt="icon de date de naissance"
-      />{{ currentClient.birth }}
-    </p>
-    <p>
-      <img
-        src="../../../assets/img/icons/home.svg"
-        alt="icon d'adresse postale"
-      />{{ currentClient.address.streetNumber }}
-      {{ currentClient.address.streetName }} {{ currentClient.address.zipCode }}
-      {{ currentClient.address.city }}
-    </p>
-    <p>
-      <img
-        src="../../../assets/img/icons/phone.svg"
-        alt="icon de numéro de téléphone"
-      />
-    </p>
+    <div class="main__infos">
+      <div>
+        <img
+          src="../../../assets/img/icons/birthday.svg"
+          alt="icon de date de naissance"
+        />
+      </div>
+      <p>
+        {{ currentClient.birth }}
+      </p>
+    </div>
+    <div class="main__infos">
+      <div>
+        <img
+          src="../../../assets/img/icons/home.svg"
+          alt="icon d'adresse postale"
+        />
+      </div>
+      <p>
+        {{ currentClient.address.streetNumber }}
+        {{ currentClient.address.streetName }}
+        {{ currentClient.address.zipCode }}
+        {{ currentClient.address.city }}
+      </p>
+    </div>
+
+    <div class="main__infos">
+      <div>
+        <img
+          src="../../../assets/img/icons/tel-black.png"
+          srcset="../../../assets/img/icons/tel-black.svg"
+          alt="icon de numéro de téléphone"
+        />
+      </div>
+      <p class="main__infos">06.07.15.68.32</p>
+    </div>
   </div>
 </div>

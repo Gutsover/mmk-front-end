@@ -1,7 +1,6 @@
 @import "../../../../styles.scss";
 
 .container {
-  display: flex;
   flex-direction: column;
   justify-content: center;
   align-content: space-between;
@@ -26,9 +25,28 @@
       }
     }
   }
-
   .container__clients {
     line-height: 60px;
+    max-height: 50vh;
+    overflow: auto;
+    ul {
+      padding: 0.5rem;
+    }
+    li {
+      padding: 0rem 1rem;
+    }
+    .selected {
+      background-color: $blue-logo;
+      color: $background-white;
+    }
+    &::-webkit-scrollbar {
+      background-color: rgb(230, 230, 230);
+      width: 10px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: $blue-logo;
+      border-radius: 6px;
+    }
     a {
       position: relative;
       color: $black-dracula;
