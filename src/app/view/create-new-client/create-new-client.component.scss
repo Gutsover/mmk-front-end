@@ -30,6 +30,24 @@
           font-size: 1rem;
         }
       }
+      .form__body--radio {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 2rem;
+        .radio__label {
+          margin-right: 2rem;
+          color: $blue-logo;
+        }
+        .radio--first {
+          margin-right: 4rem;
+        }
+        input[type="radio"] {
+          position: relative;
+          height: 1rem;
+          width: 1rem;
+        }
+      }
     }
   }
 }

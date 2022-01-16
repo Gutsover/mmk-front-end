@@ -8,11 +8,21 @@ import { Component, OnInit } from '@angular/core';
 export class CreateNewClientComponent implements OnInit {
   submitted = false;
 
+  isEnterprise = false;
+
   constructor() {}
 
   ngOnInit(): void {}
 
   submit() {
     this.submitted = true;
+  }
+
+  ClientIsEnterprise() {
+    this.isEnterprise = true;
+  }
+
+  ClientIsParticular() {
+    this.isEnterprise = false;
   }
 }
