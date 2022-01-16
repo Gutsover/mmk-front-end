@@ -1,5 +1,7 @@
 
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { ModalUpdateProfilComponent } from '../modals/modal-update-profil/modal-update-profil.component';
 
 @Component({
   selector: 'app-home-header',
@@ -12,12 +14,16 @@ export class HomeHeaderComponent implements OnInit {
   today = new Date().toLocaleDateString();
   time!: string;
   
-  constructor() {
+  constructor(public dialog: MatDialog) {
 
     setInterval(() => {
       this.time = new Date().toLocaleTimeString();
    }, 1000);
 
+  }
+
+  openModalUpdateProfil() {
+    const dialogRef = this.dialog.open(ModalUpdateProfilComponent);
   }
 
   ngOnInit(): void {}

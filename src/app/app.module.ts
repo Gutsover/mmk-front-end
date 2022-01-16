@@ -44,6 +44,7 @@ import { JwtInterceptor } from './jwt-interceptor';
 import { DeleteClientComponent } from './components/modals/delete-client/delete-client.component';
 import { DeleteAccountComponent } from './components/modals/delete-account/delete-account.component';
 import { CreateNewClientComponent } from './view/create-new-client/create-new-client.component';
+import { ModalUpdateProfilComponent } from './components/modals/modal-update-profil/modal-update-profil.component';
 
 @NgModule({
   declarations: [
@@ -82,7 +83,8 @@ import { CreateNewClientComponent } from './view/create-new-client/create-new-cl
     SidebarAdvisorComponent,
       DeleteClientComponent,
       DeleteAccountComponent,
-      CreateNewClientComponent
+      CreateNewClientComponent,
+      ModalUpdateProfilComponent
 
   ],
   imports: [
