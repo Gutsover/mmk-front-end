@@ -45,6 +45,7 @@ import { DeleteClientComponent } from './components/modals/delete-client/delete-
 import { DeleteAccountComponent } from './components/modals/delete-account/delete-account.component';
 import { CreateNewClientComponent } from './view/create-new-client/create-new-client.component';
 import { ModalUpdateProfilComponent } from './components/modals/modal-update-profil/modal-update-profil.component';
+import { DeleteAdvisorComponent } from './components/modals/delete-advisor/delete-advisor.component';
 
 @NgModule({
   declarations: [
@@ -84,7 +85,8 @@ import { ModalUpdateProfilComponent } from './components/modals/modal-update-pro
       DeleteClientComponent,
       DeleteAccountComponent,
       CreateNewClientComponent,
-      ModalUpdateProfilComponent
+      ModalUpdateProfilComponent,
+      DeleteAdvisorComponent
 
   ],
   imports: [
