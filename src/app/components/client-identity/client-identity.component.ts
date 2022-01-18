@@ -19,6 +19,13 @@ export class ClientIdentityComponent implements OnInit {
 
   openModalUpdateClient() {
     const dialogRef = this.dialog.open(ModalClientIdentityComponent);
+    dialogRef.afterClosed().subscribe((res) => {
+      if (res === '' || res === undefined) {
+        return;
+      } else {
+        console.log(res);
+      }
+    });
   }
 
   openModalDeleteClient() {
