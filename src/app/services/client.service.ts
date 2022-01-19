@@ -14,6 +14,36 @@ export class ClientService {
   getClient(id: Number): Observable<Object> {
     return this.http.get(`${AppSettings.API_ENDPOINT}client/${id}`);
   }
+  createClient(clientInfo: any): Observable<Object> {
+    const {
+      name,
+      firstname,
+      siretNbr,
+      entrepriseName,
+      birth,
+      streetNumber,
+      streetName,
+      city,
+      zipCode,
+      phoneNumber,
+    } = clientInfo;
+
+    const clientInfoObj = {
+      name: name,
+      firstname: firstname,
+      siretNbr: siretNbr,
+      entrepriseName: entrepriseName,
+      birth: birth,
+      phoneNumber: phoneNumber,
+      address: {
+        streetNumber: streetNumber,
+        streetName: streetName,
+        city: city,
+        zipCode: zipCode,
+      },
+    };
+    return this.http.post(`${AppSettings.API_ENDPOINT}client`, clientInfoObj);
+  }
   updateClient(clientInfo: any): Observable<Object> {
     return this.http.put(`${AppSettings.API_ENDPOINT}client`, clientInfo);
   }
