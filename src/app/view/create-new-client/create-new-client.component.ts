@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ClientService } from 'src/app/services/client.service';
 
 @Component({
@@ -11,7 +12,11 @@ export class CreateNewClientComponent implements OnInit {
   submitted = false;
   isEnterprise = false;
 
-  constructor(private fb: FormBuilder, private clientService: ClientService) {}
+  constructor(
+    private fb: FormBuilder,
+    private clientService: ClientService,
+    private router: Router
+  ) {}
 
   clientForm = this.fb.group({
     name: ['', Validators.required],
@@ -26,16 +31,21 @@ export class CreateNewClientComponent implements OnInit {
     phoneNumber: ['', Validators.required],
   });
 
-  ngOnInit(): void {
-    console.log('Helloe');
-  }
+  ngOnInit(): void {}
 
   submit() {
     if (this.clientForm.dirty && this.clientForm.valid) {
-      this.clientService.createClient(this.clientForm.value).subscribe();
+      this.clientService.createClient(this.clientForm.value).subscribe(
+        (res) => {
+          this.router.navigate(['/client']);
+        },
+        (err) => {
+          console.log(err);
+        }
+      );
       this.submitted = true;
     } else {
-      console.log('Nope');
+      console.log('form not valid');
     }
   }
 
@@ -48,31 +58,31 @@ export class CreateNewClientComponent implements OnInit {
   }
 
   get name(): any {
-    return this.siretNbr.get('name');
+    return this.clientForm.get('name');
   }
   get firstname(): any {
-    return this.firstname.get('firstName');
+    return this.clientForm.get('firstName');
   }
 
   get siretNbr(): any {
-    return this.siretNbr.get('siretNbr');
+    return this.clientForm.get('siretNbr');
   }
   get entrepriseName(): any {
-    return this.entrepriseName.get('entrepriseName');
+    return this.clientForm.get('entrepriseName');
   }
   get birth(): any {
-    return this.birth.get('birth');
+    return this.clientForm.get('birth');
   }
   get streetNumber(): any {
-    return this.streetNumber.get('streetNumber');
+    return this.clientForm.get('streetNumber');
   }
   get streetName(): any {
-    return this.streetName.get('streetName');
+    return this.clientForm.get('streetName');
   }
   get city(): any {
-    return this.city.get('city');
+    return this.clientForm.get('city');
   }
   get zipCode(): any {
-    return this.zipCode.get('zipCode');
+    return this.clientForm.get('zipCode');
   }
 }

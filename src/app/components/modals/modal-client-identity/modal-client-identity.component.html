@@ -11,7 +11,12 @@
     /></a>
   </div>
   <div class="modal__body">
-    <form action="" class="form" (submit)="sendData()">
+    <form
+      [formGroup]="clientUpdateForm"
+      action=""
+      class="form"
+      (ngSubmit)="sendData()"
+    >
       <div class="form__body">
         <label for="lastname" class="form__label">Nom</label>
         <input
@@ -19,7 +24,7 @@
           type="text"
           placeholder="Nom de famille "
           name="lastname"
-          [(ngModel)]="lastname"
+          formControlName="name"
         />
       </div>
       <div class="form__body">
@@ -29,7 +34,7 @@
           type="text"
           placeholder="Prénom"
           name="name"
-          [(ngModel)]="firstname"
+          formControlName="firstname"
         />
       </div>
       <div class="form__body">
@@ -39,17 +44,37 @@
           type="date"
           placeholder="Date de naissance"
           name="birthday"
-          [(ngModel)]="birthDate"
+          formControlName="birth"
         />
       </div>
       <div class="form__body">
-        <label for="address" class="form__label">Adresse</label>
+        <label for="address" class="form__label">Nom de la rue</label>
         <input
           class="form__input input-global-modal"
           type="text"
-          placeholder="Adresse"
+          placeholder="Nom de la rue"
           name="address"
-          [(ngModel)]="address"
+          formControlName="streetName"
+        />
+      </div>
+      <div class="form__body">
+        <label for="address" class="form__label">Telephone</label>
+        <input
+          class="form__input input-global-modal"
+          type="text"
+          placeholder="Telephone"
+          name="address"
+          formControlName="phoneNumber"
+        />
+      </div>
+      <div class="form__body">
+        <label for="address" class="form__label">Numero de la rue</label>
+        <input
+          class="form__input input-global-modal"
+          type="text"
+          placeholder="Numero de la rue"
+          name="address"
+          formControlName="streetNumber"
         />
       </div>
       <div class="form__body">
@@ -59,7 +84,7 @@
           type="text"
           placeholder="Ville"
           name="city"
-          [(ngModel)]="city"
+          formControlName="city"
         />
       </div>
       <div class="form__body">
@@ -68,8 +93,7 @@
           class="form__input input-global-modal"
           type="text"
           placeholder="Code postal"
-          name="zipcode"
-          [(ngModel)]="postcode"
+          formControlName="zipCode"
         />
       </div>
       <button
