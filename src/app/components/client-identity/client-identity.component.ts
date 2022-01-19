@@ -14,7 +14,6 @@ export class ClientIdentityComponent implements OnInit {
 
   @Input()
   currentUserId: number = 0;
-
   currentClient: any = null;
 
   openModalUpdateClient() {

@@ -12,7 +12,7 @@ export class ModalClientIdentityComponent implements OnInit {
   @Input()
   firstname: string = '';
   lastname: string = '';
-  birthdate: any = null;
+  birthDate: any = null;
   address: string = '';
   city: string = '';
   postcode: Number = 0;
@@ -27,7 +27,7 @@ export class ModalClientIdentityComponent implements OnInit {
       this.dialogRef.close({
         firstname: this.firstname,
         lastname: this.lastname,
-        birthdate: this.birthdate,
+        birthDate: this.birthDate,
         address: this.address,
         city: this.city,
         postcode: this.postcode,
