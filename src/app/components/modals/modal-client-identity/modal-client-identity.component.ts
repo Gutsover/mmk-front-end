@@ -15,7 +15,7 @@ export class ModalClientIdentityComponent implements OnInit {
   birthdate: any = null;
   address: string = '';
   city: string = '';
-  postcode: string = '';
+  postcode: Number = 0;
 
   ngOnInit(): void {}
   closeModal() {

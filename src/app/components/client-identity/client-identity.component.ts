@@ -23,7 +23,8 @@ export class ClientIdentityComponent implements OnInit {
       if (res === '' || res === undefined) {
         return;
       } else {
-        console.log(res);
+        res.id = this.currentUserId;
+        this.clientService.updateClient(res).subscribe();
       }
     });
   }
