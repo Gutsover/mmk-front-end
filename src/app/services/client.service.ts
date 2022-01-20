@@ -29,8 +29,6 @@ export class ClientService {
       phoneNumber,
     } = clientInfo;
 
-    console.log(clientInfo)
-
     const clientInfoObj = {
       name: name,
       firstname: firstname,
@@ -50,6 +48,9 @@ export class ClientService {
   }
   updateClient(clientInfo: any): Observable<Object> {
     return this.http.put(`${AppSettings.API_ENDPOINT}client`, clientInfo);
+  }
+  deleteClient(id: Number): Observable<Object> {
+    return this.http.delete(`${AppSettings.API_ENDPOINT}client/${id}`);
   }
   constructor(private http: HttpClient) {}
 }

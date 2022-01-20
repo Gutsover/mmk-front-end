@@ -22,7 +22,10 @@
     <div class="sidebar__top">
       <div class="top__menu">
         <li class="menu__item">
-          <a class="item__link" routerLink="/client"
+          <a
+            class="item__link"
+            routerLink="/client"
+            [queryParams]="{ isEnterprise: false }"
             ><img
               src="../../../assets/img/icons/clients.png"
               srcset="../../../assets/img/icons/clients.svg"
@@ -35,7 +38,10 @@
         </li>
 
         <li class="menu__item">
-          <a class="item__link" routerLink="/client"
+          <a
+            class="item__link"
+            routerLink="/client"
+            [queryParams]="{ isEnterprise: true }"
             ><img
               src="../../../assets/img/icons/clients.png"
               srcset="../../../assets/img/icons/clients.svg"

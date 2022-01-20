@@ -1,5 +1,6 @@
 import { EventEmitter, Input, Output } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { ClientService } from 'src/app/services/client.service';
 
 @Component({
@@ -11,16 +12,26 @@ export class ClientsListComponent implements OnInit {
   @Input()
   userList: any;
   selectedItem: any = null;
+  isEnterprise: any = false;
 
-  constructor(public clientService: ClientService) {}
+  constructor(
+    public clientService: ClientService,
+    private route: ActivatedRoute
+  ) {}
 
   @Output()
   clientupdate: EventEmitter<any> = new EventEmitter();
 
   updateClientInfo(id: number) {
+    console.log(this.userList);
     this.clientupdate.emit(id);
     this.selectedItem = id;
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.route.queryParams.subscribe((params) => {
+      const isEnterprise = params.isEnterprise;
+      this.isEnterprise = isEnterprise === 'true';
+    });
+  }
 }

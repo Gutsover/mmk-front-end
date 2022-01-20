@@ -1,21 +1,20 @@
 @import "../../../../styles.scss";
 
 .form {
-    h6 {
-        font-size: 22px;
-        color: $blue-logo;
-        padding: 1rem;
-    }
+  h6 {
+    font-size: 22px;
+    color: $blue-logo;
+    padding: 1rem;
+    text-align: center;
+  }
 
-    .choice {
-        display: flex;
-        flex-direction: column;
-
-        .choice__card {
-            input {
-                margin-right: 1.5rem;
-            }
-        }
+  .choice {
+    display: flex;
+    flex-direction: row;
+    .choice__card {
+      input {
+        margin-right: 1.5rem;
+      }
     }
+  }
 }
-
