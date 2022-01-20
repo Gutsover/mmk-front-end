@@ -48,7 +48,7 @@ const routes: Routes = [
     // canActivate: [AuthGuardService],
   },
   {
-    path: '**',
+    path: '**', pathMatch: 'full',
     component: ErrorpageComponent,
   },
 ];
