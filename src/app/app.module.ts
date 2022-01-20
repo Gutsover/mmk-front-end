@@ -47,6 +47,7 @@ import { CreateNewClientComponent } from './view/create-new-client/create-new-cl
 import { ModalUpdateProfilComponent } from './components/modals/modal-update-profil/modal-update-profil.component';
 import { DeleteAdvisorComponent } from './components/modals/delete-advisor/delete-advisor.component';
 import { CreateAdvisorComponent } from './view/admin/create-advisor/create-advisor.component';
+import { ErrorpageComponent } from './components/errorpage/errorpage.component';
 
 @NgModule({
   declarations: [
@@ -87,7 +88,8 @@ import { CreateAdvisorComponent } from './view/admin/create-advisor/create-advis
       CreateNewClientComponent,
       ModalUpdateProfilComponent,
       DeleteAdvisorComponent,
-      CreateAdvisorComponent
+      CreateAdvisorComponent,
+      ErrorpageComponent
   ],
   imports: [
     BrowserModule,
