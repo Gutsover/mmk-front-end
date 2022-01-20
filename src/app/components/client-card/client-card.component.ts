@@ -53,6 +53,9 @@ export class ClientCardComponent implements OnInit {
 
   openModalAddCreditCard() {
     const dialogRef = this.dialog.open(AddCreditCardComponent);
+    dialogRef.afterClosed().subscribe((res) => {
+      console.log(res);
+    });
   }
 
   deleteCreditCard(id: Number) {

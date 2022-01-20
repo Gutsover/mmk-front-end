@@ -11,8 +11,9 @@
         (focus)="updateClientInfo(item.id)"
         [class.selected]="item.id === selectedItem"
       >
-        {{ item.firstname }} {{ item.name }}
-        <a href=""></a>
+        <div *ngIf="item.isEnterprise == isEnterprise">
+          {{ item.firstname }} {{ item.name }}
+        </div>
       </li>
     </ul>
   </div>

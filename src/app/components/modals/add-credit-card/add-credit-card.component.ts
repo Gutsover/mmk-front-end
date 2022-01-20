@@ -10,9 +10,6 @@ export class AddCreditCardComponent implements OnInit {
   constructor(private cardService: CardService) {}
 
   chooseCardType(cardType: string) {
-    this.cardService.addNewCard(cardType).subscribe((res) => {
-      console.log(res);
-    });
   }
 
   ngOnInit(): void {}

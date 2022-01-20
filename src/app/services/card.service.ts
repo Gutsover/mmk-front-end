@@ -7,7 +7,7 @@ import { AppSettings } from '../AppSettings';
 })
 export class CardService {
   constructor(private http: HttpClient) {}
-  addNewCard(cardType: string) {
+  addNewCard(cardType: string, clientId: Number) {
     let url = '';
     switch (cardType) {
       case 'premium':
@@ -20,7 +20,7 @@ export class CardService {
       default:
         break;
     }
-    return this.http.post(url, 2);
+    return this.http.post(url, clientId);
   }
   deleteCard(id: Number) {
     return this.http.delete(`${AppSettings.API_ENDPOINT}card/${id}`);

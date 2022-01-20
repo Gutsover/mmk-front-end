@@ -45,7 +45,7 @@ const routes: Routes = [
     path: 'adm/newadvisor',
     component: CreateAdvisorComponent,
     // canActivate: [AuthGuardService],
-  }
+  },
 ];
 
 @NgModule({
