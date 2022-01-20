@@ -8,6 +8,7 @@ import { AuditComponent } from './view/audit/audit.component';
 import { ClientsComponent } from './view/admin/clients/clients.component';
 import { AuthGuardService } from './services/auth-guard.service';
 import { CreateNewClientComponent } from './view/create-new-client/create-new-client.component';
+import { CreateAdvisorComponent } from './view/admin/create-advisor/create-advisor.component';
 const routes: Routes = [
   {
     path: 'dashboard',
@@ -40,6 +41,11 @@ const routes: Routes = [
     component: ClientsComponent,
     // canActivate: [AuthGuardService],
   },
+  {
+    path: 'adm/newadvisor',
+    component: CreateAdvisorComponent,
+    // canActivate: [AuthGuardService],
+  }
 ];
 
 @NgModule({
