@@ -48,7 +48,6 @@ import { ModalUpdateProfilComponent } from './components/modals/modal-update-pro
 import { DeleteAdvisorComponent } from './components/modals/delete-advisor/delete-advisor.component';
 import { CreateAdvisorComponent } from './view/admin/create-advisor/create-advisor.component';
 import { ErrorpageComponent } from './components/errorpage/errorpage.component';
-import { NotFoundComponent } from './components/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -90,8 +89,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
       ModalUpdateProfilComponent,
       DeleteAdvisorComponent,
       CreateAdvisorComponent,
-      ErrorpageComponent,
-      NotFoundComponent
+      ErrorpageComponent
   ],
   imports: [
     BrowserModule,
