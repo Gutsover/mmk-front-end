@@ -1,4 +1,4 @@
-<div class="modal shadow radius" id="modalUpdateClient">
+<div class="modal shadow radius" id="modalUpdateAdvisor">
   <div class="modal__title">
     <h5>modifier le conseiller</h5>
     <a
@@ -10,23 +10,25 @@
     /></a>
   </div>
   <div class="modal__body">
-    <form action="" class="form">
+    <form class="form" [formGroup]="advisorUpdateForm" (ngSubmit)="send()">
       <div class="form__body">
-        <label for="lastname" class="form__label">Nom</label>
+        <label for="name" class="form__label">Nom</label>
         <input
           class="form__input input-global-modal"
           type="text"
           placeholder="Nom de famille "
-          name="lastname"
+          name="name"
+          formControlName="name"
         />
       </div>
       <div class="form__body">
-        <label for="login" class="form__label">Prénom</label>
+        <label for="firstName" class="form__label">Prénom</label>
         <input
           class="form__input input-global-modal"
           type="text"
           placeholder="Prénom"
-          name="name"
+          name="firstName"
+          formControlName="firstName"
         />
       </div>
       <div class="form__body">
@@ -36,10 +38,12 @@
           type="email"
           placeholder="email"
           name="email"
+          formControlName="email"
         />
       </div>
 
       <button
+        type="submit"
         class="btn-global btn-global-orange form__body__btn"
         mat-dialog-close
       >
