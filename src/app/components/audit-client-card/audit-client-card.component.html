@@ -1,4 +1,7 @@
-<div class="container client --orange">
-  <p class="client__name">Bob wasofvsiky</p>
-  <p class="client__type">particulier</p>
+<div [ngClass]="{'--red': client.sold < -50000, '--orange': client.sold < -5000 && client.sold > -49999}"
+  class="container client ">
+  <p class="client__name">{{ client.client.firstname }}</p>
+  <p class="client__type">Decouvert total: {{ client.sold }}€ </p>
+  <p class="client__type">{{ client.client.isEnterprise ? "Enterprise" : "Particulier" }}
+  </p>
 </div>

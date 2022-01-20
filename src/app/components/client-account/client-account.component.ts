@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { CreateNewAccountComponent } from '../modals/create-new-account/create-new-account.component';
+import { DeleteAccountComponent } from '../modals/delete-account/delete-account.component';
 import { ModalClientExternalTransferComponent } from '../modals/modal-client-external-transfer/modal-client-external-transfer.component';
 import { ModalClientInternalTransferComponent } from '../modals/modal-client-internal-transfer/modal-client-internal-transfer.component';
 
@@ -22,6 +23,10 @@ export class ClientAccountComponent implements OnInit {
   }
   openModalExternalTransfer() {
     const dialogRef = this.dialog.open(ModalClientExternalTransferComponent);
+  }
+
+  openModalDeleteAccount() {
+    const dialogRef = this.dialog.open(DeleteAccountComponent);
   }
 
   ngOnInit(): void {

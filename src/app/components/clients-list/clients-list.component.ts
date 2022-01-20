@@ -10,6 +10,7 @@ import { ClientService } from 'src/app/services/client.service';
 export class ClientsListComponent implements OnInit {
   @Input()
   userList: any;
+  selectedItem: any = null;
 
   constructor(public clientService: ClientService) {}
 
@@ -18,6 +19,7 @@ export class ClientsListComponent implements OnInit {
 
   updateClientInfo(id: number) {
     this.clientupdate.emit(id);
+    this.selectedItem = id;
   }
 
   ngOnInit(): void {}

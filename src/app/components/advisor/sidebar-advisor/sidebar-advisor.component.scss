@@ -1,0 +1,87 @@
+@import "../../../../styles.scss";
+
+.sidebar {
+  padding: 4rem 1rem 1rem 1rem;
+  background: url("../../../../assets/img/vague.png"),
+    linear-gradient(180deg, #54a8b0 0%, #17728d 100%);
+  background-position: bottom;
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 200px;
+  height: 100vh;
+  position: fixed;
+  transition: all 0.4s ease-out;
+  z-index: 12;
+  .sidebar__logo {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 4rem;
+  }
+  .sidebar__dash {
+    text-transform: uppercase;
+    padding: 1rem;
+    color: $black-dracula;
+    width: 100%;
+    height: auto;
+    background-color: white;
+    margin-bottom: 2rem;
+  }
+  .sidebar__top {
+    // margin-bottom: (64 / 16) * 1rem;
+    position: relative;
+    .top__ul {
+      color: $yellow;
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .top__menu {
+      list-style: none;
+      .menu__item {
+        margin-bottom: 1rem;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        transition: 0.1s ease-in-out;
+        .item__link {
+          color: $whitesmoke;
+          text-decoration: none;
+          transition: 0.1s color;
+          font-size: (14/16) * 1rem;
+
+          .link__icon {
+            margin-right: 0.5rem;
+            width: 12px;
+          }
+        }
+        &:hover {
+          background-color: $orange;
+        }
+      }
+    }
+  }
+  .sidebar__middle {
+    .middle__ul {
+      color: $yellow;
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .middle__menu {
+      padding-left: (16 / 16) * 1rem;
+      list-style: none;
+      .menu__item {
+        margin-bottom: (8 / 16) * 1rem;
+        .item__link {
+          color: $whitesmoke;
+          text-decoration: none;
+          transition: 0.1s color;
+          &:hover {
+            color: $black-dracula;
+          }
+        }
+      }
+    }
+  }
+}
+

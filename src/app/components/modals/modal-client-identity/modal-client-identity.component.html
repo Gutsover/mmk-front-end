@@ -7,10 +7,16 @@
         alt="fermer la pop-up"
         class="clickable-icon"
         mat-dialog-close
+        (click)="closeModal()"
     /></a>
   </div>
   <div class="modal__body">
-    <form action="" class="form">
+    <form
+      [formGroup]="clientUpdateForm"
+      action=""
+      class="form"
+      (ngSubmit)="sendData()"
+    >
       <div class="form__body">
         <label for="lastname" class="form__label">Nom</label>
         <input
@@ -18,6 +24,7 @@
           type="text"
           placeholder="Nom de famille "
           name="lastname"
+          formControlName="name"
         />
       </div>
       <div class="form__body">
@@ -27,24 +34,47 @@
           type="text"
           placeholder="Prénom"
           name="name"
+          formControlName="firstname"
         />
       </div>
       <div class="form__body">
-        <label for="lastname" class="form__label">Date de naissance</label>
+        <label for="birthday" class="form__label">Date de naissance</label>
         <input
           class="form__input input-global-modal"
           type="date"
           placeholder="Date de naissance"
           name="birthday"
+          formControlName="birth"
         />
       </div>
       <div class="form__body">
-        <label for="address" class="form__label">Adresse</label>
+        <label for="address" class="form__label">Nom de la rue</label>
         <input
           class="form__input input-global-modal"
           type="text"
-          placeholder="Adresse"
+          placeholder="Nom de la rue"
           name="address"
+          formControlName="streetName"
+        />
+      </div>
+      <div class="form__body">
+        <label for="address" class="form__label">Telephone</label>
+        <input
+          class="form__input input-global-modal"
+          type="text"
+          placeholder="Telephone"
+          name="address"
+          formControlName="phoneNumber"
+        />
+      </div>
+      <div class="form__body">
+        <label for="address" class="form__label">Numero de la rue</label>
+        <input
+          class="form__input input-global-modal"
+          type="text"
+          placeholder="Numero de la rue"
+          name="address"
+          formControlName="streetNumber"
         />
       </div>
       <div class="form__body">
@@ -54,6 +84,7 @@
           type="text"
           placeholder="Ville"
           name="city"
+          formControlName="city"
         />
       </div>
       <div class="form__body">
@@ -62,10 +93,11 @@
           class="form__input input-global-modal"
           type="text"
           placeholder="Code postal"
-          name="zipcode"
+          formControlName="zipCode"
         />
       </div>
       <button
+        type="submit"
         class="btn-global btn-global-orange form__body__btn"
       >
         valider

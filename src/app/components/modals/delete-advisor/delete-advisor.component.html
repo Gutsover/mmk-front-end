@@ -1,0 +1,40 @@
+<div class="modal shadow radius" id="deleteAdvisor">
+    <div class="modal__title">
+      <h5>Supprimer le conseiller</h5>
+      <a
+        ><img
+          src="../../../assets/img/icons/close-white.svg"
+          alt="fermer la pop-up"
+          class="clickable-icon"
+          mat-dialog-close
+      /></a>
+    </div>
+    <div class="modal__body">
+      <form action="" class="form">
+        <h6 class="is-bold">êtes-vous sure de vouloir supprimer ce conseiller ?</h6>
+        <p>Cette action est irrémédiable.</p>
+        <p>
+          Pour supprimer un conseiller, il faut que sa liste de clients attribués soit vide.
+        </p>
+  
+        <div class="choice">
+          <div class="choice__resp">
+            <input class="" type="checkbox" name="yes" />
+            <label for="yes" class="form__label">Supprimer le conseiller</label>
+          </div>
+  
+          <div class="choice__resp">
+            <input class="" type="checkbox" name="no" />
+            <label for="no" class="form__label">Ne pas supprimer le conseiller</label>
+          </div>
+        </div>
+  
+        <button
+          class="btn-global btn-global-orange form__body__btn"
+        >
+          valider
+        </button>
+      </form>
+    </div>
+  </div>
+  

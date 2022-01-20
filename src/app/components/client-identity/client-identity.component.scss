@@ -35,14 +35,20 @@
 
   .container__main {
     margin-top: 45px;
-    p {
-      line-height: 30px;
-      img {
-        margin-right: 30px;
+    .main__infos {
+      display: flex;
+      div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 40px;
+      }
+      p {
+        line-height: 30px;
+        img {
+          margin-right: 30px;
+        }
       }
     }
   }
 }
-
-
-
