@@ -12,7 +12,7 @@ import { HomeHeaderComponent } from './components/header/home-header.component';
 import { FormSigninHomeComponent } from './view/form-signin-home/form-signin-home.component';
 import { SidebarComponent } from './components/admin/sidebar/sidebar.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { DashboardComponent } from './view/dashboard/dashboard.component';
 import { HomeLogoComponent } from './components/home-logo/home-logo.component';
@@ -38,7 +38,7 @@ import { ModalClientExternalTransferComponent } from './components/modals/modal-
 import { AddCreditCardComponent } from './components/modals/add-credit-card/add-credit-card.component';
 import { DeleteCreditCardComponent } from './components/modals/delete-credit-card/delete-credit-card.component';
 import { CreateNewAccountComponent } from './components/modals/create-new-account/create-new-account.component';
-import { SidebarAdvisorComponent } from './components/advisor/sidebar-advisor/sidebar-advisor.component'
+import { SidebarAdvisorComponent } from './components/advisor/sidebar-advisor/sidebar-advisor.component';
 
 import { JwtInterceptor } from './jwt-interceptor';
 import { DeleteClientComponent } from './components/modals/delete-client/delete-client.component';
@@ -81,7 +81,6 @@ import { CreateAdvisorComponent } from './view/admin/create-advisor/create-advis
     AddCreditCardComponent,
     DeleteCreditCardComponent,
     CreateNewAccountComponent,
-
     SidebarAdvisorComponent,
       DeleteClientComponent,
       DeleteAccountComponent,
@@ -89,13 +88,13 @@ import { CreateAdvisorComponent } from './view/admin/create-advisor/create-advis
       ModalUpdateProfilComponent,
       DeleteAdvisorComponent,
       CreateAdvisorComponent
-
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     MatDialogModule,
   ],

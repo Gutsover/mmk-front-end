@@ -6,6 +6,7 @@
     <h4>Enregistrer un nouveau client</h4>
 
     <form
+      [formGroup]="clientForm"
       class="form form-login"
       (ngSubmit)="submit()"
     >
@@ -15,21 +16,33 @@
           class=""
           type="text"
           placeholder="Nom de famille "
-          name="name"
+          name="lastname"
+          formControlName="name"
         />
       </div>
       <div class="form__body">
         <label for="login" class="form__label is-bold">Prénom</label>
         <input
+          formControlName="firstname"
           class=""
           type="text"
           placeholder="Prénom"
-          name="lastName"
+          name="firstname"
         />
       </div>
 
-      <div class="form__body--radio">   
-        <label for="typeClient" class="radio__label is-bold">Particulier</label>   
+      <div class="form__body">
+        <label for="login" class="form__label is-bold">Télephone</label>
+        <input
+          formControlName="phoneNumber"
+          class=""
+          type="text"
+          placeholder="Télephone"
+          name="firstname"
+        />
+      </div>
+      <div class="form__body--radio">
+        <label for="typeClient" class="radio__label is-bold">Particulier</label>
         <input
           class="radio radio--first"
           type="radio"
@@ -45,43 +58,60 @@
           value="Entrepise"
           name="typeClient"
           (click)="ClientIsEnterprise()"
-        />       
+        />
       </div>
 
       <div class="form__body" *ngIf="isEnterprise != false">
         <label for="siret" class="form__label is-bold">N° de Siret</label>
-        <input
-          class=""
-          type="text"
-          name="siret"
-        />
+        <input class="" type="text" name="siret" formControlName="siret" />
       </div>
 
       <div class="form__body" *ngIf="isEnterprise != false">
-        <label for="nameEnterprise" class="form__label is-bold">Nom de l'entreprise</label>
+        <label for="nameEnterprise" class="form__label is-bold"
+          >Nom de l'entreprise</label
+        >
         <input
           class=""
           type="text"
           name="nameEnterprise"
+          formControlName="entrepriseName"
         />
       </div>
 
       <div class="form__body">
-        <label for="lastname" class="form__label is-bold">Date de naissance</label>
+        <label for="lastname" class="form__label is-bold"
+          >Date de naissance</label
+        >
         <input
           class=""
           type="date"
           placeholder="Date de naissance"
           name="birthday"
+          formControlName="birth"
         />
       </div>
       <div class="form__body">
-        <label for="address" class="form__label is-bold">Adresse</label>
+        <label for="streetNumber" class="form__label is-bold"
+          >Numero de rue</label
+        >
+        <input
+          class=""
+          type="number"
+          placeholder="Numero de rue"
+          name="address"
+          formControlName="streetNumber"
+        />
+      </div>
+      <div class="form__body">
+        <label for="streetName" class="form__label is-bold"
+          >Nom de la rue</label
+        >
         <input
           class=""
           type="text"
-          placeholder="Adresse"
-          name="address"
+          placeholder="Nom de la rue"
+          formControlName="streetName"
+          name="streetName"
         />
       </div>
       <div class="form__body">
@@ -91,18 +121,23 @@
           type="text"
           placeholder="Ville"
           name="city"
+          formControlName="city"
         />
       </div>
       <div class="form__body">
         <label for="zipcode" class="form__label is-bold">Code postal</label>
         <input
+          formControlName="zipCode"
           class=""
           type="text"
           placeholder="Code postal"
           name="zipcode"
         />
       </div>
-      <button class="btn-global btn-global-orange form__body__btn">
+      <button
+        type="submit"
+        class="btn-global btn-global-orange form__body__btn"
+      >
         valider
       </button>
     </form>
