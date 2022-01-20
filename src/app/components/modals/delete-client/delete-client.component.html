@@ -7,34 +7,23 @@
         alt="fermer la pop-up"
         class="clickable-icon"
         mat-dialog-close
+        (click)="close()"
     /></a>
   </div>
   <div class="modal__body">
-    <form action="" class="form">
-      <h6 class="is-bold">êtes-vous sure de vouloir supprimer ce client ?</h6>
-      <p>Cette action est irrémédiable.</p>
-      <p>
-        Pour supprimer un client, il faut que les comptes existants soient
-        vidés.
-      </p>
+    <h6 class="is-bold">êtes-vous sure de vouloir supprimer ce client ?</h6>
+    <p>Cette action est irrémédiable.</p>
+    <p>
+      Pour supprimer un client, il faut que les comptes existants soient vidés.
+    </p>
 
-      <div class="choice">
-        <div class="choice__resp">
-          <input class="" type="checkbox" name="yes" />
-          <label for="yes" class="form__label">Supprimer le client</label>
-        </div>
+    <div class="choice"></div>
 
-        <div class="choice__resp">
-          <input class="" type="checkbox" name="no" />
-          <label for="no" class="form__label">Ne pas supprimer le client</label>
-        </div>
-      </div>
-
-      <button
-        class="btn-global btn-global-orange form__body__btn"
-      >
-        valider
-      </button>
-    </form>
+    <button
+      (click)="deleteClient()"
+      class="btn-global btn-global-orange form__body__btn"
+    >
+      J'en suis sur!
+    </button>
   </div>
 </div>

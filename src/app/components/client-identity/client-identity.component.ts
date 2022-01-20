@@ -34,6 +34,12 @@ export class ClientIdentityComponent implements OnInit {
 
   openModalDeleteClient() {
     const dialogRef = this.dialog.open(DeleteClientComponent);
+    dialogRef.afterClosed().subscribe((res) => {
+      if (res == true) {
+        this.clientService.deleteClient(this.currentUserId).subscribe();
+      }
+      return;
+    });
   }
 
   fetchClientInfo(id: Number) {
