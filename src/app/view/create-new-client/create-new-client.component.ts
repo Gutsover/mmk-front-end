@@ -22,7 +22,7 @@ export class CreateNewClientComponent implements OnInit {
     name: ['', Validators.required],
     firstname: ['', Validators.required],
     siretNbr: [''],
-    entrepriseName: [''],
+    enterpriseName: [''],
     birth: ['', Validators.required],
     streetNumber: ['', Validators.required],
     streetName: ['', Validators.required],
@@ -35,7 +35,11 @@ export class CreateNewClientComponent implements OnInit {
 
   submit() {
     if (this.clientForm.dirty && this.clientForm.valid) {
-      this.clientService.createClient(this.clientForm.value).subscribe(
+      const newClientInfo = {
+        ...this.clientForm.value,
+        isEnterprise: this.isEnterprise,
+      };
+      this.clientService.createClient(newClientInfo).subscribe(
         (res) => {
           this.router.navigate(['/client']);
         },
@@ -67,8 +71,8 @@ export class CreateNewClientComponent implements OnInit {
   get siretNbr(): any {
     return this.clientForm.get('siretNbr');
   }
-  get entrepriseName(): any {
-    return this.clientForm.get('entrepriseName');
+  get enterpriseName(): any {
+    return this.clientForm.get('enterpriseName');
   }
   get birth(): any {
     return this.clientForm.get('birth');
