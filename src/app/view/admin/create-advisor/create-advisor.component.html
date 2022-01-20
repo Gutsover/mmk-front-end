@@ -5,9 +5,7 @@
   <div class="main radius pad">
     <h4>Enregistrer un nouveau conseiller</h4>
 
-    <form
-      class="form"
-    >
+    <form class="form" [formGroup]="advisorForm" (ngSubmit)="submit()">
       <div class="form__body">
         <label for="name" class="form__label is-bold">Nom</label>
         <input
@@ -15,19 +13,22 @@
           type="text"
           placeholder="Nom de famille "
           name="name"
+          formControlName="name"
           id="name"
         />
       </div>
       <div class="form__body">
-        <label for="lastname" class="form__label is-bold">Prénom</label>
+        <label for="firstname" class="form__label is-bold">Prénom</label>
         <input
           class=""
           type="text"
           placeholder="Prénom"
-          name="lastName"
-          id="lastname"
+          name="firstname"
+          formControlName="firstname"
+          id="firstname"
         />
       </div>
+
       <div class="form__body">
         <label for="email" class="form__label is-bold">Email</label>
         <input
@@ -35,12 +36,39 @@
           type="email"
           placeholder="adresse@mail"
           name="email"
+          formControlName="email"
           id="email"
         />
       </div>
 
-      
-      <button class="btn-global btn-global-orange form__body__btn">
+      <div class="form__body">
+        <label for="username" class="form__label is-bold">ID de connexion</label>
+        <input
+          class=""
+          type="text"
+          placeholder="ID de connexion "
+          name="username"
+          formControlName="username"
+          id="username"
+        />
+      </div>
+
+      <div class="form__body">
+        <label for="password" class="form__label is-bold">Mot de passe</label>
+        <input
+          class=""
+          type="password"
+          placeholder="Password"
+          name="password"
+          formControlName="password"
+          id="password"
+        />
+      </div>
+
+      <button
+        type="submit"
+        class="btn-global btn-global-orange form__body__btn"
+      >
         valider
       </button>
     </form>
@@ -48,4 +76,3 @@
 </div>
 
 <app-footer></app-footer>
-
