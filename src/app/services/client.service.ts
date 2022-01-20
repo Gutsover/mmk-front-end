@@ -19,7 +19,8 @@ export class ClientService {
       name,
       firstname,
       siretNbr,
-      entrepriseName,
+      enterpriseName,
+      isEnterprise,
       birth,
       streetNumber,
       streetName,
@@ -28,11 +29,14 @@ export class ClientService {
       phoneNumber,
     } = clientInfo;
 
+    console.log(clientInfo)
+
     const clientInfoObj = {
       name: name,
       firstname: firstname,
       siretNbr: siretNbr,
-      entrepriseName: entrepriseName,
+      enterpriseName: enterpriseName,
+      isEnterprise: isEnterprise,
       birth: birth,
       phoneNumber: phoneNumber,
       address: {
