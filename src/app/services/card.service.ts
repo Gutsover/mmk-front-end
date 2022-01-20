@@ -8,6 +8,7 @@ import { AppSettings } from '../AppSettings';
 export class CardService {
   constructor(private http: HttpClient) {}
   addNewCard(cardType: string, clientId: Number) {
+    console.log(cardType);
     let url = '';
     switch (cardType) {
       case 'premium':
@@ -18,7 +19,7 @@ export class CardService {
         url = `${AppSettings.API_ENDPOINT}card/vec`;
         break;
       default:
-        break;
+        throw new Error('Error');
     }
     return this.http.post(url, clientId);
   }
