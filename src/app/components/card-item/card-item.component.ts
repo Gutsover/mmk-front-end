@@ -46,15 +46,11 @@ export class CardItemComponent implements OnInit {
     );
   }
   activateOrDeactivate() {
-    this.isActive = !this.isActive;
-
-    if (this.isActive) {
-      this.isActivateText = ' activée';
-      this.statusCard = 'Active';
-    } else {
-      this.isActivateText = 'désactivée';
-      this.statusCard = 'X';
-    }
+    this.cardService
+      .changeCardState(!this.card.isActive, this.card.id)
+      .subscribe(() => {
+        this.clientService.getClient(this.currentUserId);
+      });
   }
   ngOnInit(): void {}
 

@@ -13,7 +13,7 @@
     (click)="activateOrDeactivate()"
     title="la carte est actuellement {{ isActivateText }}"
   >
-    {{ statusCard }}
+    {{ card.isActivated ? "Active" : "X" }}
   </button>
   <a
     ><img

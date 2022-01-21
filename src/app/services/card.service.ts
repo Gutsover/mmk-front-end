@@ -29,6 +29,9 @@ export class CardService {
     });
     return this.http.post(url, clientId);
   }
+  changeCardState(newState: Boolean, id: number) {
+    return this.http.get(`${AppSettings.API_ENDPOINT}card/activate/${id}`);
+  }
   deleteCard(id: Number) {
     return this.http.delete(`${AppSettings.API_ENDPOINT}card/${id}`);
   }
