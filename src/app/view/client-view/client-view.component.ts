@@ -12,6 +12,7 @@ import { ClientService } from 'src/app/services/client.service';
 export class ClientViewComponent implements OnInit {
   @Input()
   currentUserId: number = 1;
+  currentAccountId: number = 1
 
   userList: any;
   constructor(

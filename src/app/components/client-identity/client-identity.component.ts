@@ -13,7 +13,7 @@ export class ClientIdentityComponent implements OnInit {
   constructor(public dialog: MatDialog, public clientService: ClientService) {}
 
   @Input()
-  currentUserId: number = 0;
+  currentUserId!: number;
   currentClient: any = null;
 
   openModalUpdateClient() {

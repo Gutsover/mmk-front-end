@@ -19,16 +19,18 @@
         <th>Interêts</th>
       </tr>
       <tr>
-        <td>COURANT - ID0045786145B12</td>
-        <td class="is-bold">- 1223.79 €</td>
+        <td>{{ account[0].iban }}</td>
+
+        <td class="is-bold">{{ account[0].sold }} €</td>
+
         <td>1.3%</td>
         <td>
-          <a 
+          <a
             ><img
               src="../../../assets/img/icons/trash.png"
               alt="supprimer ce compte"
               class="clickable-icon"
-              (click) = "openModalDeleteAccount()"
+              (click)="openModalDeleteAccount()"
           /></a>
         </td>
       </tr>
@@ -36,10 +38,16 @@
   </div>
 
   <div class="container__actions">
-    <a class="btn-global btn-global-blue--outline" (click)="openModalInternalTransfer()">Virement interne</a>
-    <a class="btn-global btn-global-blue--outline" (click)="openModalExternalTransfer()">Virement externe</a>
-    <a class="btn-global btn-global-blue--outline"
-      >Simulation de crédit</a
+    <a
+      class="btn-global btn-global-blue--outline"
+      (click)="openModalInternalTransfer()"
+      >Virement interne</a
     >
+    <a
+      class="btn-global btn-global-blue--outline"
+      (click)="openModalExternalTransfer()"
+      >Virement externe</a
+    >
+    <a class="btn-global btn-global-blue--outline">Simulation de crédit</a>
   </div>
 </div>

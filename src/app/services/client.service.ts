@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, throwError } from 'rxjs';
-import { catchError, retry } from 'rxjs/operators';
+import { catchError, retry, takeWhile } from 'rxjs/operators';
 import { AppSettings } from '../AppSettings';
 
 @Injectable({
@@ -17,6 +17,7 @@ export class ClientService {
     });
     return this.clientList$.asObservable();
   }
+
   getClient(id: Number) {
     this.http
       .get(`${AppSettings.API_ENDPOINT}client/${id}`)
@@ -25,6 +26,11 @@ export class ClientService {
       });
     return this.clientInfo$.asObservable();
   }
+
+  // pipe(
+  //   takeWhile( => true)
+  // )
+
   createClient(clientInfo: any) {
     const {
       name,
