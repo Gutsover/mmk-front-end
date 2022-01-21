@@ -14,9 +14,6 @@ export class CardItemComponent implements OnInit {
   card: any = {};
   @Input()
   currentUserId: number = 0;
-  isActive = false;
-  isActivateText = 'désactivée';
-  statusCard = 'X';
 
   constructor(
     private cardService: CardService,
@@ -30,11 +27,7 @@ export class CardItemComponent implements OnInit {
       (res) => {
         if (res === true) {
           this.cardService.deleteCard(id).subscribe(() => {
-            this.clientService
-              .getClient(this.currentUserId)
-              .subscribe((res) => {
-                console.log(res);
-              });
+            this.clientService.getClientAJAX(this.currentUserId);
           });
         } else {
           return;
@@ -46,17 +39,11 @@ export class CardItemComponent implements OnInit {
     );
   }
   activateOrDeactivate() {
-    this.cardService
-      .changeCardState(!this.card.isActive, this.card.id)
-      .subscribe(() => {
-        this.clientService.getClient(this.currentUserId);
-      });
+    this.cardService.changeCardState(
+      !this.card.isActive,
+      this.card.id,
+      this.currentUserId
+    );
   }
   ngOnInit(): void {}
-
-  ngOnChanges(): void {
-    this.cardService.deleteCard(this.currentUserId).subscribe(() => {
-      this.clientService.getClient(this.currentUserId);
-    });
-  }
 }
