@@ -12,6 +12,7 @@ import { CreateAdvisorComponent } from './view/admin/create-advisor/create-advis
 import { ErrorpageComponent } from './components/errorpage/errorpage.component';
 const routes: Routes = [
   { path: 'login', component: FormSigninHomeComponent },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
   {
     path: 'adm/dashboard',
     component: DashboardComponent,
