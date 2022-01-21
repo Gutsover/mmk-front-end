@@ -14,25 +14,10 @@ import { DeleteCreditCardComponent } from '../modals/delete-credit-card/delete-c
   styleUrls: ['./client-card.component.scss'],
 })
 export class ClientCardComponent implements OnInit {
-  isActive = false;
-  isActivateText = 'désactivée';
-  statusCard = 'X';
   currentClient: any = null;
 
   @Input()
   currentUserId: number = 0;
-
-  activateOrDeactivate() {
-    this.isActive = !this.isActive;
-
-    if (this.isActive) {
-      this.isActivateText = ' activée';
-      this.statusCard = 'Active';
-    } else {
-      this.isActivateText = 'désactivée';
-      this.statusCard = 'X';
-    }
-  }
 
   constructor(
     public dialog: MatDialog,
@@ -60,23 +45,5 @@ export class ClientCardComponent implements OnInit {
         this.clientService.getClient(this.currentUserId);
       });
     });
-  }
-
-  deleteCreditCard(id: Number) {
-    const dialogRef = this.dialog.open(DeleteCreditCardComponent);
-    dialogRef.afterClosed().subscribe(
-      (res) => {
-        if (res === true) {
-          this.cardService.deleteCard(id).subscribe(() => {
-            this.clientService.getClient(this.currentUserId);
-          });
-        } else {
-          return;
-        }
-      },
-      (err) => {
-        console.log(err);
-      }
-    );
   }
 }

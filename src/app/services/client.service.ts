@@ -21,6 +21,7 @@ export class ClientService {
     this.http
       .get(`${AppSettings.API_ENDPOINT}client/${id}`)
       .subscribe((res) => {
+        console.log('EKJEJE');
         this.clientInfo$.next(res);
       });
     return this.clientInfo$.asObservable();
