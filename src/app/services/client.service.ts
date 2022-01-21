@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, throwError } from 'rxjs';
+import { BehaviorSubject, Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import { AppSettings } from '../AppSettings';
 
@@ -8,13 +8,24 @@ import { AppSettings } from '../AppSettings';
   providedIn: 'root',
 })
 export class ClientService {
-  getClients(): Observable<Object> {
-    return this.http.get(`${AppSettings.API_ENDPOINT}client`);
+  public clientList$: BehaviorSubject<any> = new BehaviorSubject('');
+  public clientInfo$: BehaviorSubject<any> = new BehaviorSubject('');
+
+  getClients() {
+    this.http.get(`${AppSettings.API_ENDPOINT}client`).subscribe((res) => {
+      this.clientList$.next(res);
+    });
+    return this.clientList$.asObservable();
   }
-  getClient(id: Number): Observable<Object> {
-    return this.http.get(`${AppSettings.API_ENDPOINT}client/${id}`);
+  getClient(id: Number) {
+    this.http
+      .get(`${AppSettings.API_ENDPOINT}client/${id}`)
+      .subscribe((res) => {
+        this.clientInfo$.next(res);
+      });
+    return this.clientInfo$.asObservable();
   }
-  createClient(clientInfo: any): Observable<Object> {
+  createClient(clientInfo: any) {
     const {
       name,
       firstname,
@@ -44,13 +55,26 @@ export class ClientService {
         zipCode: zipCode,
       },
     };
-    return this.http.post(`${AppSettings.API_ENDPOINT}client`, clientInfoObj);
+    this.http
+      .post(`${AppSettings.API_ENDPOINT}client`, clientInfoObj)
+      .subscribe(() => {
+        this.getClients();
+      });
   }
-  updateClient(clientInfo: any): Observable<Object> {
-    return this.http.put(`${AppSettings.API_ENDPOINT}client`, clientInfo);
+  updateClient(clientInfo: any) {
+    this.http
+      .put(`${AppSettings.API_ENDPOINT}client`, clientInfo)
+      .subscribe(() => {
+        this.getClients();
+        this.getClient(clientInfo.id);
+      });
   }
-  deleteClient(id: Number): Observable<Object> {
-    return this.http.delete(`${AppSettings.API_ENDPOINT}client/${id}`);
+  deleteClient(id: Number) {
+    this.http
+      .delete(`${AppSettings.API_ENDPOINT}client/${id}`)
+      .subscribe(() => {
+        this.getClients();
+      });
   }
   constructor(private http: HttpClient) {}
 }

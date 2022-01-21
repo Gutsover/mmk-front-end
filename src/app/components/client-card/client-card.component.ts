@@ -50,7 +50,6 @@ export class ClientCardComponent implements OnInit {
     this.fetchClientInfo(this.currentUserId);
   }
   ngOnChanges(): void {
-    console.log(this.currentUserId);
     this.fetchClientInfo(this.currentUserId);
   }
 

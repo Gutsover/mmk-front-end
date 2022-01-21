@@ -20,7 +20,7 @@ export class OwnerGuardService implements CanActivate {
     const currentUser: any = jwt_decode(currentUserToken);
     const idxRole = currentUser.role.indexOf('ROLE_ADMIN');
     if (idxRole < 0) {
-      this.router.navigate(['/adv/dashboard']);
+      this.router.navigate([`${state.url.replace('adm', 'adv')}`]);
       return false;
     } else {
       return true;

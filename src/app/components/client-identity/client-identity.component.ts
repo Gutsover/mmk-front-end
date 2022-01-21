@@ -27,7 +27,7 @@ export class ClientIdentityComponent implements OnInit {
         return;
       } else {
         res.id = this.currentUserId;
-        this.clientService.updateClient(res).subscribe();
+        this.clientService.updateClient(res);
       }
     });
   }
@@ -36,7 +36,7 @@ export class ClientIdentityComponent implements OnInit {
     const dialogRef = this.dialog.open(DeleteClientComponent);
     dialogRef.afterClosed().subscribe((res) => {
       if (res == true) {
-        this.clientService.deleteClient(this.currentUserId).subscribe();
+        this.clientService.deleteClient(this.currentUserId);
       }
       return;
     });
