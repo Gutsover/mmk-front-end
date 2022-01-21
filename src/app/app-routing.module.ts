@@ -11,24 +11,30 @@ import { CreateNewClientComponent } from './view/create-new-client/create-new-cl
 import { CreateAdvisorComponent } from './view/admin/create-advisor/create-advisor.component';
 import { ErrorpageComponent } from './components/errorpage/errorpage.component';
 const routes: Routes = [
+  { path: 'login', component: FormSigninHomeComponent },
   {
-    path: 'dashboard',
+    path: 'adm/dashboard',
     component: DashboardComponent,
     // canActivate: [AuthGuardService],
   },
-  { path: 'login', component: FormSigninHomeComponent },
   {
-    path: 'client',
+    path: 'adv/dashboard',
+    component: DashboardComponent,
+    // canActivate: [AuthGuardService],
+  },
+
+  {
+    path: 'adv/client',
     component: ClientViewComponent,
     // canActivate: [AuthGuardService],
   },
   {
-    path: 'add-client',
+    path: 'adv/add-client',
     component: CreateNewClientComponent,
     // canActivate: [AuthGuardService],
   },
   {
-    path: 'advisors',
+    path: 'adm/advisors',
     component: AdvisorsListComponent,
     // canActivate: [AuthGuardService],
   },
@@ -43,12 +49,13 @@ const routes: Routes = [
     // canActivate: [AuthGuardService],
   },
   {
-    path: 'adm/newadvisor',
+    path: 'adm/add-advisor',
     component: CreateAdvisorComponent,
     // canActivate: [AuthGuardService],
   },
   {
-    path: '**', pathMatch: 'full',
+    path: '**',
+    pathMatch: 'full',
     component: ErrorpageComponent,
   },
 ];
