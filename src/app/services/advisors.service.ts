@@ -14,7 +14,7 @@ export class AdvisorsService {
   }
 
   getAdvisor(id: Number): Observable<Object> {
-    return this.http.get(`${AppSettings.API_ENDPOINT}advisor/${id}`);
+    return this.http.get(`${AppSettings.API_ENDPOINT}employees/advisor/${id}`);
   }
 
   createAdvisor(advisorInfo: any): Observable<Object> {
@@ -36,4 +36,9 @@ export class AdvisorsService {
     console.log(advisorInfoObj);
     return this.http.post(`${AppSettings.API_ENDPOINT}auth/signup/advisor`, advisorInfoObj);
   }
+
+  updateAdvisor(advisorInfo: any): Observable<Object> {
+    return this.http.put(`${AppSettings.API_ENDPOINT}advisor`, advisorInfo);
+  }
+  
 }
