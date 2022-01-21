@@ -10,13 +10,14 @@ import { AuthGuardService } from './services/auth-guard.service';
 import { CreateNewClientComponent } from './view/create-new-client/create-new-client.component';
 import { CreateAdvisorComponent } from './view/admin/create-advisor/create-advisor.component';
 import { ErrorpageComponent } from './components/errorpage/errorpage.component';
+import { OwnerGuardService } from './services/owner-guard.service';
 const routes: Routes = [
   { path: 'login', component: FormSigninHomeComponent },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   {
     path: 'adm/dashboard',
     component: DashboardComponent,
-    // canActivate: [AuthGuardService],
+    canActivate: [AuthGuardService, OwnerGuardService],
   },
   {
     path: 'adv/dashboard',
