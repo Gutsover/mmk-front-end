@@ -11,6 +11,8 @@ import { CreateNewClientComponent } from './view/create-new-client/create-new-cl
 import { CreateAdvisorComponent } from './view/admin/create-advisor/create-advisor.component';
 import { ErrorpageComponent } from './components/errorpage/errorpage.component';
 const routes: Routes = [
+
+  { path: '',   redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: FormSigninHomeComponent },
   {
     path: 'adm/dashboard',
