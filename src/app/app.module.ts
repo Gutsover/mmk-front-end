@@ -50,6 +50,7 @@ import { CreateAdvisorComponent } from './view/admin/create-advisor/create-advis
 import { ErrorpageComponent } from './components/errorpage/errorpage.component';
 import { ModalAdvisorsIdentity } from './components/modals/modal-advisors-identity/modal-advisors-identity.component';
 import { SidebarAdmComponent } from './components/sidebar-adv/sidebar-adv.component';
+import { CardItemComponent } from './components/card-item/card-item.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -93,6 +94,7 @@ import { SidebarAdmComponent } from './components/sidebar-adv/sidebar-adv.compon
     ErrorpageComponent,
     ModalAdvisorsIdentity,
     SidebarAdmComponent,
+    CardItemComponent,
   ],
   imports: [
     BrowserModule,
