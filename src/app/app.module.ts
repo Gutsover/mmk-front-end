@@ -50,7 +50,6 @@ import { CreateAdvisorComponent } from './view/admin/create-advisor/create-advis
 import { ErrorpageComponent } from './components/errorpage/errorpage.component';
 import { ModalAdvisorsIdentity } from './components/modals/modal-advisors-identity/modal-advisors-identity.component';
 import { SidebarAdmComponent } from './components/sidebar-adv/sidebar-adv.component';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -85,15 +84,15 @@ import { SidebarAdmComponent } from './components/sidebar-adv/sidebar-adv.compon
     DeleteCreditCardComponent,
     CreateNewAccountComponent,
     SidebarAdvisorComponent,
-      DeleteClientComponent,
-      DeleteAccountComponent,
-      CreateNewClientComponent,
-      ModalUpdateProfilComponent,
-      DeleteAdvisorComponent,
-      CreateAdvisorComponent,
-      ErrorpageComponent,
-      ModalAdvisorsIdentity,
-      SidebarAdmComponent
+    DeleteClientComponent,
+    DeleteAccountComponent,
+    CreateNewClientComponent,
+    ModalUpdateProfilComponent,
+    DeleteAdvisorComponent,
+    CreateAdvisorComponent,
+    ErrorpageComponent,
+    ModalAdvisorsIdentity,
+    SidebarAdmComponent,
   ],
   imports: [
     BrowserModule,
