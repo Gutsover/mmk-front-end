@@ -12,9 +12,9 @@ import { ModalClientIdentityComponent } from '../modals/modal-client-identity/mo
 export class ClientIdentityComponent implements OnInit {
   constructor(public dialog: MatDialog, public clientService: ClientService) {}
 
-  @Input()
-  currentUserId!: number;
-  currentClient: any = null;
+
+  currentClient: any;
+  currentUserId: Number = 0;
 
   openModalUpdateClient() {
     const dialogRef = this.dialog.open(ModalClientIdentityComponent, {
@@ -42,16 +42,11 @@ export class ClientIdentityComponent implements OnInit {
     });
   }
 
-  fetchClientInfo(id: Number) {
-    this.clientService
-      .getClient(id)
-      .subscribe((res) => (this.currentClient = res));
-  }
-
   ngOnInit(): void {
-    this.fetchClientInfo(this.currentUserId);
-  }
-  ngOnChanges(): void {
-    this.fetchClientInfo(this.currentUserId);
+    this.clientService.clientInfo$.subscribe((client) => {
+      this.currentClient = client;
+      this.currentUserId = client.id;
+    });
+    this.clientService.getClientAJAX(this.currentUserId);
   }
 }

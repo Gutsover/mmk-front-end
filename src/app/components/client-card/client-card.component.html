@@ -1,4 +1,4 @@
-<div class="container radius shadow">
+<div *ngIf="currentClient" class="container radius shadow">
   <div class="container__title">
     <h4>
       Carte(s)
@@ -11,36 +11,15 @@
       /></a>
     </h4>
   </div>
-  <div class="container__main">
+  <div *ngIf="currentClient" class="container__main">
     <div
       *ngFor="let card of currentClient.cards"
       class="container__main__cards"
     >
-      <h6>{{ card.type }}</h6>
-      <img
-        src="{{
-          card.type === 'VPC'
-            ? '../../../assets/img/visa_premier 1.svg'
-            : '../../../assets/img/electron.svg'
-        }}"
-        alt="Carte de crédit du client"
-      />
-      <div class="container__main__card--actions">
-        <button
-          class="is-bold is-activated"
-          (click)="activateOrDeactivate()"
-          title="la carte est actuellement {{ isActivateText }}"
-        >
-          {{ statusCard }}
-        </button>
-        <a
-          ><img
-            src="../../../assets/img/icons/trash.svg"
-            alt="Supprimer la carte de crédit"
-            class="clickable-icon"
-            (click)="deleteCreditCard(card.id)"
-        /></a>
-      </div>
+      <app-card-item
+        [card]="card"
+        [currentUserId]="currentUserId"
+      ></app-card-item>
     </div>
   </div>
 </div>

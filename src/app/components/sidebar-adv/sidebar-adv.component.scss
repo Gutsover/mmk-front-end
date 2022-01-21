@@ -1,8 +1,8 @@
-@import "../../../../styles.scss";
+@import "../../../styles.scss";
 
 .sidebar {
   padding: 4rem 1rem 1rem 1rem;
-  background: url("../../../../assets/img/vague.png"),
+  background: url("../../../assets/img/vague.png"),
     linear-gradient(180deg, #54a8b0 0%, #17728d 100%);
   background-position: bottom;
   background-size: contain;
@@ -10,8 +10,6 @@
   width: 200px;
   height: 100vh;
   position: fixed;
-  transition: all 0.4s ease-out;
-  z-index: 12;
   top: 0;
   .sidebar__logo {
     display: flex;
@@ -83,5 +81,10 @@
         }
       }
     }
+  }
+}
+@media screen and (max-width: 950px) {
+  .sidebar {
+    transform: translateX(-100%);
   }
 }

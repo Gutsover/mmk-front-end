@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Input } from '@angular/core';
+import { Input, Output } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
@@ -14,25 +14,8 @@ import { DeleteCreditCardComponent } from '../modals/delete-credit-card/delete-c
   styleUrls: ['./client-card.component.scss'],
 })
 export class ClientCardComponent implements OnInit {
-  isActive = false;
-  isActivateText = 'désactivée';
-  statusCard = 'X';
   currentClient: any = null;
-
-  @Input()
   currentUserId: number = 0;
-
-  activateOrDeactivate() {
-    this.isActive = !this.isActive;
-
-    if (this.isActive) {
-      this.isActivateText = ' activée';
-      this.statusCard = 'Active';
-    } else {
-      this.isActivateText = 'désactivée';
-      this.statusCard = 'X';
-    }
-  }
 
   constructor(
     public dialog: MatDialog,
@@ -40,43 +23,20 @@ export class ClientCardComponent implements OnInit {
     private cardService: CardService,
     private router: Router
   ) {}
-  fetchClientInfo(id: Number) {
-    this.clientService
-      .getClient(id)
-      .subscribe((res) => (this.currentClient = res));
-  }
 
   ngOnInit(): void {
-    this.fetchClientInfo(this.currentUserId);
-  }
-  ngOnChanges(): void {
-    this.fetchClientInfo(this.currentUserId);
+    this.clientService.clientInfo$.subscribe((client) => {
+      this.currentClient = client;
+      this.currentUserId = client.id;
+    });
   }
 
   openModalAddCreditCard() {
     const dialogRef = this.dialog.open(AddCreditCardComponent);
     dialogRef.afterClosed().subscribe((res) => {
       this.cardService.addNewCard(res, this.currentUserId).subscribe(() => {
-        this.clientService.getClient(this.currentUserId);
+        this.clientService.getClientAJAX(this.currentUserId);
       });
     });
-  }
-
-  deleteCreditCard(id: Number) {
-    const dialogRef = this.dialog.open(DeleteCreditCardComponent);
-    dialogRef.afterClosed().subscribe(
-      (res) => {
-        if (res === true) {
-          this.cardService.deleteCard(id).subscribe(() => {
-            this.clientService.getClient(this.currentUserId);
-          });
-        } else {
-          return;
-        }
-      },
-      (err) => {
-        console.log(err);
-      }
-    );
   }
 }
