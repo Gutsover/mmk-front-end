@@ -49,7 +49,6 @@ import { DeleteAdvisorComponent } from './components/modals/delete-advisor/delet
 import { CreateAdvisorComponent } from './view/admin/create-advisor/create-advisor.component';
 import { ErrorpageComponent } from './components/errorpage/errorpage.component';
 import { ModalAdvisorsIdentity } from './components/modals/modal-advisors-identity/modal-advisors-identity.component';
-
 @NgModule({
   declarations: [
     AppComponent,
