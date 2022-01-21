@@ -13,23 +13,19 @@
     <form action="" class="form">
       <h6 class="is-bold">Type de compte :</h6>
       <div class="choice">
-        <div class="choice__account">
-          <input class="" type="checkbox" name="currentAccount" />
-          <label for="currentAccount" class="form__label">Compte courant</label>
-        </div>
-
-        <div class="choice__account">
-          <input class="" type="checkbox" name="savesAccount" />
-          <label for="savesAccount" class="form__label">Compte épargne</label>
-        </div>
+        <button
+          (click)="typeAccount('current')"
+          class="btn-global btn-global-orange form__body__btn"
+        >
+          Compte courant
+        </button>
+        <button
+          (click)="typeAccount('saving')"
+          class="btn-global btn-global-blue form__body__btn"
+        >
+          Compte épargne
+        </button>
       </div>
-
-      <button
-        class="btn-global btn-global-orange form__body__btn"
-        mat-dialog-close
-      >
-        valider
-      </button>
     </form>
   </div>
 </div>

@@ -13,8 +13,8 @@ export class ClientViewComponent implements OnInit {
   @Input()
   currentUserId: number = 1;
   currentAccountId: number = 1
-
   userList: any;
+  
   constructor(
     private clientService: ClientService,
     private route: ActivatedRoute

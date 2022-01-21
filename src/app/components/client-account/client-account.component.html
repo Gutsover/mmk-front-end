@@ -18,7 +18,8 @@
         <th>Solde</th>
         <th>Interêts</th>
       </tr>
-      <tr>
+      
+      <tr *ngFor="let account of currentClient.accounts">
         <td>{{ account[0].iban }}</td>
 
         <td class="is-bold">{{ account[0].sold }} €</td>
