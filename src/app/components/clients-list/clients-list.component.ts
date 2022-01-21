@@ -28,6 +28,9 @@ export class ClientsListComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.clientService.getClients().subscribe((res) => {
+      this.userList = res;
+    });
     this.route.queryParams.subscribe((params) => {
       const isEnterprise = params.isEnterprise;
       this.isEnterprise = isEnterprise === 'true';

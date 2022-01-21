@@ -11,25 +11,29 @@ export class ClientService {
   public clientList$: BehaviorSubject<any> = new BehaviorSubject('');
   public clientInfo$: BehaviorSubject<any> = new BehaviorSubject('');
 
-  getClients() {
+  getClientsAJAX() {
     this.http.get(`${AppSettings.API_ENDPOINT}client`).subscribe((res) => {
       this.clientList$.next(res);
     });
+  }
+
+  getClients() {
+    this.getClientsAJAX();
     return this.clientList$.asObservable();
   }
 
-  getClient(id: Number) {
+  getClientAJAX(id: Number) {
     this.http
       .get(`${AppSettings.API_ENDPOINT}client/${id}`)
       .subscribe((res) => {
         this.clientInfo$.next(res);
       });
-    return this.clientInfo$.asObservable();
   }
 
-  // pipe(
-  //   takeWhile( => true)
-  // )
+  getClient(id: Number) {
+    this.getClientAJAX(id);
+    return this.clientInfo$.asObservable();
+  }
 
   createClient(clientInfo: any) {
     const {
@@ -61,6 +65,7 @@ export class ClientService {
         zipCode: zipCode,
       },
     };
+
     this.http
       .post(`${AppSettings.API_ENDPOINT}client`, clientInfoObj)
       .subscribe(() => {
@@ -71,15 +76,15 @@ export class ClientService {
     this.http
       .put(`${AppSettings.API_ENDPOINT}client`, clientInfo)
       .subscribe(() => {
-        this.getClients();
-        this.getClient(clientInfo.id);
+        this.getClientsAJAX();
+        this.getClientAJAX(clientInfo.id);
       });
   }
   deleteClient(id: Number) {
     this.http
       .delete(`${AppSettings.API_ENDPOINT}client/${id}`)
       .subscribe(() => {
-        this.getClients();
+        this.getClientsAJAX();
       });
   }
   constructor(private http: HttpClient) {}
