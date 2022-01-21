@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, throwError } from 'rxjs';
-import { catchError, retry } from 'rxjs/operators';
+import { catchError, retry, takeWhile } from 'rxjs/operators';
 import { AppSettings } from '../AppSettings';
 
 @Injectable({
@@ -21,6 +21,7 @@ export class ClientService {
     this.getClientsAJAX();
     return this.clientList$.asObservable();
   }
+
 
   getClientAJAX(id: Number) {
     this.http
