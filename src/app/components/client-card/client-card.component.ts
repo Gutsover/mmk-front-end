@@ -20,7 +20,7 @@ export class ClientCardComponent implements OnInit {
   currentClient: any = null;
 
   @Input()
-  currentUserId: number = 1;
+  currentUserId: number = 0;
 
   activateOrDeactivate() {
     this.isActive = !this.isActive;
@@ -56,7 +56,9 @@ export class ClientCardComponent implements OnInit {
   openModalAddCreditCard() {
     const dialogRef = this.dialog.open(AddCreditCardComponent);
     dialogRef.afterClosed().subscribe((res) => {
-      this.cardService.addNewCard(res, this.currentUserId).subscribe(() => {});
+      this.cardService.addNewCard(res, this.currentUserId).subscribe(() => {
+        this.clientService.getClient(this.currentUserId);
+      });
     });
   }
 
@@ -65,7 +67,9 @@ export class ClientCardComponent implements OnInit {
     dialogRef.afterClosed().subscribe(
       (res) => {
         if (res === true) {
-          this.cardService.deleteCard(id).subscribe();
+          this.cardService.deleteCard(id).subscribe(() => {
+            this.clientService.getClient(this.currentUserId);
+          });
         } else {
           return;
         }

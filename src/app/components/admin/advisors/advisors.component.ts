@@ -17,7 +17,6 @@ export class AdvisorsComponent implements OnInit {
   advisorUpdate: EventEmitter<any> = new EventEmitter();
 
   updateAdvisorInfo(id: any): void {
-    console.log(id);
     this.advisorUpdate.emit(id);
     this.selectedItem = id;
   }

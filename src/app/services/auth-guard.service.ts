@@ -5,6 +5,7 @@ import {
   Router,
   RouterStateSnapshot,
 } from '@angular/router';
+import jwt_decode from 'jwt-decode';
 
 @Injectable({
   providedIn: 'root',
@@ -14,10 +15,14 @@ export class AuthGuardService implements CanActivate {
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     const currentUser = localStorage.getItem('id_token');
-    if (currentUser) {
+    //@ts-ignore
+    const currentUserJwt = jwt_decode(currentUser);
+    //@ts-ignore
+    const expired = Date.now() >= currentUserJwt.exp * 1000;
+    if (currentUser && !expired) {
       return true;
     } else {
-      this.router.navigate([`${state.url.replace('adm', 'adv')}`], {
+      this.router.navigate(['/login'], {
         queryParams: { returnUrl: state.url },
       });
       return false;

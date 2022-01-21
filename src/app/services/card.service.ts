@@ -8,11 +8,9 @@ import { AppSettings } from '../AppSettings';
 export class CardService {
   constructor(private http: HttpClient) {}
   addNewCard(cardType: string, clientId: Number) {
-    console.log(cardType);
     let url = '';
     switch (cardType) {
       case 'premium':
-        console.log('Premium');
         url = `${AppSettings.API_ENDPOINT}card/vpc`;
         break;
       case 'electron':

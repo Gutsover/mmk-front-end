@@ -23,7 +23,6 @@ export class ClientsListComponent implements OnInit {
   clientupdate: EventEmitter<any> = new EventEmitter();
 
   updateClientInfo(id: number) {
-    console.log(this.userList);
     this.clientupdate.emit(id);
     this.selectedItem = id;
   }

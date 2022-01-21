@@ -33,7 +33,6 @@ export class AdvisorsService {
       email: email,
       password: password,
     };
-    console.log(advisorInfoObj);
     return this.http.post(`${AppSettings.API_ENDPOINT}auth/signup/advisor`, advisorInfoObj);
   }
 

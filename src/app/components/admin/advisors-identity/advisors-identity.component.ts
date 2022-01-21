@@ -37,7 +37,7 @@ export class AdvisorsIdentityComponent implements OnInit {
   fetchAdvisorInfo(id: Number) {
     this.advisorService
       .getAdvisor(id)
-      .subscribe((res) => (this.currentAdvisor = res, console.log(res)));
+      .subscribe((res) => (this.currentAdvisor = res));
   }
 
   deleteAdvisor() {
