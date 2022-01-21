@@ -3,18 +3,22 @@
 .container {
   background-color: $blue-glace;
   height: 100%;
-  .main {
+  
+    .main {
     display: grid;
     grid-gap: 4rem;
     grid-template-columns: 25% repeat(3, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-  }
+    grid-template-rows: 15% 1fr;
+  } 
 }
+
+
+//_____________MEDIA QUERIES____________
 @media screen and (max-width: 910px) {
   .container {
     .main {
       grid-template-columns: 1fr;
-      grid-template-rows: repeat(3, 1fr);
+      grid-template-rows: 1fr 15% 1fr;
     }
   }
 }
