@@ -11,7 +11,9 @@
   <button
     class="is-bold is-activated"
     (click)="activateOrDeactivate()"
-    title="la carte est actuellement {{ isActivateText }}"
+    title="la carte est actuellement {{
+      card.isActivated ? 'Activé' : 'Desactivé'
+    }}"
   >
     {{ card.isActivated ? "Active" : "X" }}
   </button>

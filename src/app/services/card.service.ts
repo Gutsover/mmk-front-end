@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { AppSettings } from '../AppSettings';
 import { ClientService } from './client.service';
 
@@ -24,13 +24,24 @@ export class CardService {
       default:
         throw new Error('Error');
     }
-    this.clientService.getClient(clientId).subscribe((client) => {
-      this.cards$.next(client.card);
-    });
+    const client = this.clientService.getClientAJAX(clientId);
+    this.cards$.next(client);
     return this.http.post(url, clientId);
   }
-  changeCardState(newState: Boolean, id: number) {
-    return this.http.get(`${AppSettings.API_ENDPOINT}card/activate/${id}`);
+
+  getCards(): Observable<any> {
+    this.clientService.clientInfo$.subscribe((res) => {
+      this.cards$.next(res);
+    });
+    return this.cards$.asObservable();
+  }
+
+  changeCardState(newState: Boolean, id: number, clientId: Number) {
+    this.http
+      .get(`${AppSettings.API_ENDPOINT}card/activate/${id}`)
+      .subscribe(() => {
+        this.clientService.getClientAJAX(clientId);
+      });
   }
   deleteCard(id: Number) {
     return this.http.delete(`${AppSettings.API_ENDPOINT}card/${id}`);

@@ -1,4 +1,4 @@
-<div class="container radius shadow">
+<div *ngIf="currentClient" class="container radius shadow">
   <div class="container__title">
     <h4>
       Carte(s)
@@ -11,14 +11,14 @@
       /></a>
     </h4>
   </div>
-  <div class="container__main">
+  <div *ngIf="currentClient" class="container__main">
     <div
       *ngFor="let card of currentClient.cards"
       class="container__main__cards"
     >
       <app-card-item
-        [currentUserId]="currentUserId"
         [card]="card"
+        [currentUserId]="currentUserId"
       ></app-card-item>
     </div>
   </div>

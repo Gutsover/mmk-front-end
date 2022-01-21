@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Input } from '@angular/core';
+import { Input, Output } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
@@ -15,8 +15,6 @@ import { DeleteCreditCardComponent } from '../modals/delete-credit-card/delete-c
 })
 export class ClientCardComponent implements OnInit {
   currentClient: any = null;
-
-  @Input()
   currentUserId: number = 0;
 
   constructor(
@@ -25,24 +23,19 @@ export class ClientCardComponent implements OnInit {
     private cardService: CardService,
     private router: Router
   ) {}
-  fetchClientInfo(id: Number) {
-    this.clientService
-      .getClient(id)
-      .subscribe((res) => (this.currentClient = res));
-  }
 
   ngOnInit(): void {
-    this.fetchClientInfo(this.currentUserId);
-  }
-  ngOnChanges(): void {
-    this.fetchClientInfo(this.currentUserId);
+    this.clientService.clientInfo$.subscribe((client) => {
+      this.currentClient = client;
+      this.currentUserId = client.id;
+    });
   }
 
   openModalAddCreditCard() {
     const dialogRef = this.dialog.open(AddCreditCardComponent);
     dialogRef.afterClosed().subscribe((res) => {
       this.cardService.addNewCard(res, this.currentUserId).subscribe(() => {
-        this.clientService.getClient(this.currentUserId);
+        this.clientService.getClientAJAX(this.currentUserId);
       });
     });
   }

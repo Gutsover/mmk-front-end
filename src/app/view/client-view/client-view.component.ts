@@ -10,9 +10,8 @@ import { ClientService } from 'src/app/services/client.service';
   styleUrls: ['./client-view.component.scss'],
 })
 export class ClientViewComponent implements OnInit {
-  @Input()
   currentUserId: number = 1;
-
+  isEnterprise: Boolean = false;
   userList: any;
   constructor(
     private clientService: ClientService,
@@ -21,17 +20,12 @@ export class ClientViewComponent implements OnInit {
 
   ngOnInit(): void {
     this.clientService.getClients().subscribe((res) => {
-      this.route.queryParams.subscribe((params: any) => {
-        this.userList = res;
-        const paramIsEnterprise = params.isEnterprise === 'true';
-        const r = res.filter((client: any) => {
-          return client.isEnterprise === paramIsEnterprise;
-        });
-        this.currentUserId = r[0].id;
-      });
+      this.userList = res;
     });
   }
+
   updateClientInfo(id: any): void {
     this.currentUserId = id;
+    this.clientService.getClientAJAX(id);
   }
 }

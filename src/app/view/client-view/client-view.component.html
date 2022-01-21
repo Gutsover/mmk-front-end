@@ -4,11 +4,10 @@
   <app-home-header></app-home-header>
   <div class="main">
     <app-clients-list
-      [userList]="userList"
       (clientupdate)="updateClientInfo($event)"
     ></app-clients-list>
-    <app-client-identity [currentUserId]="currentUserId"></app-client-identity>
-    <app-client-card [currentUserId]="currentUserId"></app-client-card>
+    <app-client-identity></app-client-identity>
+    <app-client-card></app-client-card>
     <app-client-account></app-client-account>
   </div>
 </div>
