@@ -49,6 +49,7 @@ import { DeleteAdvisorComponent } from './components/modals/delete-advisor/delet
 import { CreateAdvisorComponent } from './view/admin/create-advisor/create-advisor.component';
 import { ErrorpageComponent } from './components/errorpage/errorpage.component';
 import { ModalAdvisorsIdentity } from './components/modals/modal-advisors-identity/modal-advisors-identity.component';
+import { SidebarAdmComponent } from './components/sidebar-adv/sidebar-adv.component';
 
 @NgModule({
   declarations: [
@@ -91,7 +92,8 @@ import { ModalAdvisorsIdentity } from './components/modals/modal-advisors-identi
       DeleteAdvisorComponent,
       CreateAdvisorComponent,
       ErrorpageComponent,
-      ModalAdvisorsIdentity
+      ModalAdvisorsIdentity,
+      SidebarAdmComponent
   ],
   imports: [
     BrowserModule,

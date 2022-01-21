@@ -6,12 +6,15 @@ import {
   RouterStateSnapshot,
 } from '@angular/router';
 import jwt_decode from 'jwt-decode';
+import { User } from '../user';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthGuardService implements CanActivate {
   constructor(private router: Router) {}
+
+  user = new User();
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     const currentUser = localStorage.getItem('id_token');
@@ -20,6 +23,8 @@ export class AuthGuardService implements CanActivate {
     //@ts-ignore
     const expired = Date.now() >= currentUserJwt.exp * 1000;
     if (currentUser && !expired) {
+      //@ts-ignore
+      this.user = currentUserJwt;
       return true;
     } else {
       this.router.navigate(['/login'], {
@@ -27,5 +32,8 @@ export class AuthGuardService implements CanActivate {
       });
       return false;
     }
+  }
+  getCurrentUser() {
+    return this.user;
   }
 }
