@@ -15,6 +15,7 @@ export class ClientViewComponent implements OnInit {
   isEnterprise: Boolean = false;
 
   userList: any;
+  
   constructor(
     private clientService: ClientService,
     private route: ActivatedRoute

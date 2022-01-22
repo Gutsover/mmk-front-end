@@ -24,6 +24,11 @@ export class ClientAccountComponent implements OnInit {
 
   openModalCreateAccount() {
     const dialogRef = this.dialog.open(CreateNewAccountComponent);
+    dialogRef.afterClosed().subscribe((res) => {
+      this.accountService.createAccount(res, this.currentUserId).subscribe(() => {
+        this.clientService.getClient(this.currentUserId);
+      });
+    });
   }
 
   openModalInternalTransfer() {
@@ -40,7 +45,7 @@ export class ClientAccountComponent implements OnInit {
   fetchAccountInfo(id: Number) {
     this.accountService
       .getAccount(id)
-      .subscribe((res) => ((this.account = res),console.log(this.account)));
+      .subscribe((res) => ((this.account = res)));
   }
 
   fetchClientInfo(id: Number) {

@@ -22,7 +22,6 @@ export class ClientService {
     return this.clientList$.asObservable();
   }
 
-
   getClientAJAX(id: Number) {
     this.http
       .get(`${AppSettings.API_ENDPOINT}client/${id}`)

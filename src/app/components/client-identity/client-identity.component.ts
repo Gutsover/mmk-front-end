@@ -12,7 +12,6 @@ import { ModalClientIdentityComponent } from '../modals/modal-client-identity/mo
 export class ClientIdentityComponent implements OnInit {
   constructor(public dialog: MatDialog, public clientService: ClientService) {}
 
-
   currentClient: any;
   currentUserId: Number = 0;
 
