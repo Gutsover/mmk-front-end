@@ -10,6 +10,9 @@ import { AppSettings } from '../AppSettings';
 export class ClientService {
   public clientList$: BehaviorSubject<any> = new BehaviorSubject('');
   public clientInfo$: BehaviorSubject<any> = new BehaviorSubject('');
+  
+  public accountList$: BehaviorSubject<any> = new BehaviorSubject('');
+  public accountInfo$: BehaviorSubject<any> = new BehaviorSubject('');
 
   getClientsAJAX() {
     this.http.get(`${AppSettings.API_ENDPOINT}client`).subscribe((res) => {

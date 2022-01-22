@@ -1,30 +1,23 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { AppSettings } from '../AppSettings';
+import { ClientService } from './client.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AccountService {
-  public accountList$: BehaviorSubject<any> = new BehaviorSubject('');
-  public accountInfo$: BehaviorSubject<any> = new BehaviorSubject('');
 
-  getAccounts() {
-    this.http
-      .get(`${AppSettings.API_ENDPOINT}account/client`)
-      .subscribe((res) => {
-        this.accountList$.next(res);
-      });
+  getAccountAJAX(clientId: Number) {
+    this.http.get(`${AppSettings.API_ENDPOINT}account/client/${clientId}`).subscribe((res) => {
+      this.clientService.accountList$.next(res);
+    })
   }
 
-  getAccount(id: Number) {
-    this.http
-      .get(`${AppSettings.API_ENDPOINT}account/client/${id}`)
-      .subscribe((res) => {
-        this.accountInfo$.next(res);
-      });
-    return this.accountInfo$.asObservable();
+  getAccounts(clientId: Number): Observable<any> {
+    this.getAccountAJAX(clientId);
+    return this.clientService.accountList$.asObservable();
   }
 
   createAccount(typeA: string, clientId: Number) {
@@ -47,5 +40,5 @@ export class AccountService {
     return this.http.post(url, obj);;
   }
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private clientService: ClientService) {}
 }

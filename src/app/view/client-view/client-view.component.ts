@@ -2,6 +2,7 @@ import { Route } from '@angular/compiler/src/core';
 import { Input } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AccountService } from 'src/app/services/account.service';
 import { ClientService } from 'src/app/services/client.service';
 
 @Component({
@@ -18,7 +19,7 @@ export class ClientViewComponent implements OnInit {
   
   constructor(
     private clientService: ClientService,
-    private route: ActivatedRoute
+    private accountService: AccountService
   ) {}
 
   ngOnInit(): void {
@@ -30,5 +31,6 @@ export class ClientViewComponent implements OnInit {
   updateClientInfo(id: any): void {
     this.currentUserId = id;
     this.clientService.getClientAJAX(id);
+    this.accountService.getAccountAJAX(id);
   }
 }

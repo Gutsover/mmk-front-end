@@ -13,21 +13,26 @@ import { ModalClientInternalTransferComponent } from '../modals/modal-client-int
   styleUrls: ['./client-account.component.scss'],
 })
 export class ClientAccountComponent implements OnInit {
-  constructor(public dialog: MatDialog, public accountService: AccountService, private clientService: ClientService,) {}
+  constructor(
+    public dialog: MatDialog,
+    public accountService: AccountService,
+    private clientService: ClientService
+  ) {}
 
   currentClient: any = null;
   @Input()
   currentUserId: number = 1;
   accountId: number = 1;
-  account: any = null;
-  
+  accounts: any = [];
 
   openModalCreateAccount() {
     const dialogRef = this.dialog.open(CreateNewAccountComponent);
     dialogRef.afterClosed().subscribe((res) => {
-      this.accountService.createAccount(res, this.currentUserId).subscribe(() => {
-        this.clientService.getClient(this.currentUserId);
-      });
+      this.accountService
+        .createAccount(res, this.currentUserId)
+        .subscribe(() => {
+          this.clientService.getClient(this.currentUserId);
+        });
     });
   }
 
@@ -42,12 +47,6 @@ export class ClientAccountComponent implements OnInit {
     const dialogRef = this.dialog.open(DeleteAccountComponent);
   }
 
-  fetchAccountInfo(id: Number) {
-    this.accountService
-      .getAccount(id)
-      .subscribe((res) => ((this.account = res)));
-  }
-
   fetchClientInfo(id: Number) {
     this.clientService
       .getClient(id)
@@ -55,10 +54,16 @@ export class ClientAccountComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.fetchAccountInfo(this.currentUserId);
-  }
-
-  ngOnChanges(): void {
-    this.fetchAccountInfo(this.currentUserId);
+    this.clientService.clientInfo$.subscribe((client) => {
+      this.currentClient = client;
+      this.currentUserId = client.id;
+    });
+    
+    this.accountService.getAccounts(this.currentUserId).subscribe((res) => {
+      console.log(res.length);
+      console.log(res)
+      this.accounts = [];
+      this.accounts =res;
+    });
   }
 }
