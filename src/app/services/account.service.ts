@@ -40,5 +40,9 @@ export class AccountService {
     return this.http.post(url, obj);;
   }
 
+  deleteAccount(id: Number) {
+    return this.http.delete(`${AppSettings.API_ENDPOINT}account/${id}`);
+  }
+
   constructor(private http: HttpClient, private clientService: ClientService) {}
 }

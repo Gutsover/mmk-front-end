@@ -43,8 +43,15 @@ export class ClientAccountComponent implements OnInit {
     const dialogRef = this.dialog.open(ModalClientExternalTransferComponent);
   }
 
-  openModalDeleteAccount() {
+  openModalDeleteAccount(accountId: Number) {
     const dialogRef = this.dialog.open(DeleteAccountComponent);
+    dialogRef.afterClosed().subscribe((res) => {
+      if (res === true) {
+        this.accountService.deleteAccount(accountId).subscribe(() => {
+          this.accountService.getAccountAJAX(this.currentUserId);
+        });
+      }
+    })
   }
 
   fetchClientInfo(id: Number) {
