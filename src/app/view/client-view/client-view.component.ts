@@ -11,7 +11,9 @@ import { ClientService } from 'src/app/services/client.service';
 })
 export class ClientViewComponent implements OnInit {
   currentUserId: number = 1;
+
   isEnterprise: Boolean = false;
+
   userList: any;
   
   constructor(
