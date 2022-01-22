@@ -31,7 +31,7 @@ export class ClientAccountComponent implements OnInit {
       this.accountService
         .createAccount(res, this.currentUserId)
         .subscribe(() => {
-          this.clientService.getClient(this.currentUserId);
+          this.accountService.getAccountAJAX(this.currentUserId);
         });
     });
   }
@@ -63,7 +63,7 @@ export class ClientAccountComponent implements OnInit {
       console.log(res.length);
       console.log(res)
       this.accounts = [];
-      this.accounts =res;
+      this.accounts = res;
     });
   }
 }
