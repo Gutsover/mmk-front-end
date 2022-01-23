@@ -16,16 +16,13 @@
       />
     </div>
 
-    <button class="sidebar__dash btn-global" routerLink="/adv/dashboard">
+    <button class="sidebar__dash btn-global" routerLink="/adm/dashboard">
       Tableau de bord
     </button>
     <div class="sidebar__top">
       <div class="top__menu">
         <li class="menu__item">
-          <a
-            class="item__link"
-            routerLink="/adv/clients"
-            [queryParams]="{ isEnterprise: false }"
+          <a href="" class="item__link" routerLink="/adm/clients"
             ><img
               src="../../../assets/img/icons/clients.png"
               srcset="../../../assets/img/icons/clients.svg"
@@ -33,28 +30,35 @@
               width="12"
               height="8"
               class="link__icon"
-            />Particuliers</a
+            />Liste clients</a
           >
         </li>
-
         <li class="menu__item">
-          <a
-            class="item__link"
-            routerLink="/adv/clients"
-            [queryParams]="{ isEnterprise: true }"
+          <a href="" class="item__link routerLink" routerLink="/adm/audit"
             ><img
-              src="../../../assets/img/icons/clients.png"
-              srcset="../../../assets/img/icons/clients.svg"
-              alt="client"
+              src="../../../assets/img/icons/audit.png"
+              srcset="../../../assets/img/icons/audit.svg"
+              alt="audit"
               width="12"
-              height="8"
+              height="12"
               class="link__icon"
-            />Entreprises</a
+            />Audit</a
           >
         </li>
-
         <li class="menu__item">
-          <a class="item__link" routerLink="/adv/add-client"
+          <a href="" class="item__link" routerLink="/adm/advisors"
+            ><img
+              src="../../../assets/img/icons/list.png"
+              srcset="../../../assets/img/icons/list.svg"
+              alt="client"
+              width="13"
+              height="12"
+              class="link__icon"
+            />Liste conseillers</a
+          >
+        </li>
+        <li class="menu__item">
+          <a href="" class="item__link" routerLink="/adm/add-advisor"
             ><img
               src="../../../assets/img/icons/advisor.png"
               srcset="../../../assets/img/icons/advisor.svg"
@@ -62,10 +66,11 @@
               width="16"
               height="12"
               class="link__icon"
-            />Nouveau client</a
+            />Nouveau conseiller</a
           >
         </li>
       </div>
     </div>
+    <!-- <img src="../../../../assets/img/vague.png" alt="" /> -->
   </aside>
 </div>

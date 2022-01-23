@@ -23,12 +23,14 @@ export class ClientsListComponent implements OnInit {
   clientupdate: EventEmitter<any> = new EventEmitter();
 
   updateClientInfo(id: number) {
-    console.log(this.userList);
     this.clientupdate.emit(id);
     this.selectedItem = id;
   }
 
   ngOnInit(): void {
+    this.clientService.getClients().subscribe((res) => {
+      this.userList = res;
+    });
     this.route.queryParams.subscribe((params) => {
       const isEnterprise = params.isEnterprise;
       this.isEnterprise = isEnterprise === 'true';

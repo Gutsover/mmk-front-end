@@ -1,5 +1,8 @@
+import { Route } from '@angular/compiler/src/core';
 import { Input } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AccountService } from 'src/app/services/account.service';
 import { ClientService } from 'src/app/services/client.service';
 
 @Component({
@@ -8,16 +11,26 @@ import { ClientService } from 'src/app/services/client.service';
   styleUrls: ['./client-view.component.scss'],
 })
 export class ClientViewComponent implements OnInit {
-  @Input()
   currentUserId: number = 1;
 
+  isEnterprise: Boolean = false;
+
   userList: any;
-  constructor(private clientService: ClientService) {}
+  
+  constructor(
+    private clientService: ClientService,
+    private accountService: AccountService
+  ) {}
 
   ngOnInit(): void {
-    this.clientService.getClients().subscribe((res) => (this.userList = res));
+    this.clientService.getClients().subscribe((res) => {
+      this.userList = res;
+    });
   }
+
   updateClientInfo(id: any): void {
     this.currentUserId = id;
+    this.clientService.getClientAJAX(id);
+    this.accountService.getAccountAJAX(id);
   }
 }

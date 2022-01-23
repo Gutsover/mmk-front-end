@@ -12,9 +12,8 @@ import { ModalClientIdentityComponent } from '../modals/modal-client-identity/mo
 export class ClientIdentityComponent implements OnInit {
   constructor(public dialog: MatDialog, public clientService: ClientService) {}
 
-  @Input()
-  currentUserId: number = 0;
-  currentClient: any = null;
+  currentClient: any;
+  currentUserId: Number = 0;
 
   openModalUpdateClient() {
     const dialogRef = this.dialog.open(ModalClientIdentityComponent, {
@@ -27,7 +26,7 @@ export class ClientIdentityComponent implements OnInit {
         return;
       } else {
         res.id = this.currentUserId;
-        this.clientService.updateClient(res).subscribe();
+        this.clientService.updateClient(res);
       }
     });
   }
@@ -36,22 +35,17 @@ export class ClientIdentityComponent implements OnInit {
     const dialogRef = this.dialog.open(DeleteClientComponent);
     dialogRef.afterClosed().subscribe((res) => {
       if (res == true) {
-        this.clientService.deleteClient(this.currentUserId).subscribe();
+        this.clientService.deleteClient(this.currentUserId);
       }
       return;
     });
   }
 
-  fetchClientInfo(id: Number) {
-    this.clientService
-      .getClient(id)
-      .subscribe((res) => (this.currentClient = res));
-  }
-
   ngOnInit(): void {
-    this.fetchClientInfo(this.currentUserId);
-  }
-  ngOnChanges(): void {
-    this.fetchClientInfo(this.currentUserId);
+    this.clientService.clientInfo$.subscribe((client) => {
+      this.currentClient = client;
+      this.currentUserId = client.id;
+    });
+    this.clientService.getClientAJAX(this.currentUserId);
   }
 }
