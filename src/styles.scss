@@ -278,23 +278,8 @@ body {
     grid-row: 1 / 1;
   }
 }
-app-card-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1rem;
-  .container__main__card--actions {
-    display: flex;
-    .is-activated {
-      border: none;
-      background-color: transparent;
-      color: $black-dracula;
-      font-size: 12px;
-      margin-right: 1.5rem;
-      cursor: pointer;
-    }
-  }
-}
+
+//__________________MEDIA QUERIES GLOBAL___________________
 @media screen and (max-width: 525px) {
   .modal {
     .modal__body {
@@ -313,6 +298,8 @@ app-card-item {
 @media screen and (max-width: 1105px) {
   .main {
     margin-left: 0;
+    padding: 0 0.5rem;
+    // margin-bottom: 1.5rem;
   }
 }
 
@@ -332,7 +319,7 @@ app-card-item {
   }
 
   label #btn {
-    left: 40px;
+    left: 12px;
     top: 25px;
     font-size: 35px;
     color: $whitesmoke;
