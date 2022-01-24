@@ -107,6 +107,26 @@
           aria-label="update client's zipcode"
         />
       </div>
+      <div class="form__body" *ngIf="currentClient.isEnterprise === true">
+        <label for="enterpriseName" class="form__label">Nom de l'entreprise</label>
+        <input
+          class="form__input input-global-modal"
+          type="text"
+          placeholder="nom d'entreprise"
+          formControlName="enterpriseName"
+          aria-label="update client's enterpriseName"
+        />
+      </div>
+      <div class="form__body" *ngIf="currentClient.isEnterprise === true">
+        <label for="siretNbr" class="form__label">N° de siret</label>
+        <input
+          class="form__input input-global-modal"
+          type="number"
+          placeholder="numéro de siret"
+          formControlName="siretNbr"
+          aria-label="update client's siretNbr"
+        />
+      </div>
       <button
         type="submit"
         class="btn-global btn-global-orange form__body__btn"

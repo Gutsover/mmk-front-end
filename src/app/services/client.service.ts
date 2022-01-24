@@ -67,8 +67,9 @@ export class ClientService {
         city: city,
         zipCode: zipCode,
       },
+      
     };
-
+console.log(clientInfoObj)
     this.http
       .post(`${AppSettings.API_ENDPOINT}client`, clientInfoObj)
       .subscribe(() => {
