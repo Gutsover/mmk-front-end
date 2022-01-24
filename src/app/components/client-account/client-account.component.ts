@@ -51,7 +51,7 @@ export class ClientAccountComponent implements OnInit {
           this.accountService.getAccountAJAX(this.currentUserId);
         });
       }
-    })
+    });
   }
 
   fetchClientInfo(id: Number) {
@@ -65,10 +65,8 @@ export class ClientAccountComponent implements OnInit {
       this.currentClient = client;
       this.currentUserId = client.id;
     });
-    
+
     this.accountService.getAccounts(this.currentUserId).subscribe((res) => {
-      console.log(res.length);
-      console.log(res)
       this.accounts = [];
       this.accounts = res;
     });

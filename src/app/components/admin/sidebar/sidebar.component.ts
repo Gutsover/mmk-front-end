@@ -12,6 +12,5 @@ export class SidebarComponent implements OnInit {
 
   ngOnInit(): void {
     this.isAdm = this.auth.getCurrentUser().role.indexOf('ROLE_ADMIN') >= 0;
-    console.log(this.isAdm);
   }
 }
