@@ -356,6 +356,11 @@ body {
     left: 18px;
   }
 }
+.error {
+  padding: 1rem;
+  color: white;
+  background-color: $reddish;
+}
 
 @media screen and (min-width: 1105px) {
   .burger {

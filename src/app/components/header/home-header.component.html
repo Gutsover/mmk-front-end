@@ -1,9 +1,14 @@
 <header>
   <div class="container">
     <div class="container__controls">
-      <a class="controls__outline btn-global btn-global-blue--outline" (click)="openModalUpdateProfil()"
+      <a
+        class="controls__outline btn-global btn-global-blue--outline"
+        (click)="openModalUpdateProfil()"
         >Profil</a
-      ><button class="controls__filled btn-global btn-global-orange">
+      ><button
+        (click)="logout()"
+        class="controls__filled btn-global btn-global-orange"
+      >
         Deconnexion
       </button>
     </div>
