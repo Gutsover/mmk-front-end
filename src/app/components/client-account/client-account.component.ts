@@ -24,20 +24,47 @@ export class ClientAccountComponent implements OnInit {
   currentUserId: number = 1;
   accountId: number = 1;
   accounts: any = [];
+  savingAccount: any = null;
+  currentAccount: any = null;
 
   openModalCreateAccount() {
     const dialogRef = this.dialog.open(CreateNewAccountComponent);
     dialogRef.afterClosed().subscribe((res) => {
-      this.accountService
-        .createAccount(res, this.currentUserId)
-        .subscribe(() => {
-          this.accountService.getAccountAJAX(this.currentUserId);
-        });
+      if (res === 'current')
+        if (this.currentAccount) return;
+        else {
+          this.accountService
+            .createAccount(res, this.currentUserId)
+            .subscribe(() => {
+              this.accountService.getAccountAJAX(this.currentUserId);
+            });
+        }
+      if (res == 'saving') {
+        if (this.savingAccount) {
+          return;
+        } else {
+          this.accountService
+            .createAccount(res, this.currentUserId)
+            .subscribe(() => {
+              this.accountService.getAccountAJAX(this.currentUserId);
+            });
+        }
+      }
     });
   }
 
   openModalInternalTransfer() {
-    const dialogRef = this.dialog.open(ModalClientInternalTransferComponent);
+    const dialogRef = this.dialog.open(ModalClientInternalTransferComponent, {
+      data: {
+        currentAccount: this.currentAccount,
+        savingAccount: this.savingAccount,
+      },
+    });
+    dialogRef.afterClosed().subscribe((res) => {
+      this.accountService.internalTransfer(res).subscribe(() => {
+        this.accountService.getAccountAJAX(this.currentUserId);
+      });
+    });
   }
   openModalExternalTransfer() {
     const dialogRef = this.dialog.open(ModalClientExternalTransferComponent);
@@ -54,12 +81,6 @@ export class ClientAccountComponent implements OnInit {
     });
   }
 
-  fetchClientInfo(id: Number) {
-    this.clientService
-      .getClient(id)
-      .subscribe((res) => (this.currentClient = res));
-  }
-
   ngOnInit(): void {
     this.clientService.clientInfo$.subscribe((client) => {
       this.currentClient = client;
@@ -67,6 +88,20 @@ export class ClientAccountComponent implements OnInit {
     });
 
     this.accountService.getAccounts(this.currentUserId).subscribe((res) => {
+      const arr = Array.from(res);
+      this.savingAccount = null;
+      this.currentAccount = null;
+      arr.forEach((account: any) => {
+        if (account.interestRate) {
+          this.savingAccount = account;
+        }
+        if (account.authorizedOverdraft) {
+          this.currentAccount = account;
+        }
+        if (this.savingAccount && this.currentAccount) {
+          return;
+        }
+      });
       this.accounts = [];
       this.accounts = res;
     });

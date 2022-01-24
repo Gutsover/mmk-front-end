@@ -295,6 +295,11 @@ body {
   }
 }
 
+.form__input {
+  display: block;
+  margin: 4rem auto 0 auto;
+  padding: 0.5rem;
+}
 @media screen and (max-width: 1105px) {
   .main {
     margin-left: 0;

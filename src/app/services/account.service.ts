@@ -8,24 +8,27 @@ import { ClientService } from './client.service';
   providedIn: 'root',
 })
 export class AccountService {
-
   getAccountAJAX(clientId: Number) {
-    this.http.get(`${AppSettings.API_ENDPOINT}account/client/${clientId}`).subscribe((res) => {
-      this.clientService.accountList$.next(res);
-    })
+    this.http
+      .get(`${AppSettings.API_ENDPOINT}account/client/${clientId}`)
+      .subscribe((res) => {
+        this.clientService.accountList$.next(res);
+      });
   }
 
   getAccounts(clientId: Number): Observable<any> {
     this.getAccountAJAX(clientId);
     return this.clientService.accountList$.asObservable();
   }
-
+  internalTransfer(data: any) {
+    return this.http.put(`${AppSettings.API_ENDPOINT}account/virement`, data);
+  }
   createAccount(typeA: string, clientId: Number) {
     let url = '';
-    const obj : any = {
+    const obj: any = {
       sold: 0,
-      clientId: clientId
-    }
+      clientId: clientId,
+    };
     switch (typeA) {
       case 'current':
         url = `${AppSettings.API_ENDPOINT}account/current`;
@@ -35,7 +38,6 @@ export class AccountService {
         break;
       default:
         throw new Error('Error');
-        
     }
     return this.http.post(url, obj);
   }
