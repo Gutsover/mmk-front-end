@@ -1,8 +1,6 @@
 <div class="container pad radius shadow" *ngIf="currentClient">
   <div class="container__title">
-    <h4>
-      {{ currentClient.firstname }} {{ currentClient.name }}
-    </h4>
+    <h4>{{ currentClient.firstname }} {{ currentClient.name }}</h4>
     <div class="container__title__options">
       <a
         ><img
@@ -27,7 +25,7 @@
           alt="icon de date de naissance"
         />
       </div>
-      <p>
+      <p title="date de naissance du client">
         {{ currentClient.birth }}
       </p>
     </div>
@@ -38,7 +36,7 @@
           alt="icon d'adresse postale"
         />
       </div>
-      <p>
+      <p title="adresse du client">
         {{ currentClient.address.streetNumber }}
         {{ currentClient.address.streetName }}
         {{ currentClient.address.zipCode }}
@@ -54,8 +52,26 @@
           alt="icon de numéro de téléphone"
         />
       </div>
-      <p class="main__infos">
+      <p class="main__infos" title="téléphone du client">
         {{ currentClient.phoneNumber }}
+      </p>
+    </div>
+
+    <div class="main__infos" *ngIf="currentClient.isEnterprise === true">
+      <div>
+        <i class="fas fa-building" alt="icon d'entreprise"></i>
+      </div>
+      <p title="nom d'entreprise du client">
+        {{ currentClient.enterpriseName }}
+      </p>
+    </div>
+
+    <div class="main__infos" *ngIf="currentClient.isEnterprise === true">
+      <div>
+        <i class="fas fa-hashtag" alt="icon de numero de siret"></i>
+      </div>
+      <p title="numéro de siter du client">
+        {{ currentClient.siretNbr }}
       </p>
     </div>
   </div>
