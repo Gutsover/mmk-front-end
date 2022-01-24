@@ -37,7 +37,7 @@ export class AccountService {
         throw new Error('Error');
         
     }
-    return this.http.post(url, obj);;
+    return this.http.post(url, obj);
   }
 
   deleteAccount(id: Number) {
