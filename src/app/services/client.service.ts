@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, throwError } from 'rxjs';
 import { catchError, retry, takeWhile } from 'rxjs/operators';
 import { AppSettings } from '../AppSettings';
+import {AuthGuardService} from "./auth-guard.service";
 
 @Injectable({
   providedIn: 'root',
@@ -10,7 +11,7 @@ import { AppSettings } from '../AppSettings';
 export class ClientService {
   public clientList$: BehaviorSubject<any> = new BehaviorSubject('');
   public clientInfo$: BehaviorSubject<any> = new BehaviorSubject('');
-  
+
   public accountList$: BehaviorSubject<any> = new BehaviorSubject('');
   public accountInfo$: BehaviorSubject<any> = new BehaviorSubject('');
 
@@ -21,7 +22,8 @@ export class ClientService {
   }
 
   getClients() {
-    this.getClientsAJAX();
+    this.getClientByAdvisor(this.authguard.getCurrentUser().idEmployee)
+    //this.getClientsAJAX();
     return this.clientList$.asObservable();
   }
 
@@ -33,12 +35,22 @@ export class ClientService {
       });
   }
 
+  getClientByAdvisor(id: Number) {
+    this.http
+      .get(`${AppSettings.API_ENDPOINT}client/advisor/${this.authguard.getCurrentUser().idEmployee}`)
+      .subscribe((res) => {
+        this.clientList$.next(res);
+      });
+    return this.clientList$.asObservable();
+  }
+
   getClient(id: Number) {
     this.getClientAJAX(id);
     return this.clientInfo$.asObservable();
   }
 
   createClient(clientInfo: any) {
+    console.log(this.authguard.getCurrentUser().idEmployee);
     const {
       name,
       firstname,
@@ -67,7 +79,7 @@ export class ClientService {
         city: city,
         zipCode: zipCode,
       },
-      
+      advisorId: this.authguard.getCurrentUser().idEmployee
     };
 console.log(clientInfoObj)
     this.http
@@ -91,5 +103,8 @@ console.log(clientInfoObj)
         this.getClientsAJAX();
       });
   }
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private authguard: AuthGuardService
+  ) {}
 }
