@@ -25,6 +25,7 @@ export class AuthGuardService implements CanActivate {
     if (currentUser && !expired) {
       //@ts-ignore
       this.user = currentUserJwt;
+      console.log(this.user);
       return true;
     } else {
       this.router.navigate(['/login'], {

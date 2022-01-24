@@ -2,6 +2,7 @@ import { EventEmitter, Input, Output } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ClientService } from 'src/app/services/client.service';
+import {AuthGuardService} from "../../services/auth-guard.service";
 
 @Component({
   selector: 'app-clients-list',
