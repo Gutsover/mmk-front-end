@@ -1,17 +1,18 @@
-<div class="modal shadow radius" id="deleteClient">
+<div class="modal shadow radius" id="deleteClient" role="dialog" aria-labelledby="modalDeleteclient" aria-describedby="dialogDesc">
   <div class="modal__title">
-    <h5>Supprimer le compte client</h5>
+    <h5 id="modalDeleteclient">Supprimer le compte client</h5>
     <a
       ><img
         src="../../../assets/img/icons/close-white.svg"
         alt="fermer la pop-up"
         class="clickable-icon"
+        aria-label="close-modal"
         mat-dialog-close
         (click)="close()"
     /></a>
   </div>
   <div class="modal__body">
-    <h6 class="is-bold">êtes-vous sure de vouloir supprimer ce client ?</h6>
+    <h6 class="is-bold" id="dialogDesc">êtes-vous sure de vouloir supprimer ce client ?</h6>
     <p>Cette action est irrémédiable.</p>
     <p>
       Pour supprimer un client, il faut que les comptes existants soient vidés.
@@ -22,6 +23,7 @@
     <button
       (click)="deleteClient()"
       class="btn-global btn-global-orange form__body__btn"
+      aria-label="delete client"
     >
       J'en suis sur!
     </button>
