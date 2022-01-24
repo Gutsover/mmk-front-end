@@ -1,11 +1,13 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { AccountService } from 'src/app/services/account.service';
 import { ClientService } from 'src/app/services/client.service';
 import { CreateNewAccountComponent } from '../modals/create-new-account/create-new-account.component';
 import { DeleteAccountComponent } from '../modals/delete-account/delete-account.component';
 import { ModalClientExternalTransferComponent } from '../modals/modal-client-external-transfer/modal-client-external-transfer.component';
 import { ModalClientInternalTransferComponent } from '../modals/modal-client-internal-transfer/modal-client-internal-transfer.component';
+import { SnackComponent } from '../snack/snack.component';
 
 @Component({
   selector: 'app-client-account',
@@ -16,7 +18,8 @@ export class ClientAccountComponent implements OnInit {
   constructor(
     public dialog: MatDialog,
     public accountService: AccountService,
-    private clientService: ClientService
+    private clientService: ClientService,
+    private _snackBar: MatSnackBar
   ) {}
 
   currentClient: any = null;
@@ -32,25 +35,43 @@ export class ClientAccountComponent implements OnInit {
     const dialogRef = this.dialog.open(CreateNewAccountComponent);
     dialogRef.afterClosed().subscribe((res) => {
       if (res === 'current')
-        if (this.currentAccount) return;
-        else {
-          this.accountService
-            .createAccount(res, this.currentUserId)
-            .subscribe(() => {
+        if (this.currentAccount) {
+          this.openSnackBar('Le client a deja un compte courant');
+          return;
+        } else {
+          this.accountService.createAccount(res, this.currentUserId).subscribe(
+            () => {
               this.accountService.getAccountAJAX(this.currentUserId);
-            });
+            },
+            (err) => {
+              this.openSnackBar(err.error.message);
+            }
+          );
         }
       if (res == 'saving') {
         if (this.savingAccount) {
+          this.openSnackBar('Le client a deja un compte client');
           return;
         } else {
-          this.accountService
-            .createAccount(res, this.currentUserId)
-            .subscribe(() => {
+          this.accountService.createAccount(res, this.currentUserId).subscribe(
+            () => {
               this.accountService.getAccountAJAX(this.currentUserId);
-            });
+            },
+            (err) => {
+              this.openSnackBar(err.error.message);
+            }
+          );
         }
       }
+    });
+  }
+  openSnackBar(text: string) {
+    this._snackBar.openFromComponent(SnackComponent, {
+      data: {
+        text: text,
+      },
+      horizontalPosition: 'right',
+      duration: 5 * 1000,
     });
   }
 
@@ -62,9 +83,14 @@ export class ClientAccountComponent implements OnInit {
       },
     });
     dialogRef.afterClosed().subscribe((res) => {
-      this.accountService.internalTransfer(res).subscribe(() => {
-        this.accountService.getAccountAJAX(this.currentUserId);
-      });
+      this.accountService.internalTransfer(res).subscribe(
+        () => {
+          this.accountService.getAccountAJAX(this.currentUserId);
+        },
+        (err) => {
+          this.openSnackBar(err.error.message);
+        }
+      );
     });
   }
   openModalExternalTransfer() {
@@ -75,9 +101,14 @@ export class ClientAccountComponent implements OnInit {
       },
     });
     dialogRef.afterClosed().subscribe((res) => {
-      this.accountService.internalTransfer(res).subscribe(() => {
-        this.accountService.getAccountAJAX(this.currentUserId);
-      });
+      this.accountService.internalTransfer(res).subscribe(
+        () => {
+          this.accountService.getAccountAJAX(this.currentUserId);
+        },
+        (err) => {
+          this.openSnackBar(err.error.message);
+        }
+      );
     });
   }
 
@@ -85,9 +116,14 @@ export class ClientAccountComponent implements OnInit {
     const dialogRef = this.dialog.open(DeleteAccountComponent);
     dialogRef.afterClosed().subscribe((res) => {
       if (res === true) {
-        this.accountService.deleteAccount(accountId).subscribe(() => {
-          this.accountService.getAccountAJAX(this.currentUserId);
-        });
+        this.accountService.deleteAccount(accountId).subscribe(
+          () => {
+            this.accountService.getAccountAJAX(this.currentUserId);
+          },
+          (err) => {
+            this.openSnackBar(err.error.message);
+          }
+        );
       }
     });
   }

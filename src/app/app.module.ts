@@ -51,6 +51,8 @@ import { ErrorpageComponent } from './components/errorpage/errorpage.component';
 import { ModalAdvisorsIdentity } from './components/modals/modal-advisors-identity/modal-advisors-identity.component';
 import { SidebarAdmComponent } from './components/sidebar-adv/sidebar-adv.component';
 import { CardItemComponent } from './components/card-item/card-item.component';
+import { SnackComponent } from './components/snack/snack.component';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 @NgModule({
   declarations: [
     AppComponent,
@@ -95,6 +97,7 @@ import { CardItemComponent } from './components/card-item/card-item.component';
     ModalAdvisorsIdentity,
     SidebarAdmComponent,
     CardItemComponent,
+    SnackComponent,
   ],
   imports: [
     BrowserModule,
@@ -104,6 +107,7 @@ import { CardItemComponent } from './components/card-item/card-item.component';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MatDialogModule,
+    MatSnackBarModule,
   ],
   providers: [
     {

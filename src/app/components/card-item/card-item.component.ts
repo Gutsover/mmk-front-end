@@ -3,6 +3,11 @@ import { MatDialog } from '@angular/material/dialog';
 import { CardService } from 'src/app/services/card.service';
 import { ClientService } from 'src/app/services/client.service';
 import { DeleteCreditCardComponent } from '../modals/delete-credit-card/delete-credit-card.component';
+import {
+  MatSnackBar,
+  MatSnackBarVerticalPosition,
+} from '@angular/material/snack-bar';
+import { SnackComponent } from '../snack/snack.component';
 
 @Component({
   selector: 'app-card-item',
@@ -14,11 +19,12 @@ export class CardItemComponent implements OnInit {
   card: any = {};
   @Input()
   currentUserId: number = 0;
-
+  durationInSeconds = 5;
   constructor(
     private cardService: CardService,
     private clientService: ClientService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private _snackBar: MatSnackBar
   ) {}
 
   deleteCreditCard(id: Number) {
@@ -26,9 +32,15 @@ export class CardItemComponent implements OnInit {
     dialogRef.afterClosed().subscribe(
       (res) => {
         if (res === true) {
-          this.cardService.deleteCard(id).subscribe(() => {
-            this.clientService.getClientAJAX(this.currentUserId);
-          });
+          this.cardService.deleteCard(id).subscribe(
+            () => {
+              this.clientService.getClientAJAX(this.currentUserId);
+            },
+            (err) => {
+              console.log(err.error.message);
+              this.openSnackBar(err.error.message);
+            }
+          );
         } else {
           return;
         }
@@ -37,6 +49,15 @@ export class CardItemComponent implements OnInit {
         console.log(err);
       }
     );
+  }
+  openSnackBar(text: string) {
+    this._snackBar.openFromComponent(SnackComponent, {
+      data: {
+        text: text,
+      },
+      horizontalPosition: 'right',
+      duration: 5 * 1000,
+    });
   }
   activateOrDeactivate() {
     this.cardService.changeCardState(
