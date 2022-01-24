@@ -31,7 +31,7 @@ export class CreateAdvisorComponent implements OnInit {
     if (this.advisorForm.dirty && this.advisorForm.valid) {
       this.advisorService.createAdvisor(this.advisorForm.value).subscribe(
         (res) => {
-          this.router.navigate(['/advisors']);
+          this.router.navigate(['/adm/advisors']);
         },
         (err) => {
           console.log(err);
