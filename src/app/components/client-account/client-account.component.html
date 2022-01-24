@@ -18,13 +18,13 @@
         <th>Solde</th>
         <th>Interêts</th>
       </tr>
-      
+
       <tr *ngFor="let account of accounts">
         <td>{{ account.iban }}</td>
 
         <td class="is-bold">{{ account.sold }} €</td>
 
-        <td>{{ account.interestRate ? account.interestRate +  '%' : '' }}</td>
+        <td>{{ account.interestRate ? account.interestRate + "%" : "" }}</td>
         <td>
           <a
             ><img
@@ -40,6 +40,7 @@
 
   <div class="container__actions">
     <a
+      *ngIf="canTransfer"
       class="btn-global btn-global-blue--outline"
       (click)="openModalInternalTransfer()"
       >Virement interne</a

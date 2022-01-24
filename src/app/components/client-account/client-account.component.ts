@@ -26,6 +26,7 @@ export class ClientAccountComponent implements OnInit {
   accounts: any = [];
   savingAccount: any = null;
   currentAccount: any = null;
+  canTransfer: boolean = false;
 
   openModalCreateAccount() {
     const dialogRef = this.dialog.open(CreateNewAccountComponent);
@@ -67,7 +68,17 @@ export class ClientAccountComponent implements OnInit {
     });
   }
   openModalExternalTransfer() {
-    const dialogRef = this.dialog.open(ModalClientExternalTransferComponent);
+    const dialogRef = this.dialog.open(ModalClientExternalTransferComponent, {
+      data: {
+        currentAccount: this.currentAccount,
+        savingAccount: this.savingAccount,
+      },
+    });
+    dialogRef.afterClosed().subscribe((res) => {
+      this.accountService.internalTransfer(res).subscribe(() => {
+        this.accountService.getAccountAJAX(this.currentUserId);
+      });
+    });
   }
 
   openModalDeleteAccount(accountId: Number) {
@@ -91,6 +102,8 @@ export class ClientAccountComponent implements OnInit {
       const arr = Array.from(res);
       this.savingAccount = null;
       this.currentAccount = null;
+      this.canTransfer = false;
+
       arr.forEach((account: any) => {
         if (account.interestRate) {
           this.savingAccount = account;
@@ -99,9 +112,11 @@ export class ClientAccountComponent implements OnInit {
           this.currentAccount = account;
         }
         if (this.savingAccount && this.currentAccount) {
+          this.canTransfer = true;
           return;
         }
       });
+
       this.accounts = [];
       this.accounts = res;
     });

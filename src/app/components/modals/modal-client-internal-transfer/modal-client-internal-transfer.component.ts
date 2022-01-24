@@ -51,7 +51,6 @@ export class ModalClientInternalTransferComponent implements OnInit {
         break;
     }
 
-    console.log(this.amount);
     this.dialogRef.close({
       ibanA: sender,
       ibanB: receiver,
