@@ -1,16 +1,17 @@
-<div class="modal shadow radius" id="modalUpdateAdvisor">
+<div class="modal shadow radius" id="modalUpdateAdvisor" role="dialog" aria-labelledby="modalUpdateInformationsAdvisor" aria-describedby="dialogDesc">
   <div class="modal__title">
-    <h5>modifier le conseiller</h5>
+    <h5 id="modalUpdateInformationsAdvisor">modifier le conseiller</h5>
     <a
       ><img
         src="../../../assets/img/icons/close-white.svg"
         alt="fermer la pop-up"
         class="clickable-icon"
+        aria-label="close-modal"
         mat-dialog-close
     /></a>
   </div>
   <div class="modal__body">
-    <form class="form" [formGroup]="advisorUpdateForm" (ngSubmit)="send()">
+    <form class="form" [formGroup]="advisorUpdateForm" (ngSubmit)="send()" id="dialogDesc">
       <div class="form__body">
         <label for="name" class="form__label">Nom</label>
         <input
@@ -19,6 +20,7 @@
           placeholder="Nom de famille "
           name="name"
           formControlName="name"
+          aria-label="update advisor's name"
         />
       </div>
       <div class="form__body">
@@ -29,6 +31,7 @@
           placeholder="Prénom"
           name="firstName"
           formControlName="firstName"
+          aria-label="update advisor's firstname"
         />
       </div>
       <div class="form__body">
@@ -39,12 +42,14 @@
           placeholder="email"
           name="email"
           formControlName="email"
+          aria-label="update advisor's email"
         />
       </div>
 
       <button
         type="submit"
         class="btn-global btn-global-orange form__body__btn"
+        aria-label="validate updating"
         mat-dialog-close
       >
         valider
