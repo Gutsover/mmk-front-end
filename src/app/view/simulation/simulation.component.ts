@@ -14,11 +14,13 @@ export class SimulationComponent implements OnInit {
   duree: any = null;
   interet: any = null;
 
+  loyerTotal: any = null;
+  mensualite: any = null;
+  coutCredit: any = null;
+
   constructor(
     private fb: FormBuilder,
-    private accountService: AccountService,
-    public dialogRef: MatDialogRef<SimulationComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any
+    private accountService: AccountService
   ) {}
 
   simulationForm: any = null;
@@ -33,13 +35,33 @@ export class SimulationComponent implements OnInit {
 
   submit(){
     if (this.simulationForm.dirty && this.simulationForm.valid) {
-      this.dialogRef.close(this.simulationForm.value);
       console.log("IF");
+      return this.simulation(this.interet, this.duree, this.montant);
     }
     else {
       console.log("ELSE");
       return;
     }
+  }
+
+  simulation(tauxInteretAnnuel: number, duree: number, montant: number) {
+    tauxInteretAnnuel /= 100;
+    let interetMensuel = tauxInteretAnnuel / 12; // Taux annuel divisé par le nombre de mois dans une année...
+    this.mensualite = montant * ((interetMensuel * (Math.pow(1 + interetMensuel, duree)))
+      / ((Math.pow(1 + interetMensuel, duree)) - 1));
+    // Montant du prêt = M
+    // Taux d'intêret mensuel = i
+    // Nombre de mensualités = n
+    // Formule pour calculer le coût d'une mensualité = M * (i*(1 + i)^n) / ((1 +
+    // i)^n)-1
+
+    this.loyerTotal = (this.mensualite * duree);
+    this.coutCredit = this.loyerTotal - montant;
+
+    console.log("Interet total = " + this.loyerTotal
+      + "     -     Mensualités = " + this.mensualite
+      + "     -     Coût du crédit = " + this.coutCredit);
+
   }
 
 }

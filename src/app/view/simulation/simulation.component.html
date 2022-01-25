@@ -50,6 +50,16 @@
         valider
       </button>
     </form>
+    <div class="entree">
+      Intéret annuel : {{ interet }}
+      Montant du prêt : {{ montant }}
+      Durée du pret : {{ duree }}
+    </div>
+    <div class="result">
+      Cout du crédit : {{ loyerTotal | number : '1.2-2'}}€
+      Mensualités : {{ mensualite | number:'1.2-2'}}€
+      Loyer total : {{ coutCredit | number:'1.2-2'}}€
+    </div>
   </div>
 </div>
 <app-footer></app-footer>
