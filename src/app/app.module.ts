@@ -53,7 +53,11 @@ import { SidebarAdmComponent } from './components/sidebar-adv/sidebar-adv.compon
 import { CardItemComponent } from './components/card-item/card-item.component';
 import { SnackComponent } from './components/snack/snack.component';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+
 import { SimulationComponent } from './view/simulation/simulation.component';
+
+import { PhoneFormatPipe } from './pipes/phone-format.pipe';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -99,7 +103,11 @@ import { SimulationComponent } from './view/simulation/simulation.component';
     SidebarAdmComponent,
     CardItemComponent,
     SnackComponent,
+
     SimulationComponent,
+
+    PhoneFormatPipe,
+
   ],
   imports: [
     BrowserModule,

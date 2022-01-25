@@ -39,8 +39,9 @@ export class CreateNewClientComponent implements OnInit {
         ...this.clientForm.value,
         isEnterprise: this.isEnterprise,
       };
-      this.clientService.createClient(newClientInfo);
+      this.clientService.createClient(newClientInfo);     
       this.submitted = true;
+      this.router.navigate(['/adv/clients']);
     } else {
       console.log('form not valid');
     }
