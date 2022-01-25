@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, throwError } from 'rxjs';
 import { catchError, retry, takeWhile } from 'rxjs/operators';
 import { AppSettings } from '../AppSettings';
-import {AuthGuardService} from "./auth-guard.service";
+import { AuthGuardService } from './auth-guard.service';
 
 @Injectable({
   providedIn: 'root',
@@ -22,7 +22,7 @@ export class ClientService {
   }
 
   getClients() {
-    this.getClientByAdvisor(this.authguard.getCurrentUser().idEmployee)
+    this.getClientByAdvisor(this.authguard.getCurrentUser().idEmployee);
     //this.getClientsAJAX();
     return this.clientList$.asObservable();
   }
@@ -37,7 +37,11 @@ export class ClientService {
 
   getClientByAdvisor(id: Number) {
     this.http
-      .get(`${AppSettings.API_ENDPOINT}client/advisor/${this.authguard.getCurrentUser().idEmployee}`)
+      .get(
+        `${AppSettings.API_ENDPOINT}client/advisor/${
+          this.authguard.getCurrentUser().idEmployee
+        }`
+      )
       .subscribe((res) => {
         this.clientList$.next(res);
       });
@@ -79,9 +83,9 @@ export class ClientService {
         city: city,
         zipCode: zipCode,
       },
-      advisorId: this.authguard.getCurrentUser().idEmployee
+      advisorId: this.authguard.getCurrentUser().idEmployee,
     };
-console.log(clientInfoObj)
+    console.log(clientInfoObj);
     this.http
       .post(`${AppSettings.API_ENDPOINT}client`, clientInfoObj)
       .subscribe(() => {
@@ -92,7 +96,7 @@ console.log(clientInfoObj)
     this.http
       .put(`${AppSettings.API_ENDPOINT}client`, clientInfo)
       .subscribe(() => {
-        this.getClientsAJAX();
+        this.getClientByAdvisor(this.authguard.getCurrentUser().idEmployee);
         this.getClientAJAX(clientInfo.id);
       });
   }
@@ -100,11 +104,8 @@ console.log(clientInfoObj)
     this.http
       .delete(`${AppSettings.API_ENDPOINT}client/${id}`)
       .subscribe(() => {
-        this.getClientsAJAX();
+        this.getClientByAdvisor(this.authguard.getCurrentUser().idEmployee);
       });
   }
-  constructor(
-    private http: HttpClient,
-    private authguard: AuthGuardService
-  ) {}
+  constructor(private http: HttpClient, private authguard: AuthGuardService) {}
 }
