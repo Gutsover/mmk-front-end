@@ -1,0 +1,60 @@
+@import "../../../styles.scss";
+
+.container {
+  background-color: $blue-glace;
+  height: 88%;
+  .main {
+      h4 {
+          margin-bottom: 2rem;
+      }
+      form {
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start; 
+          margin-bottom: 2rem;
+          .form__body {
+              display: flex;
+              justify-content: flex-start;
+              align-items: center;
+
+              label, input {
+                  margin-bottom: 1.2rem;
+              }
+              label {
+                  min-width: 180px;
+                  margin-right: 2rem;
+              }
+          }   
+          button {
+              min-width: 200px;
+              width: 40%;
+          }      
+      }
+    .result {
+        display: flex;
+        margin-bottom: 1.5rem;
+        h6 {
+            color: $blue-logo;
+            text-transform: uppercase;
+            font-weight: bold;
+            margin-right: 1.2rem;
+        }
+        p {
+            font-weight: bold;
+        }
+    }
+  }
+}
+@media screen and (max-width: 910px) {
+  .container {
+    .main {
+        form {
+            .form__body {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+      
+    }
+  }
+}
