@@ -1,0 +1,65 @@
+<app-sidebar></app-sidebar>
+<div class="container">
+  <app-home-header></app-home-header>
+  <div class="main radius pad">
+    <h4>Simulation de crédit</h4>
+
+    <form
+      [formGroup]="simulationForm"
+      class="form form-login"
+      (ngSubmit)="submit()"
+    >
+      <div class="form__body">
+        <label for="montant" class="form__label is-bold">Montant (en €)</label>
+        <input
+          class=""
+          type="number"
+          placeholder="000 000 €"
+          name="montant"
+          formControlName="montant"
+          [(ngModel)]="montant"
+        />
+      </div>
+      <div class="form__body">
+        <label for="duree" class="form__label is-bold">Durée (en mois)</label>
+        <input
+          formControlName="duree"
+          class=""
+          type="number"
+          placeholder="120"
+          name="duree"
+          [(ngModel)]="duree"
+        />
+      </div>
+
+      <div class="form__body">
+        <label for="interet" class="form__label is-bold">Taux d'intérêt annuel</label>
+        <input
+          formControlName="interet"
+          class=""
+          type="number"
+          placeholder="2%"
+          name="interet"
+          [(ngModel)]="interet"
+        />
+      </div>
+      <button
+        type="submit"
+        class="btn-global btn-global-orange form__body__btn"
+      >
+        valider
+      </button>
+    </form>
+    <div class="entree">
+      Intéret annuel : {{ interet }}
+      Montant du prêt : {{ montant }}
+      Durée du pret : {{ duree }}
+    </div>
+    <div class="result">
+      Cout du crédit : {{ loyerTotal | number : '1.2-2'}}€
+      Mensualités : {{ mensualite | number:'1.2-2'}}€
+      Loyer total : {{ coutCredit | number:'1.2-2'}}€
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

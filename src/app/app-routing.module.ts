@@ -11,6 +11,7 @@ import { CreateNewClientComponent } from './view/create-new-client/create-new-cl
 import { CreateAdvisorComponent } from './view/admin/create-advisor/create-advisor.component';
 import { ErrorpageComponent } from './components/errorpage/errorpage.component';
 import { OwnerGuardService } from './services/owner-guard.service';
+import {SimulationComponent} from "./view/simulation/simulation.component";
 const routes: Routes = [
   { path: 'login', component: FormSigninHomeComponent },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -33,6 +34,11 @@ const routes: Routes = [
   {
     path: 'adv/add-client',
     component: CreateNewClientComponent,
+    canActivate: [AuthGuardService],
+  },
+  {
+    path: 'adv/simulation',
+    component: SimulationComponent,
     canActivate: [AuthGuardService],
   },
   {
