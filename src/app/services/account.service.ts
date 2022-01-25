@@ -46,5 +46,9 @@ export class AccountService {
     return this.http.delete(`${AppSettings.API_ENDPOINT}account/${id}`);
   }
 
+  simulation(data: any) {
+    return this.http.get(`${AppSettings.API_ENDPOINT}account/simulation`, data);
+  }
+
   constructor(private http: HttpClient, private clientService: ClientService) {}
 }

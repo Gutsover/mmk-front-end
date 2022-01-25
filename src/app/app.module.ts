@@ -53,6 +53,7 @@ import { SidebarAdmComponent } from './components/sidebar-adv/sidebar-adv.compon
 import { CardItemComponent } from './components/card-item/card-item.component';
 import { SnackComponent } from './components/snack/snack.component';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import { SimulationComponent } from './view/simulation/simulation.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -98,6 +99,7 @@ import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
     SidebarAdmComponent,
     CardItemComponent,
     SnackComponent,
+    SimulationComponent,
   ],
   imports: [
     BrowserModule,
