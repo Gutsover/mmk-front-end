@@ -62,6 +62,11 @@ const routes: Routes = [
     canActivate: [AuthGuardService, OwnerGuardService],
   },
   {
+    path: 'adm/transactions',
+    component: CreateAdvisorComponent,
+    canActivate: [AuthGuardService, OwnerGuardService],
+  },
+  {
     path: '**',
     pathMatch: 'full',
     component: ErrorpageComponent,
