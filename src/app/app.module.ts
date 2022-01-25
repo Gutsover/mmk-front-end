@@ -48,7 +48,12 @@ import { ModalUpdateProfilComponent } from './components/modals/modal-update-pro
 import { DeleteAdvisorComponent } from './components/modals/delete-advisor/delete-advisor.component';
 import { CreateAdvisorComponent } from './view/admin/create-advisor/create-advisor.component';
 import { ErrorpageComponent } from './components/errorpage/errorpage.component';
-
+import { ModalAdvisorsIdentity } from './components/modals/modal-advisors-identity/modal-advisors-identity.component';
+import { SidebarAdmComponent } from './components/sidebar-adv/sidebar-adv.component';
+import { CardItemComponent } from './components/card-item/card-item.component';
+import { SnackComponent } from './components/snack/snack.component';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import { SimulationComponent } from './view/simulation/simulation.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -83,13 +88,18 @@ import { ErrorpageComponent } from './components/errorpage/errorpage.component';
     DeleteCreditCardComponent,
     CreateNewAccountComponent,
     SidebarAdvisorComponent,
-      DeleteClientComponent,
-      DeleteAccountComponent,
-      CreateNewClientComponent,
-      ModalUpdateProfilComponent,
-      DeleteAdvisorComponent,
-      CreateAdvisorComponent,
-      ErrorpageComponent
+    DeleteClientComponent,
+    DeleteAccountComponent,
+    CreateNewClientComponent,
+    ModalUpdateProfilComponent,
+    DeleteAdvisorComponent,
+    CreateAdvisorComponent,
+    ErrorpageComponent,
+    ModalAdvisorsIdentity,
+    SidebarAdmComponent,
+    CardItemComponent,
+    SnackComponent,
+    SimulationComponent,
   ],
   imports: [
     BrowserModule,
@@ -99,6 +109,7 @@ import { ErrorpageComponent } from './components/errorpage/errorpage.component';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MatDialogModule,
+    MatSnackBarModule,
   ],
   providers: [
     {

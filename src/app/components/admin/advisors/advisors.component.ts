@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { AdvisorsService } from 'src/app/services/advisors.service';
 
 @Component({
@@ -7,19 +7,22 @@ import { AdvisorsService } from 'src/app/services/advisors.service';
   styleUrls: ['./advisors.component.scss'],
 })
 export class AdvisorsComponent implements OnInit {
+  @Input()
   advisors: any;
   selectedItem: any = null;
-  currentUserId: any = null;
-  constructor(private advisorsService: AdvisorsService) {}
+
+  constructor(private advisorService: AdvisorsService) {}
+
+  @Output()
+  advisorUpdate: EventEmitter<any> = new EventEmitter();
 
   updateAdvisorInfo(id: any): void {
-    console.log(id);
-    this.currentUserId = id;
+    this.advisorUpdate.emit(id);
     this.selectedItem = id;
   }
 
   ngOnInit(): void {
-    this.advisorsService.getAdvisors().subscribe((data) => {
+    this.advisorService.getAdvisors().subscribe((data) => {
       this.advisors = data;
     });
   }

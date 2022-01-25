@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ModalAdvisorsIdentity } from '../../modals/modal-advisors-identity/modal-advisors-identity.component';
 import { MatDialog } from '@angular/material/dialog';
 import { DeleteAdvisorComponent } from '../../modals/delete-advisor/delete-advisor.component';
+import { AdvisorsService } from 'src/app/services/advisors.service';
 
 @Component({
   selector: 'app-advisors-identity',
@@ -9,14 +10,45 @@ import { DeleteAdvisorComponent } from '../../modals/delete-advisor/delete-advis
   styleUrls: ['./advisors-identity.component.scss'],
 })
 export class AdvisorsIdentityComponent implements OnInit {
-  constructor(public dialog: MatDialog) {}
+  constructor(
+    public dialog: MatDialog,
+    private advisorService: AdvisorsService
+  ) {}
+  currentAdvisor: any = null;
+  @Input()
+  currentAdvisorId: number = 1;
+
   openModalUpdateAdvisor() {
-    const dialogRef = this.dialog.open(ModalAdvisorsIdentity);
+    const dialogRef = this.dialog.open(ModalAdvisorsIdentity, {
+      data: {
+        currentAdvisor: this.currentAdvisor,
+      },
+    });
+    dialogRef.afterClosed().subscribe((res) => {
+      if (res === '' || res === undefined) {
+        return;
+      } else {
+        res.id = this.currentAdvisorId;
+        this.advisorService.updateAdvisor(res).subscribe();
+      }
+    });
+  }
+
+  fetchAdvisorInfo(id: Number) {
+    this.advisorService
+      .getAdvisor(id)
+      .subscribe((res) => (this.currentAdvisor = res));
   }
 
   deleteAdvisor() {
     const dialogRef = this.dialog.open(DeleteAdvisorComponent);
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.fetchAdvisorInfo(this.currentAdvisorId);
+  }
+
+  ngOnChanges(): void {
+    this.fetchAdvisorInfo(this.currentAdvisorId);
+  }
 }

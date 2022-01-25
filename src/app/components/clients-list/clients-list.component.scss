@@ -3,7 +3,7 @@
 .container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  // justify-content: center;
   align-content: space-between;
   background-color: $background-white;
   padding: 4rem 2rem 2rem 2rem;
@@ -36,10 +36,18 @@
     }
     li {
       padding: 0rem 1rem;
+      &:hover {
+        color: $blue-logo;
+        cursor: pointer;
+      }
     }
     .selected {
       background-color: $blue-logo;
       color: $background-white;
+      &:hover {
+        color: #fff;
+        cursor: pointer;
+      }
     }
     &::-webkit-scrollbar {
       background-color: rgb(230, 230, 230);
@@ -66,5 +74,11 @@
         bottom: -18px;
       }
     }
+  }
+}
+
+@media screen and (max-width: 1230px) {
+  .container {
+    padding: 4rem 1rem 2rem 1rem;
   }
 }

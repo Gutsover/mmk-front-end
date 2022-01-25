@@ -16,13 +16,16 @@
       />
     </div>
 
-    <button class="sidebar__dash btn-global" routerLink="/dashboard">
+    <button class="sidebar__dash btn-global" routerLink="/adv/dashboard">
       Tableau de bord
     </button>
     <div class="sidebar__top">
       <div class="top__menu">
         <li class="menu__item">
-          <a class="item__link" routerLink="/client"
+          <a
+            class="item__link"
+            routerLink="/adv/clients"
+            [queryParams]="{ isEnterprise: false }"
             ><img
               src="../../../assets/img/icons/clients.png"
               srcset="../../../assets/img/icons/clients.svg"
@@ -35,7 +38,10 @@
         </li>
 
         <li class="menu__item">
-          <a class="item__link" routerLink="/client"
+          <a
+            class="item__link"
+            routerLink="/adv/clients"
+            [queryParams]="{ isEnterprise: true }"
             ><img
               src="../../../assets/img/icons/clients.png"
               srcset="../../../assets/img/icons/clients.svg"
@@ -48,7 +54,7 @@
         </li>
 
         <li class="menu__item">
-          <a class="item__link" routerLink="/add-client"
+          <a class="item__link" routerLink="/adv/add-client"
             ><img
               src="../../../assets/img/icons/advisor.png"
               srcset="../../../assets/img/icons/advisor.svg"

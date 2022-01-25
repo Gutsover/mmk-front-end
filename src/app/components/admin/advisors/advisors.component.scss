@@ -25,7 +25,7 @@
       }
     }
   }
-  .container__clients {
+  .container__advisors {
     line-height: 60px;
     max-height: 50vh;
     overflow: auto;
@@ -34,10 +34,18 @@
     }
     li {
       padding: 0rem 1rem;
+      &:hover {
+        color: $blue-logo;
+        cursor: pointer;
+      }
     }
     .selected {
       background-color: $blue-logo;
       color: $background-white;
+      &:hover {
+        color: #fff;
+        cursor: pointer;
+      }
     }
     &::-webkit-scrollbar {
       background-color: rgb(230, 230, 230);

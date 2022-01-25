@@ -26,7 +26,7 @@ export class HomeLoginComponent implements OnInit {
         if (data.accessToken) {
           localStorage.setItem('id_token', data.accessToken);
           this.loginService.currentUser = data;
-          this.router.navigate(['/dashboard']);
+          this.router.navigate(['/adm/dashboard']);
         }
       },
       (error) => alert('No user found, please check your password / username')

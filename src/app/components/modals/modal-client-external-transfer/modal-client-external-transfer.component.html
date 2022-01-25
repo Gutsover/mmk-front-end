@@ -15,13 +15,25 @@
         <div class="form__body__check__debit">
           <h6>Compte à débiter</h6>
           <div class="choice">
-            <input class="" type="checkbox" name="currentAccount" />
+            <input
+              class=""
+              type="radio"
+              name="accountType"
+              value="current"
+              [(ngModel)]="accountType"
+            />
             <label for="currentAccount" class="form__label"
               >Compte courant</label
             >
           </div>
           <div class="choice">
-            <input class="" type="checkbox" name="savingsAccount" />
+            <input
+              class=""
+              type="radio"
+              name="accountType"
+              value="saving"
+              [(ngModel)]="accountType"
+            />
             <label for="savingsAccount" class="form__label"
               >Compte épargne</label
             >
@@ -30,13 +42,27 @@
 
         <div class="form__body__receiver">
           <h6>Numéro du compte à approvisionner</h6>
-          <label for="currentAccount" class="form__label">Compte receveur</label>
-          <input class="input-global-modal" type="text" name="receiverAccount" />
+          <label for="currentAccount" class="form__label"
+            >Compte receveur</label
+          >
+          <input
+            class="input-global-modal"
+            type="text"
+            name="receiverAccount"
+            [(ngModel)]="iban"
+          />
         </div>
       </div>
 
+      <input
+        class="modal__form__input"
+        type="number"
+        [(ngModel)]="amount"
+        [ngModelOptions]="{ standalone: true }"
+      />
       <button
         class="btn-global btn-global-orange form__body__btn"
+        (click)="sendData()"
         mat-dialog-close
       >
         valider

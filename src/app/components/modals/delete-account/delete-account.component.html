@@ -1,34 +1,29 @@
-<div class="modal shadow radius" id="deleteAccount">
+<div class="modal shadow radius" id="deleteAccount" role="dialog" aria-labelledby="modalDeleteAccount" aria-describedby="dialogDesc">
   <div class="modal__title">
-    <h5>Supprimer le compte</h5>
+    <h5 modalDeleteAccount>Supprimer le compte</h5>
     <a
       ><img
         src="../../../assets/img/icons/close-white.svg"
         alt="fermer la pop-up"
         class="clickable-icon"
+        aria-label="close-modal"
         mat-dialog-close
     /></a>
   </div>
   <div class="modal__body">
-    <form action="" class="form">
-      <h6 class="is-bold">êtes-vous sure de vouloir supprimer ce compte ?</h6>
-      <p>Cette action est irrémédiable.</p>
-      <p>Le compte ne doit pas être créditeur ou débitaire.</p>
+    <form action="" class="form" id="dialogDesc">
+      <h6 class="is-bold">
+        êtes-vous sure de vouloir supprimer ce compte?
+      </h6>
+      <p>(Cette action est irrémédiable)</p>
+      <div class="choice"></div>
 
-      <div class="choice">
-        <div class="choice__resp">
-          <input class="" type="checkbox" name="yes" />
-          <label for="yes" class="form__label">Supprimer le compte</label>
-        </div>
-
-        <div class="choice__resp">
-          <input class="" type="checkbox" name="no" />
-          <label for="no" class="form__label">Ne pas supprimer le compte</label>
-        </div>
-      </div>
-
-      <button class="btn-global btn-global-orange form__body__btn">
-        valider
+      <button
+        (click)="deleteAccount()"
+        class="btn-global btn-global-orange form__body__btn"
+        aria-label="delete account"
+      >
+        J'en suis sur!
       </button>
     </form>
   </div>

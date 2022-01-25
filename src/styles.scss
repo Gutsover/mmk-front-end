@@ -195,7 +195,9 @@ a {
   }
   .form__body__btn {
     margin-top: 4rem;
-    margin-left: 45%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 .input-global-modal {
@@ -252,6 +254,7 @@ body {
     left: 0%;
     width: 100%;
     height: 100%;
+    overflow: auto;
   }
   app-client-identity {
     grid-row: 2/2;
@@ -277,6 +280,7 @@ body {
   }
 }
 
+//__________________MEDIA QUERIES GLOBAL___________________
 @media screen and (max-width: 525px) {
   .modal {
     .modal__body {
@@ -292,9 +296,16 @@ body {
   }
 }
 
+.modal__form__input {
+  display: block;
+  margin: 4rem auto 0 auto;
+  padding: 0.5rem;
+}
 @media screen and (max-width: 1105px) {
   .main {
     margin-left: 0;
+    padding: 0 0.5rem;
+    // margin-bottom: 1.5rem;
   }
 }
 
@@ -314,7 +325,7 @@ body {
   }
 
   label #btn {
-    left: 40px;
+    left: 12px;
     top: 25px;
     font-size: 35px;
     color: $whitesmoke;
@@ -345,6 +356,11 @@ body {
     left: 18px;
   }
 }
+.error {
+  padding: 1rem;
+  color: white;
+  background-color: $reddish;
+}
 
 @media screen and (min-width: 1105px) {
   .burger {
@@ -367,4 +383,3 @@ body {
 }
 
 //_____________________________________________________
-

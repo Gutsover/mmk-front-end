@@ -1,6 +1,6 @@
-<div class="modal shadow radius" id="modalUpdateClient">
+<div class="modal shadow radius" id="modalUpdateClient" role="dialog" aria-labelledby="modalUpdateInformationsClient" aria-describedby="dialogDesc">
   <div class="modal__title">
-    <h5>modifier les coordonnées client</h5>
+    <h5 id="modalUpdateInformationsClient">modifier les coordonnées client</h5>
     <a
       ><img
         src="../../../assets/img/icons/close-white.svg"
@@ -8,6 +8,7 @@
         class="clickable-icon"
         mat-dialog-close
         (click)="closeModal()"
+        aria-label="close-modal"
     /></a>
   </div>
   <div class="modal__body">
@@ -16,6 +17,7 @@
       action=""
       class="form"
       (ngSubmit)="sendData()"
+      id="dialogDesc"
     >
       <div class="form__body">
         <label for="lastname" class="form__label">Nom</label>
@@ -25,6 +27,7 @@
           placeholder="Nom de famille "
           name="lastname"
           formControlName="name"
+          aria-label="update client's name"
         />
       </div>
       <div class="form__body">
@@ -35,6 +38,7 @@
           placeholder="Prénom"
           name="name"
           formControlName="firstname"
+          aria-label="update client's firstname"
         />
       </div>
       <div class="form__body">
@@ -45,18 +49,10 @@
           placeholder="Date de naissance"
           name="birthday"
           formControlName="birth"
+          aria-label="update client's birthdate"
         />
       </div>
-      <div class="form__body">
-        <label for="address" class="form__label">Nom de la rue</label>
-        <input
-          class="form__input input-global-modal"
-          type="text"
-          placeholder="Nom de la rue"
-          name="address"
-          formControlName="streetName"
-        />
-      </div>
+      
       <div class="form__body">
         <label for="address" class="form__label">Telephone</label>
         <input
@@ -65,6 +61,7 @@
           placeholder="Telephone"
           name="address"
           formControlName="phoneNumber"
+          aria-label="update client's phone number"
         />
       </div>
       <div class="form__body">
@@ -75,6 +72,18 @@
           placeholder="Numero de la rue"
           name="address"
           formControlName="streetNumber"
+          aria-label="update client's street number"
+        />
+      </div>
+      <div class="form__body">
+        <label for="address" class="form__label">Nom de la rue</label>
+        <input
+          class="form__input input-global-modal"
+          type="text"
+          placeholder="Nom de la rue"
+          name="address"
+          formControlName="streetName"
+          aria-label="update client's street name"
         />
       </div>
       <div class="form__body">
@@ -85,6 +94,7 @@
           placeholder="Ville"
           name="city"
           formControlName="city"
+          aria-label="update client's city"
         />
       </div>
       <div class="form__body">
@@ -94,11 +104,33 @@
           type="text"
           placeholder="Code postal"
           formControlName="zipCode"
+          aria-label="update client's zipcode"
+        />
+      </div>
+      <div class="form__body" *ngIf="currentClient.isEnterprise === true">
+        <label for="enterpriseName" class="form__label">Nom de l'entreprise</label>
+        <input
+          class="form__input input-global-modal"
+          type="text"
+          placeholder="nom d'entreprise"
+          formControlName="enterpriseName"
+          aria-label="update client's enterpriseName"
+        />
+      </div>
+      <div class="form__body" *ngIf="currentClient.isEnterprise === true">
+        <label for="siretNbr" class="form__label">N° de siret</label>
+        <input
+          class="form__input input-global-modal"
+          type="number"
+          placeholder="numéro de siret"
+          formControlName="siretNbr"
+          aria-label="update client's siretNbr"
         />
       </div>
       <button
         type="submit"
         class="btn-global btn-global-orange form__body__btn"
+        aria-label="validate updating"
       >
         valider
       </button>

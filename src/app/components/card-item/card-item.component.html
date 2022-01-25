@@ -1,0 +1,29 @@
+<div class="container__main__card--info">
+  <h6>{{ card.type }} ({{ card.id }})</h6>
+  <img
+    src="{{
+      card.type === 'VPC'
+        ? '../../../assets/img/visa_premier 1.svg'
+        : '../../../assets/img/electron.svg'
+    }}"
+    alt="Carte de crédit du client"
+  />
+</div>
+<div class="container__main__card--actions">
+  <button
+    class="is-bold is-activated clickable-icon"
+    (click)="activateOrDeactivate()"
+    title="la carte est actuellement {{
+      card.isActivated ? 'Activé' : 'Desactivé'
+    }}"
+  >
+    {{ card.isActivated ? "Inactive" : "Active" }}
+  </button>
+  <a
+    ><img
+      src="../../../assets/img/icons/trash.svg"
+      alt="Supprimer la carte de crédit"
+      class="clickable-icon"
+      (click)="deleteCreditCard(card.id)"
+  /></a>
+</div>

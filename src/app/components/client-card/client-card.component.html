@@ -1,4 +1,4 @@
-<div class="container radius shadow">
+<div *ngIf="currentClient" class="container radius shadow">
   <div class="container__title">
     <h4>
       Carte(s)
@@ -7,27 +7,19 @@
           src="../../../assets/img/icons/plus.svg"
           alt="Ajouter une nouvelle carte de crédit"
           class="clickable-icon"
-          (click) = "openModalAddCreditCard()"
+          (click)="openModalAddCreditCard()"
       /></a>
     </h4>
   </div>
-  <div class="container__main">
-    <h6>Visa Premium</h6>
-    <div class="container__main__cards">
-      <img
-        src="../../../assets/img/visa_premier 1.svg"
-        alt="Carte de crédit du client"
-      />
-      <div class="container__main__card--actions">
-        <button class="is-bold is-activated" (click)="activateOrDeactivate()" title="la carte est actuellement {{ isActivateText }}">{{ statusCard }}</button>
-        <a
-          ><img
-            src="../../../assets/img/icons/trash.svg"
-            alt="Supprimer la carte de crédit"
-            class="clickable-icon"
-            (click)="deleteCreditCard()"
-        /></a>
-      </div>
+  <div *ngIf="currentClient" class="container__main">
+    <div
+      *ngFor="let card of currentClient.cards"
+      class="container__main__cards"
+    >
+      <app-card-item
+        [card]="card"
+        [currentUserId]="currentUserId"
+      ></app-card-item>
     </div>
   </div>
 </div>

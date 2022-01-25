@@ -35,6 +35,9 @@ export class ModalClientIdentityComponent implements OnInit {
       ],
       city: [this.data.currentClient.address.city, Validators.required],
       zipCode: [this.data.currentClient.address.zipCode, Validators.required],
+      
+      enterpriseName: [this.data.currentClient.enterpriseName, this.currentClient.isEnterprise ? Validators.required : []],
+      siretNbr: [this.data.currentClient.siretNbr],
     });
   }
   closeModal() {

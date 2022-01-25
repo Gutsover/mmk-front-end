@@ -10,45 +10,60 @@ import { AuthGuardService } from './services/auth-guard.service';
 import { CreateNewClientComponent } from './view/create-new-client/create-new-client.component';
 import { CreateAdvisorComponent } from './view/admin/create-advisor/create-advisor.component';
 import { ErrorpageComponent } from './components/errorpage/errorpage.component';
+import { OwnerGuardService } from './services/owner-guard.service';
+import {SimulationComponent} from "./view/simulation/simulation.component";
 const routes: Routes = [
-  {
-    path: 'dashboard',
-    component: DashboardComponent,
-    // canActivate: [AuthGuardService],
-  },
   { path: 'login', component: FormSigninHomeComponent },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
   {
-    path: 'client',
+    path: 'adm/dashboard',
+    component: DashboardComponent,
+    canActivate: [AuthGuardService, OwnerGuardService],
+  },
+  {
+    path: 'adv/dashboard',
+    component: DashboardComponent,
+    canActivate: [AuthGuardService],
+  },
+
+  {
+    path: 'adv/clients',
     component: ClientViewComponent,
-    // canActivate: [AuthGuardService],
+    canActivate: [AuthGuardService],
   },
   {
-    path: 'add-client',
+    path: 'adv/add-client',
     component: CreateNewClientComponent,
-    // canActivate: [AuthGuardService],
+    canActivate: [AuthGuardService],
   },
   {
-    path: 'advisors',
+    path: 'adv/simulation',
+    component: SimulationComponent,
+    canActivate: [AuthGuardService],
+  },
+  {
+    path: 'adm/advisors',
     component: AdvisorsListComponent,
-    // canActivate: [AuthGuardService],
+    canActivate: [AuthGuardService, OwnerGuardService],
   },
   {
     path: 'adm/audit',
     component: AuditComponent,
-    // canActivate: [AuthGuardService],
+    canActivate: [AuthGuardService, OwnerGuardService],
   },
   {
     path: 'adm/clients',
     component: ClientsComponent,
-    // canActivate: [AuthGuardService],
+    canActivate: [AuthGuardService, OwnerGuardService],
   },
   {
-    path: 'adm/newadvisor',
+    path: 'adm/add-advisor',
     component: CreateAdvisorComponent,
-    // canActivate: [AuthGuardService],
+    canActivate: [AuthGuardService, OwnerGuardService],
   },
   {
-    path: '**', pathMatch: 'full',
+    path: '**',
+    pathMatch: 'full',
     component: ErrorpageComponent,
   },
 ];

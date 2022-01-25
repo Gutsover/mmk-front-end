@@ -1,72 +1,55 @@
-<div class="modal shadow radius" id="modalUpdateClient">
+<div class="modal shadow radius" id="modalUpdateAdvisor" role="dialog" aria-labelledby="modalUpdateInformationsAdvisor" aria-describedby="dialogDesc">
   <div class="modal__title">
-    <h5>modifier le conseiller</h5>
+    <h5 id="modalUpdateInformationsAdvisor">modifier le conseiller</h5>
     <a
       ><img
         src="../../../assets/img/icons/close-white.svg"
         alt="fermer la pop-up"
         class="clickable-icon"
+        aria-label="close-modal"
         mat-dialog-close
     /></a>
   </div>
   <div class="modal__body">
-    <form action="" class="form">
+    <form class="form" [formGroup]="advisorUpdateForm" (ngSubmit)="send()" id="dialogDesc">
       <div class="form__body">
-        <label for="lastname" class="form__label">Nom</label>
+        <label for="name" class="form__label">Nom</label>
         <input
           class="form__input input-global-modal"
           type="text"
           placeholder="Nom de famille "
-          name="lastname"
+          name="name"
+          formControlName="name"
+          aria-label="update advisor's name"
         />
       </div>
       <div class="form__body">
-        <label for="login" class="form__label">Prénom</label>
+        <label for="firstName" class="form__label">Prénom</label>
         <input
           class="form__input input-global-modal"
           type="text"
           placeholder="Prénom"
-          name="name"
+          name="firstName"
+          formControlName="firstName"
+          aria-label="update advisor's firstname"
         />
       </div>
       <div class="form__body">
-        <label for="lastname" class="form__label">Date de naissance</label>
+        <label for="email" class="form__label">Adresse Email</label>
         <input
           class="form__input input-global-modal"
-          type="date"
-          placeholder="Date de naissance"
-          name="birthday"
+          type="email"
+          placeholder="email"
+          name="email"
+          formControlName="email"
+          aria-label="update advisor's email"
         />
       </div>
-      <div class="form__body">
-        <label for="address" class="form__label">Adresse</label>
-        <input
-          class="form__input input-global-modal"
-          type="text"
-          placeholder="Adresse"
-          name="address"
-        />
-      </div>
-      <div class="form__body">
-        <label for="city" class="form__label">Ville</label>
-        <input
-          class="form__input input-global-modal"
-          type="text"
-          placeholder="Ville"
-          name="city"
-        />
-      </div>
-      <div class="form__body">
-        <label for="zipcode" class="form__label">Code postal</label>
-        <input
-          class="form__input input-global-modal"
-          type="text"
-          placeholder="Code postal"
-          name="zipcode"
-        />
-      </div>
+
       <button
+        type="submit"
         class="btn-global btn-global-orange form__body__btn"
+        aria-label="validate updating"
         mat-dialog-close
       >
         valider
