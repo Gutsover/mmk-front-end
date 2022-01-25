@@ -361,6 +361,12 @@ body {
   color: white;
   background-color: $reddish;
 }
+.error-form {
+  margin-left: 1rem;
+  font-size: 12px;
+  color: $reddish;
+}
+
 
 @media screen and (min-width: 1105px) {
   .burger {
