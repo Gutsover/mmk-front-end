@@ -8,11 +8,13 @@ import { MAT_SNACK_BAR_DATA } from '@angular/material/snack-bar';
 })
 export class SnackComponent implements OnInit {
   text: string = '';
+  css: string = '';
 
   constructor(@Inject(MAT_SNACK_BAR_DATA) public data: any) {}
 
   ngOnInit(): void {
     this.text = '';
     this.text = this.data.text;
+    this.css = this.data.css;
   }
 }
