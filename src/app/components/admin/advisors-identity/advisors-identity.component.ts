@@ -30,13 +30,18 @@ export class AdvisorsIdentityComponent implements OnInit {
         return;
       } else {
         res.id = this.currentAdvisorId;
-        this.advisorService.updateAdvisor(res).subscribe();
+        this.advisorService.updateAdvisor(res);
       }
     });
   }
 
   deleteAdvisor() {
     const dialogRef = this.dialog.open(DeleteAdvisorComponent);
+    dialogRef.afterClosed().subscribe((res) => {
+      if (res === true) {
+        this.advisorService.deleteAdvisor(this.currentAdvisorId);
+      }
+    });
   }
 
   ngOnInit(): void {
