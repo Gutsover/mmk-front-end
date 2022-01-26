@@ -4,6 +4,8 @@ import { BehaviorSubject, Observable, throwError } from 'rxjs';
 import { catchError, retry, takeWhile } from 'rxjs/operators';
 import { AppSettings } from '../AppSettings';
 import { AuthGuardService } from './auth-guard.service';
+import {SnackComponent} from "../components/snack/snack.component";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Injectable({
   providedIn: 'root',
@@ -105,7 +107,9 @@ export class ClientService {
           this.getClientByAdvisor(this.authguard.getCurrentUser().idEmployee);
         }
         this.getClientAJAX(clientInfo.id);
-      });
+        this.openSnackBar("Client modifié !", "success");
+      },
+        (error => this.openSnackBar("Vérifiez que les informations entrées soient valides", "error")));
   }
   deleteClient(id: Number) {
     this.http
@@ -117,6 +121,20 @@ export class ClientService {
           this.getClientByAdvisor(this.authguard.getCurrentUser().idEmployee);
         }
       });
+        this.openSnackBar("Client supprimé !", "success"),
+        ((error: any) => this.openSnackBar("Vérifiez que les comptes soient vides et les cartes désactivées", "error"));
   }
-  constructor(private http: HttpClient, private authguard: AuthGuardService) {}
+
+  constructor(private http: HttpClient, private authguard: AuthGuardService, private _snackBar: MatSnackBar) {}
+
+  openSnackBar(text: string, css: string) {
+    this._snackBar.openFromComponent(SnackComponent, {
+      data: {
+        text: text,
+        css: css
+      },
+      horizontalPosition: 'right',
+      duration: 5 * 1000,
+    });
+  }
 }
