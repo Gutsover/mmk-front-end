@@ -13,7 +13,6 @@ export class AdvisorsClientListComponent implements OnInit {
 
   ngOnInit(): void {
     this.advisorService.advisor$.subscribe((res) => {
-      console.log(res);
       this.clients = res.clients;
     });
   }
