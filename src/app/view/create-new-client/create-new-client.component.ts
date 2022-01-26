@@ -28,7 +28,7 @@ export class CreateNewClientComponent implements OnInit {
     streetName: ['', Validators.required],
     city: ['', Validators.required],
     zipCode: ['', Validators.required],
-    phoneNumber: ['', Validators.required],
+    phoneNumber: ['', Validators.required]
   });
 
   ngOnInit(): void {}
@@ -39,7 +39,7 @@ export class CreateNewClientComponent implements OnInit {
         ...this.clientForm.value,
         isEnterprise: this.isEnterprise,
       };
-      this.clientService.createClient(newClientInfo);     
+      this.clientService.createClient(newClientInfo);
       this.submitted = true;
       this.router.navigate(['/adv/clients']);
     } else {
