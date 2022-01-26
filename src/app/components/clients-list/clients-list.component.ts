@@ -2,7 +2,7 @@ import { EventEmitter, Input, Output } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ClientService } from 'src/app/services/client.service';
-import {AuthGuardService} from "../../services/auth-guard.service";
+import { AuthGuardService } from '../../services/auth-guard.service';
 
 @Component({
   selector: 'app-clients-list',
@@ -17,9 +17,9 @@ export class ClientsListComponent implements OnInit {
 
   constructor(
     public clientService: ClientService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private authguard: AuthGuardService
   ) {}
-
   @Output()
   clientupdate: EventEmitter<any> = new EventEmitter();
 
@@ -29,9 +29,16 @@ export class ClientsListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.clientService.getClients().subscribe((res) => {
-      this.userList = res;
-    });
+    if (this.authguard.getCurrentUser().role.indexOf('ROLE_ADMIN') >= 0) {
+      this.clientService.getClientAdm().subscribe((res) => {
+        this.userList = res;
+      });
+    } else {
+      this.clientService.getClients().subscribe((res) => {
+        this.userList = res;
+      });
+    }
+
     this.route.queryParams.subscribe((params) => {
       const isEnterprise = params.isEnterprise;
       this.isEnterprise = isEnterprise === 'true';

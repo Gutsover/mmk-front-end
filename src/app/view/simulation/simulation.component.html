@@ -9,6 +9,7 @@
       [formGroup]="simulationForm"
       class="form form-login"
       (ngSubmit)="submit()"
+      #myForm="ngForm"
     >
       <div class="form__body">
         <label for="montant" class="form__label is-bold">Montant (en €)</label>
@@ -20,6 +21,14 @@
           formControlName="montant"
           [(ngModel)]="montant"
         />
+        <span
+          class="error-form"
+          *ngIf="
+            simulationForm.controls['montant'].hasError('required') &&
+            myForm.submitted
+          "
+          >Entrez un montant valide</span
+        >
       </div>
       <div class="form__body">
         <label for="duree" class="form__label is-bold">Durée (en mois)</label>
@@ -31,6 +40,14 @@
           name="duree"
           [(ngModel)]="duree"
         />
+        <span
+          class="error-form"
+          *ngIf="
+            simulationForm.controls['duree'].hasError('required') &&
+            myForm.submitted
+          "
+          >Entrez une durée valide en mois</span
+        >
       </div>
 
       <div class="form__body">
@@ -45,6 +62,14 @@
           name="interet"
           [(ngModel)]="interet"
         />
+        <span
+          class="error-form"
+          *ngIf="
+            simulationForm.controls['interet'].hasError('required') &&
+            myForm.submitted
+          "
+          >Entrez un taux d'interêt valide</span
+        >
       </div>
       <button
         type="submit"
@@ -56,15 +81,15 @@
 
     <div class="result">
       <h6>Cout du crédit :</h6>
-      <p>{{ coutCredit | currency:'EUR': true }}</p>
+      <p>{{ coutCredit | currency: "EUR":true }}</p>
     </div>
     <div class="result">
       <h6>Mensualités :</h6>
-      <p>{{ mensualite | currency:'EUR': true }}</p>
+      <p>{{ mensualite | currency: "EUR":true }}</p>
     </div>
     <div class="result">
       <h6>Loyer total :</h6>
-      <p>{{ loyerTotal | currency:'EUR': true }}</p>
+      <p>{{ loyerTotal | currency: "EUR":true }}</p>
     </div>
   </div>
 </div>
