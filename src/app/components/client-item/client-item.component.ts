@@ -1,15 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-client-item',
   templateUrl: './client-item.component.html',
-  styleUrls: ['./client-item.component.scss']
+  styleUrls: ['./client-item.component.scss'],
 })
 export class ClientItemComponent implements OnInit {
+  @Input()
+  clientInfo: any = '';
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

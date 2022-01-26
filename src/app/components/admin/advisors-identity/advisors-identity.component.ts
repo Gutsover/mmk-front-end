@@ -15,6 +15,7 @@ export class AdvisorsIdentityComponent implements OnInit {
     private advisorService: AdvisorsService
   ) {}
   currentAdvisor: any = null;
+
   @Input()
   currentAdvisorId: number = 1;
 
@@ -34,21 +35,15 @@ export class AdvisorsIdentityComponent implements OnInit {
     });
   }
 
-  fetchAdvisorInfo(id: Number) {
-    this.advisorService
-      .getAdvisor(id)
-      .subscribe((res) => (this.currentAdvisor = res));
-  }
-
   deleteAdvisor() {
     const dialogRef = this.dialog.open(DeleteAdvisorComponent);
   }
 
   ngOnInit(): void {
-    this.fetchAdvisorInfo(this.currentAdvisorId);
-  }
-
-  ngOnChanges(): void {
-    this.fetchAdvisorInfo(this.currentAdvisorId);
+    this.advisorService
+      .getAdvisor(this.currentAdvisorId)
+      .subscribe((res: any) => {
+        this.currentAdvisor = res;
+      });
   }
 }

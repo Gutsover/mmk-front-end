@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { AppSettings } from '../AppSettings';
 
@@ -9,22 +9,37 @@ import { AppSettings } from '../AppSettings';
 export class AdvisorsService {
   constructor(private http: HttpClient) {}
 
-  getAdvisors(): Observable<any> {
-    return this.http.get('http://localhost:8080/employees/advisors');
+  public advisors$: BehaviorSubject<any> = new BehaviorSubject('');
+  public advisor$: BehaviorSubject<any> = new BehaviorSubject('');
+
+  getAdvisorsAJAX(): void {
+    this.http
+      .get('http://localhost:8080/employees/advisors')
+      .subscribe((res) => {
+        this.advisors$.next(res);
+      });
   }
 
-  getAdvisor(id: Number): Observable<Object> {
-    return this.http.get(`${AppSettings.API_ENDPOINT}employees/advisor/${id}`);
+  getAdvisors(): any {
+    this.getAdvisorsAJAX();
+    return this.advisors$.asObservable();
+  }
+
+  getAdvisorAJAX(id: number) {
+    this.http
+      .get(`${AppSettings.API_ENDPOINT}employees/advisor/${id}`)
+      .subscribe((res) => {
+        this.advisor$.next(res);
+      });
+  }
+
+  getAdvisor(id: number): any {
+    this.getAdvisorAJAX(id);
+    return this.advisor$.asObservable();
   }
 
   createAdvisor(advisorInfo: any): Observable<Object> {
-    const {
-      name,
-      firstname,
-      email,
-      password,
-      username
-    } = advisorInfo;
+    const { name, firstname, email, password, username } = advisorInfo;
 
     const advisorInfoObj = {
       username: username,
@@ -33,11 +48,13 @@ export class AdvisorsService {
       email: email,
       password: password,
     };
-    return this.http.post(`${AppSettings.API_ENDPOINT}auth/signup/advisor`, advisorInfoObj);
+    return this.http.post(
+      `${AppSettings.API_ENDPOINT}auth/signup/advisor`,
+      advisorInfoObj
+    );
   }
 
   updateAdvisor(advisorInfo: any): Observable<Object> {
     return this.http.put(`${AppSettings.API_ENDPOINT}advisor`, advisorInfo);
   }
-  
 }

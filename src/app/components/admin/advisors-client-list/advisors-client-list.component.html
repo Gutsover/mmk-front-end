@@ -1,10 +1,9 @@
 <div class="advisors__clients pad container shadow radius">
-  <h4>Clients assigné (10/10)</h4>
+  <h4>Clients assigné {{ clients.length }} / 10</h4>
   <div class="pad">
-    <app-client-item></app-client-item>
-    <app-client-item></app-client-item>
-    <app-client-item></app-client-item>
-    <app-client-item></app-client-item>
-    <app-client-item></app-client-item>
+    <app-client-item
+      *ngFor="let client of clients"
+      [clientInfo]="client"
+    ></app-client-item>
   </div>
 </div>
