@@ -20,8 +20,7 @@ export type ChartOptions = {
   styleUrls: ['./history-transactions.component.scss'],
 })
 export class HistoryTransactionsComponent implements OnInit {
-  @ViewChild('chart')
-  chart: ChartComponent = new ChartComponent();
+  @ViewChild('chart') chart!: ChartComponent;
   public chartOptions: Partial<ChartOptions>;
 
   constructor() {
@@ -53,6 +52,12 @@ export class HistoryTransactionsComponent implements OnInit {
         ],
       },
     };
+  }
+
+  public validateOptions(options: ChartOptions): any {
+    return (
+      options?.series && options?.chart && options?.title && options?.xaxis
+    );
   }
 
   ngOnInit(): void {}

@@ -4,15 +4,18 @@
   <div class="main radius pad">
     <h4>Historique des transactions</h4>
 
-    <!-- <div style="text-align: center">
+    <div
+      style="text-align: center"
+      *ngIf="validateOptions(chartOptions)"
+    >
       <apx-chart
         [series]="chartOptions.series"
         [chart]="chartOptions.chart"
         [xaxis]="chartOptions.xaxis"
         [title]="chartOptions.title"
-      ></apx-chart> -->
-      
+      ></apx-chart>
+    </div>
   </div>
-</div>
 
-<app-footer></app-footer>
+  <app-footer></app-footer>
+</div>
