@@ -50,7 +50,7 @@ export class ClientAccountComponent implements OnInit {
         }
       if (res == 'saving') {
         if (this.savingAccount) {
-          this.openSnackBar('Le client a deja un compte client');
+          this.openSnackBar('Le client a deja un compte épargne');
           return;
         } else {
           this.accountService.createAccount(res, this.currentUserId).subscribe(
