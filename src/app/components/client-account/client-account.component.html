@@ -1,4 +1,4 @@
-<div class="container pad radius shadow">
+<div class="container pad radius shadow" *ngIf="currentClient">
   <div class="container__title">
     <h4>
       Compte(s)
@@ -50,6 +50,8 @@
       (click)="openModalExternalTransfer()"
       >Virement externe</a
     >
-    <a routerLink="/adv/simulation" class="btn-global btn-global-blue--outline">Simulation de crédit</a>
+    <a routerLink="/adv/simulation" class="btn-global btn-global-blue--outline"
+      >Simulation de crédit</a
+    >
   </div>
 </div>
