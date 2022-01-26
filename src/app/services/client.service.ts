@@ -21,6 +21,10 @@ export class ClientService {
     });
   }
 
+  getClientAdm() {
+    this.getClientsAJAX();
+    return this.clientList$.asObservable();
+  }
   getClients() {
     this.getClientByAdvisor(this.authguard.getCurrentUser().idEmployee);
     //this.getClientsAJAX();
@@ -54,7 +58,6 @@ export class ClientService {
   }
 
   createClient(clientInfo: any) {
-    console.log(this.authguard.getCurrentUser().idEmployee);
     const {
       name,
       firstname,
@@ -96,7 +99,11 @@ export class ClientService {
     this.http
       .put(`${AppSettings.API_ENDPOINT}client`, clientInfo)
       .subscribe(() => {
-        this.getClientByAdvisor(this.authguard.getCurrentUser().idEmployee);
+        if (this.authguard.getCurrentUser().role.indexOf('ROLE_ADMIN') >= 0) {
+          this.getClientsAJAX();
+        } else {
+          this.getClientByAdvisor(this.authguard.getCurrentUser().idEmployee);
+        }
         this.getClientAJAX(clientInfo.id);
       });
   }
@@ -104,7 +111,11 @@ export class ClientService {
     this.http
       .delete(`${AppSettings.API_ENDPOINT}client/${id}`)
       .subscribe(() => {
-        this.getClientByAdvisor(this.authguard.getCurrentUser().idEmployee);
+        if (this.authguard.getCurrentUser().role.indexOf('ROLE_ADMIN') >= 0) {
+          this.getClientsAJAX();
+        } else {
+          this.getClientByAdvisor(this.authguard.getCurrentUser().idEmployee);
+        }
       });
   }
   constructor(private http: HttpClient, private authguard: AuthGuardService) {}
