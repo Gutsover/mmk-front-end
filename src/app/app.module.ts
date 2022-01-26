@@ -58,6 +58,7 @@ import { SimulationComponent } from './view/simulation/simulation.component';
 
 import { PhoneFormatPipe } from './pipes/phone-format.pipe';
 import { HistoryTransactionsComponent } from './view/admin/history-transactions/history-transactions.component';
+import { NgApexchartsModule } from 'ng-apexcharts';
 
 @NgModule({
   declarations: [
@@ -120,6 +121,7 @@ import { HistoryTransactionsComponent } from './view/admin/history-transactions/
     BrowserAnimationsModule,
     MatDialogModule,
     MatSnackBarModule,
+    NgApexchartsModule,
   ],
   providers: [
     {
