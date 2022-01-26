@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthGuardService } from 'src/app/services/auth-guard.service';
 
 @Component({
   selector: 'app-greeting',
@@ -7,7 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GreetingComponent implements OnInit {
   today = new Date().toLocaleDateString();
-  constructor() {}
+  name = '';
+  constructor(private authGuard: AuthGuardService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.name = this.authGuard.getCurrentUser().sub;
+  }
 }

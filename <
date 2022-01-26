@@ -9,7 +9,9 @@ import { AuthGuardService } from 'src/app/services/auth-guard.service';
 export class DashboardComponent implements OnInit {
   name: any = '';
 
-  constructor() {}
+  constructor(private authGuard: AuthGuardService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.name = this.authGuard.user.name;
+  }
 }
