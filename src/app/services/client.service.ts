@@ -4,8 +4,8 @@ import { BehaviorSubject, Observable, throwError } from 'rxjs';
 import { catchError, retry, takeWhile } from 'rxjs/operators';
 import { AppSettings } from '../AppSettings';
 import { AuthGuardService } from './auth-guard.service';
-import {SnackComponent} from "../components/snack/snack.component";
-import {MatSnackBar} from "@angular/material/snack-bar";
+import { SnackComponent } from '../components/snack/snack.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Injectable({
   providedIn: 'root',
@@ -98,40 +98,53 @@ export class ClientService {
       });
   }
   updateClient(clientInfo: any) {
-    this.http
-      .put(`${AppSettings.API_ENDPOINT}client`, clientInfo)
-      .subscribe(() => {
+    this.http.put(`${AppSettings.API_ENDPOINT}client`, clientInfo).subscribe(
+      () => {
         if (this.authguard.getCurrentUser().role.indexOf('ROLE_ADMIN') >= 0) {
           this.getClientsAJAX();
         } else {
           this.getClientByAdvisor(this.authguard.getCurrentUser().idEmployee);
         }
         this.getClientAJAX(clientInfo.id);
-        this.openSnackBar("Client modifié !", "success");
+        this.openSnackBar('Client modifié !', 'success');
       },
-        (error => this.openSnackBar("Vérifiez que les informations entrées soient valides", "error")));
+      (error) =>
+        this.openSnackBar(
+          'Vérifiez que les informations entrées soient valides',
+          'error'
+        )
+    );
   }
   deleteClient(id: Number) {
-    this.http
-      .delete(`${AppSettings.API_ENDPOINT}client/${id}`)
-      .subscribe(() => {
+    this.http.delete(`${AppSettings.API_ENDPOINT}client/${id}`).subscribe(
+      () => {
         if (this.authguard.getCurrentUser().role.indexOf('ROLE_ADMIN') >= 0) {
           this.getClientsAJAX();
         } else {
           this.getClientByAdvisor(this.authguard.getCurrentUser().idEmployee);
         }
-      });
-        this.openSnackBar("Client supprimé !", "success"),
-        ((error: any) => this.openSnackBar("Vérifiez que les comptes soient vides et les cartes désactivées", "error"));
+        this.openSnackBar('Client supprimé !', 'success');
+      },
+      (error: any) => {
+        this.openSnackBar(
+          'Vérifiez que les comptes soient vides et les cartes désactivées',
+          'error'
+        );
+      }
+    );
   }
 
-  constructor(private http: HttpClient, private authguard: AuthGuardService, private _snackBar: MatSnackBar) {}
+  constructor(
+    private http: HttpClient,
+    private authguard: AuthGuardService,
+    private _snackBar: MatSnackBar
+  ) {}
 
   openSnackBar(text: string, css: string) {
     this._snackBar.openFromComponent(SnackComponent, {
       data: {
         text: text,
-        css: css
+        css: css,
       },
       horizontalPosition: 'right',
       duration: 5 * 1000,
