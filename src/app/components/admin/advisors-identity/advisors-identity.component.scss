@@ -2,7 +2,7 @@
 
 .container {
   display: flex;
-  height: 150%;
+  height: 100%;
   flex-direction: column;
   align-content: space-between;
   background-color: $background-white;
@@ -38,13 +38,13 @@
     p {
       line-height: 30px;
       i {
-        margin-right: 30px;
+        margin-right: 16px;
       }
     }
   }
 }
 
-@media screen and (max-width: 910px ) {
+@media screen and (max-width: 910px) {
   .container {
     height: 100%;
   }
