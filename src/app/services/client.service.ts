@@ -95,7 +95,9 @@ export class ClientService {
       .post(`${AppSettings.API_ENDPOINT}client`, clientInfoObj)
       .subscribe(() => {
         this.getClients();
-      });
+        this.openSnackBar("Le client a bien été créé", "success");
+      },
+        error => this.openSnackBar("Vous avez trop de clients !", "error"));
   }
   updateClient(clientInfo: any) {
     this.http.put(`${AppSettings.API_ENDPOINT}client`, clientInfo).subscribe(
