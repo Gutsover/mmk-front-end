@@ -34,13 +34,12 @@ export class SimulationComponent implements OnInit {
   }
 
   submit(){
-    if (this.simulationForm.dirty && this.simulationForm.valid) {
+    if (this.simulationForm.dirty && this.simulationForm.valid && this.interet > 0 && this.duree > 0 && this.montant > 0 ) {
       console.log("IF");
       return this.simulation(this.interet, this.duree, this.montant);
     }
     else {
-      console.log("ELSE");
-      return;
+      console.log("je n'ai pas ma place.");
     }
   }
 
@@ -49,12 +48,6 @@ export class SimulationComponent implements OnInit {
     let interetMensuel = tauxInteretAnnuel / 12; // Taux annuel divisé par le nombre de mois dans une année...
     this.mensualite = montant * ((interetMensuel * (Math.pow(1 + interetMensuel, duree)))
       / ((Math.pow(1 + interetMensuel, duree)) - 1));
-    // Montant du prêt = M
-    // Taux d'intêret mensuel = i
-    // Nombre de mensualités = n
-    // Formule pour calculer le coût d'une mensualité = M * (i*(1 + i)^n) / ((1 +
-    // i)^n)-1
-
     this.loyerTotal = (this.mensualite * duree);
     this.coutCredit = this.loyerTotal - montant;
 

@@ -51,7 +51,9 @@ export class ClientAccountComponent implements OnInit {
         }
       if (res == 'saving') {
         if (this.savingAccount) {
-          this.openSnackBar('Le client a deja un compte épargne', "error");
+
+          this.openSnackBar('Le client a deja un compte épargne', "error");          
+
           return;
         } else {
           this.accountService.createAccount(res, this.currentUserId).subscribe(

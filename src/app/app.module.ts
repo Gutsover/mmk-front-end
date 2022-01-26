@@ -57,6 +57,7 @@ import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { SimulationComponent } from './view/simulation/simulation.component';
 
 import { PhoneFormatPipe } from './pipes/phone-format.pipe';
+import { HistoryTransactionsComponent } from './view/admin/history-transactions/history-transactions.component';
 
 @NgModule({
   declarations: [
@@ -107,6 +108,7 @@ import { PhoneFormatPipe } from './pipes/phone-format.pipe';
     SimulationComponent,
 
     PhoneFormatPipe,
+      HistoryTransactionsComponent,
 
   ],
   imports: [

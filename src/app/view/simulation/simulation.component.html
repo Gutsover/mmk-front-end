@@ -1,6 +1,7 @@
-<app-sidebar></app-sidebar>
+<app-home-header></app-home-header>
+
 <div class="container">
-  <app-home-header></app-home-header>
+  <app-sidebar></app-sidebar>
   <div class="main radius pad">
     <h4>Simulation de crédit</h4>
 
@@ -12,7 +13,7 @@
       <div class="form__body">
         <label for="montant" class="form__label is-bold">Montant (en €)</label>
         <input
-          class=""
+          class="input-global"
           type="number"
           placeholder="000 000 €"
           name="montant"
@@ -24,7 +25,7 @@
         <label for="duree" class="form__label is-bold">Durée (en mois)</label>
         <input
           formControlName="duree"
-          class=""
+          class="input-global"
           type="number"
           placeholder="120"
           name="duree"
@@ -33,10 +34,12 @@
       </div>
 
       <div class="form__body">
-        <label for="interet" class="form__label is-bold">Taux d'intérêt annuel</label>
+        <label for="interet" class="form__label is-bold"
+          >Taux d'intérêt annuel</label
+        >
         <input
           formControlName="interet"
-          class=""
+          class="input-global"
           type="number"
           placeholder="2%"
           name="interet"
@@ -50,15 +53,18 @@
         valider
       </button>
     </form>
-    <div class="entree">
-      Intéret annuel : {{ interet }}
-      Montant du prêt : {{ montant }}
-      Durée du pret : {{ duree }}
+
+    <div class="result">
+      <h6>Cout du crédit :</h6>
+      <p>{{ coutCredit | currency:'EUR': true }}</p>
     </div>
     <div class="result">
-      Cout du crédit : {{ loyerTotal | number : '1.2-2'}}€
-      Mensualités : {{ mensualite | number:'1.2-2'}}€
-      Loyer total : {{ coutCredit | number:'1.2-2'}}€
+      <h6>Mensualités :</h6>
+      <p>{{ mensualite | currency:'EUR': true }}</p>
+    </div>
+    <div class="result">
+      <h6>Loyer total :</h6>
+      <p>{{ loyerTotal | currency:'EUR': true }}</p>
     </div>
   </div>
 </div>
