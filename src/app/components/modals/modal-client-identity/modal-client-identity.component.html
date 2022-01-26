@@ -1,4 +1,10 @@
-<div class="modal shadow radius" id="modalUpdateClient" role="dialog" aria-labelledby="modalUpdateInformationsClient" aria-describedby="dialogDesc">
+<div
+  class="modal shadow radius"
+  id="modalUpdateClient"
+  role="dialog"
+  aria-labelledby="modalUpdateInformationsClient"
+  aria-describedby="dialogDesc"
+>
   <div class="modal__title">
     <h5 id="modalUpdateInformationsClient">modifier les coordonnées client</h5>
     <a
@@ -18,6 +24,7 @@
       class="form"
       (ngSubmit)="sendData()"
       id="dialogDesc"
+      #myForm="ngForm"
     >
       <div class="form__body">
         <label for="lastname" class="form__label">Nom</label>
@@ -30,6 +37,14 @@
           aria-label="update client's name"
         />
       </div>
+      <span
+        class="error-form"
+        *ngIf="
+          clientUpdateForm.controls['name'].hasError('required') &&
+          myForm.submitted
+        "
+        >Entrez un nom</span
+      >
       <div class="form__body">
         <label for="login" class="form__label">Prénom</label>
         <input
@@ -41,6 +56,14 @@
           aria-label="update client's firstname"
         />
       </div>
+      <span
+        class="error-form"
+        *ngIf="
+          clientUpdateForm.controls['firstname'].hasError('required') &&
+          myForm.submitted
+        "
+        >Entrez un prénom</span
+      >
       <div class="form__body">
         <label for="birthday" class="form__label">Date de naissance</label>
         <input
@@ -52,7 +75,14 @@
           aria-label="update client's birthdate"
         />
       </div>
-      
+      <span
+        class="error-form"
+        *ngIf="
+          clientUpdateForm.controls['birth'].hasError('required') &&
+          myForm.submitted
+        "
+        >Entrez une date de naissance</span
+      >
       <div class="form__body">
         <label for="address" class="form__label">Telephone</label>
         <input
@@ -64,6 +94,14 @@
           aria-label="update client's phone number"
         />
       </div>
+      <span
+        class="error-form"
+        *ngIf="
+          clientUpdateForm.controls['phoneNumber'].hasError('required') &&
+          myForm.submitted
+        "
+        >Entrez un numéro de téléphone</span
+      >
       <div class="form__body">
         <label for="address" class="form__label">Numero de la rue</label>
         <input
@@ -75,6 +113,14 @@
           aria-label="update client's street number"
         />
       </div>
+      <span
+        class="error-form"
+        *ngIf="
+          clientUpdateForm.controls['streetNumber'].hasError('required') &&
+          myForm.submitted
+        "
+        >Entrez le numéro de la rue</span
+      >
       <div class="form__body">
         <label for="address" class="form__label">Nom de la rue</label>
         <input
@@ -86,6 +132,14 @@
           aria-label="update client's street name"
         />
       </div>
+      <span
+        class="error-form"
+        *ngIf="
+          clientUpdateForm.controls['streetName'].hasError('required') &&
+          myForm.submitted
+        "
+        >Entrez le nom de la rue</span
+      >
       <div class="form__body">
         <label for="city" class="form__label">Ville</label>
         <input
@@ -97,6 +151,14 @@
           aria-label="update client's city"
         />
       </div>
+      <span
+        class="error-form"
+        *ngIf="
+          clientUpdateForm.controls['city'].hasError('required') &&
+          myForm.submitted
+        "
+        >Entrez la ville</span
+      >
       <div class="form__body">
         <label for="zipcode" class="form__label">Code postal</label>
         <input
@@ -107,8 +169,18 @@
           aria-label="update client's zipcode"
         />
       </div>
+      <span
+        class="error-form"
+        *ngIf="
+          clientUpdateForm.controls['zipCode'].hasError('required') &&
+          myForm.submitted
+        "
+        >Entrez un code postal</span
+      >
       <div class="form__body" *ngIf="currentClient.isEnterprise === true">
-        <label for="enterpriseName" class="form__label">Nom de l'entreprise</label>
+        <label for="enterpriseName" class="form__label"
+          >Nom de l'entreprise</label
+        >
         <input
           class="form__input input-global-modal"
           type="text"
@@ -117,6 +189,14 @@
           aria-label="update client's enterpriseName"
         />
       </div>
+      <span
+        class="error-form"
+        *ngIf="
+          clientUpdateForm.controls['enterpriseName'].hasError('required') &&
+          myForm.submitted
+        "
+        >Entrez le nom de l'entreprise</span
+      >
       <div class="form__body" *ngIf="currentClient.isEnterprise === true">
         <label for="siretNbr" class="form__label">N° de siret</label>
         <input
@@ -127,6 +207,14 @@
           aria-label="update client's siretNbr"
         />
       </div>
+      <span
+        class="error-form"
+        *ngIf="
+          clientUpdateForm.controls['siretNbr'].hasError('required') &&
+          myForm.submitted
+        "
+        >Entrez le n° de siret ou siren</span
+      >
       <button
         type="submit"
         class="btn-global btn-global-orange form__body__btn"
