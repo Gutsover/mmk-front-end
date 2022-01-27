@@ -30,4 +30,23 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 **ProxyBank is an intranet for bank employees**
 - Screen N°1: 'Authentication'
-![alt page login](assets/img/auth.png)
+![Page login](\src\assets\img\auth.png)
+
+- Screen N°2: 'List of customers'
+![Clients list](\src\assets\img\clients-list.png)
+
+- Screen N°3: 'List of advisers'
+![Advisors list](\src\assets\img\advisors-list.png)
+
+- Screen N°5: 'List of customer accounts'
+![customer's account](\src\assets\img\client-account.png)
+
+- Screen N°6: 'Transfer Account to Account'
+![transfer money](\src\assets\img\virement.png)
+
+- Screen N°7: 'Report on transactions'
+![Diagram of transactions](\src\assets\img\transactions.png)
+
+- Screen N°7: 'Page 404 Error'
+![Page 404 Error](\src\assets\img\error.png)
+
