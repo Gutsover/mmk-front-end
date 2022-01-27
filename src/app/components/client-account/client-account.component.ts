@@ -36,7 +36,7 @@ export class ClientAccountComponent implements OnInit {
     dialogRef.afterClosed().subscribe((res) => {
       if (res === 'current')
         if (this.currentAccount) {
-          this.openSnackBar('Le client a deja un compte courant');
+          this.openSnackBar('Le client a deja un compte courant', "error");
           return;
         } else {
           this.accountService.createAccount(res, this.currentUserId).subscribe(
@@ -44,13 +44,16 @@ export class ClientAccountComponent implements OnInit {
               this.accountService.getAccountAJAX(this.currentUserId);
             },
             (err) => {
-              this.openSnackBar(err.error.message);
+              this.openSnackBar(err.error.message, "error");
             }
           );
+          this.openSnackBar("Compte courant créé", "success");
         }
       if (res == 'saving') {
         if (this.savingAccount) {
-          this.openSnackBar('Le client a deja un compte client');
+
+          this.openSnackBar('Le client a deja un compte épargne', "error");          
+
           return;
         } else {
           this.accountService.createAccount(res, this.currentUserId).subscribe(
@@ -58,17 +61,19 @@ export class ClientAccountComponent implements OnInit {
               this.accountService.getAccountAJAX(this.currentUserId);
             },
             (err) => {
-              this.openSnackBar(err.error.message);
+              this.openSnackBar(err.error.message, "error");
             }
           );
+          this.openSnackBar("Compte épargne créé", "success");
         }
       }
     });
   }
-  openSnackBar(text: string) {
+  openSnackBar(text: string, css: string) {
     this._snackBar.openFromComponent(SnackComponent, {
       data: {
         text: text,
+        css: css
       },
       horizontalPosition: 'right',
       duration: 5 * 1000,
@@ -88,9 +93,10 @@ export class ClientAccountComponent implements OnInit {
           this.accountService.getAccountAJAX(this.currentUserId);
         },
         (err) => {
-          this.openSnackBar(err.error.message);
+          this.openSnackBar(err.error.message, "error");
         }
       );
+      this.openSnackBar("Virement effectué", "success");
     });
   }
   openModalExternalTransfer() {
@@ -106,9 +112,10 @@ export class ClientAccountComponent implements OnInit {
           this.accountService.getAccountAJAX(this.currentUserId);
         },
         (err) => {
-          this.openSnackBar(err.error.message);
+          this.openSnackBar(err.error.message, "error");
         }
       );
+      this.openSnackBar("Virement effectué", "success");
     });
   }
 
@@ -121,10 +128,11 @@ export class ClientAccountComponent implements OnInit {
             this.accountService.getAccountAJAX(this.currentUserId);
           },
           (err) => {
-            this.openSnackBar(err.error.message);
+            this.openSnackBar(err.error.message, "error");
           }
         );
       }
+      this.openSnackBar("Compte supprimé", "success");
     });
   }
 

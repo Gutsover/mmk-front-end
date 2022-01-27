@@ -7,7 +7,6 @@ import { AdvisorsService } from 'src/app/services/advisors.service';
   styleUrls: ['./advisors-list.component.scss'],
 })
 export class AdvisorsListComponent implements OnInit {
-
   @Input()
   currentAdvisorId: number = 1;
 
@@ -16,12 +15,14 @@ export class AdvisorsListComponent implements OnInit {
   constructor(private advisorService: AdvisorsService) {}
 
   ngOnInit(): void {
-    this.advisorService.getAdvisors().subscribe((res) => (this.advisors = res));
+    this.advisorService.getAdvisors().subscribe((res: any) => {
+      this.advisors = res;
+    });
   }
 
   updateAdvisorInfo(id: any): void {
     this.currentAdvisorId = id;
+    this.advisorService.getAdvisorsAJAX();
+    this.advisorService.getAdvisorAJAX(id);
   }
-
-
 }

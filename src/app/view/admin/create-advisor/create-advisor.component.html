@@ -4,10 +4,17 @@
   <div class="main radius pad">
     <h4>Enregistrer un nouveau conseiller</h4>
 
-    <form class="form" [formGroup]="advisorForm" (ngSubmit)="submit()">
+    <form
+      class="form"
+      #myForm="ngForm"
+      [formGroup]="advisorForm"
+      (ngSubmit)="submit()"
+      novalidate
+    >
       <div class="form__body">
         <label for="name" class="form__label is-bold">Nom</label>
         <input
+        [ngClass]="{'input--error': advisorForm.controls['name'].hasError('required') && myForm.submitted}"
           class=""
           type="text"
           placeholder="Nom de famille "
@@ -15,10 +22,19 @@
           formControlName="name"
           id="name"
         />
+        <span
+          class="error-form"
+          *ngIf="
+            advisorForm.controls['name'].hasError('required') &&
+            myForm.submitted
+          "
+          >Entrez un nom valide</span
+        >
       </div>
       <div class="form__body">
         <label for="firstname" class="form__label is-bold">Prénom</label>
         <input
+        [ngClass]="{'input--error': advisorForm.controls['firstname'].hasError('required') && myForm.submitted}"
           class=""
           type="text"
           placeholder="Prénom"
@@ -26,11 +42,20 @@
           formControlName="firstname"
           id="firstname"
         />
+        <span
+          class="error-form"
+          *ngIf="
+            advisorForm.controls['firstname'].hasError('required') &&
+            myForm.submitted
+          "
+          >Entrez un prénom valide</span
+        >
       </div>
 
       <div class="form__body">
         <label for="email" class="form__label is-bold">Email</label>
         <input
+        [ngClass]="{'input--error': advisorForm.controls['email'].hasError('required') && myForm.submitted}"
           class=""
           type="email"
           placeholder="adresse@mail"
@@ -38,6 +63,14 @@
           formControlName="email"
           id="email"
         />
+        <span
+          class="error-form"
+          *ngIf="
+            advisorForm.controls['email'].hasError('required') &&
+            myForm.submitted
+          "
+          >Entrez un E-mail valide</span
+        >
       </div>
 
       <div class="form__body">
@@ -45,6 +78,7 @@
           >ID de connexion</label
         >
         <input
+        [ngClass]="{'input--error': advisorForm.controls['username'].hasError('required') && myForm.submitted}"
           class=""
           type="text"
           placeholder="ID de connexion "
@@ -52,11 +86,20 @@
           formControlName="username"
           id="username"
         />
+        <span
+          class="error-form"
+          *ngIf="
+            advisorForm.controls['username'].hasError('required') &&
+            myForm.submitted
+          "
+          >Entrez un identifiant de connexion valide</span
+        >
       </div>
 
       <div class="form__body">
         <label for="password" class="form__label is-bold">Mot de passe</label>
         <input
+          [ngClass]="{'input--error': advisorForm.controls['password'].hasError('required') && myForm.submitted}"
           class=""
           type="password"
           placeholder="Password"
@@ -64,6 +107,14 @@
           formControlName="password"
           id="password"
         />
+        <span
+          class="error-form"
+          *ngIf="
+            advisorForm.controls['password'].hasError('required') &&
+            myForm.submitted
+          "
+          >Un mot de passe est obligatoire</span
+        >
       </div>
 
       <button

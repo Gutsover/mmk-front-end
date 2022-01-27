@@ -12,6 +12,7 @@ import { CreateAdvisorComponent } from './view/admin/create-advisor/create-advis
 import { ErrorpageComponent } from './components/errorpage/errorpage.component';
 import { OwnerGuardService } from './services/owner-guard.service';
 import {SimulationComponent} from "./view/simulation/simulation.component";
+import { HistoryTransactionsComponent } from './view/admin/history-transactions/history-transactions.component';
 const routes: Routes = [
   { path: 'login', component: FormSigninHomeComponent },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -59,6 +60,11 @@ const routes: Routes = [
   {
     path: 'adm/add-advisor',
     component: CreateAdvisorComponent,
+    canActivate: [AuthGuardService, OwnerGuardService],
+  },
+  {
+    path: 'adm/transactions',
+    component: HistoryTransactionsComponent,
     canActivate: [AuthGuardService, OwnerGuardService],
   },
   {

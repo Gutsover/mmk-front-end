@@ -22,8 +22,6 @@ export class AdvisorsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.advisorService.getAdvisors().subscribe((data) => {
-      this.advisors = data;
-    });
+    this.advisorService.getAdvisors();
   }
 }

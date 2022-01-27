@@ -1,9 +1,12 @@
 <div class="container radius pad shadow">
-  <div class="container__title" *ngIf="isEnterprise === false">
-    <h3>Mes clients particuliers</h3>
+  <div class="container__title" *ngIf="isEnterprise === false">  
+    <p>Vous avez à votre charge <span>{{userList.length}}</span> clients</p>
+    <h3><i class="fas fa-user"></i>Clients : particuliers</h3>
   </div>
-  <div class="container__title" *ngIf="isEnterprise === true">
-    <h3>Mes clients entreprises</h3>
+
+  <div class="container__title" *ngIf="isEnterprise === true">  
+    <p>Vous avez à votre charge <span>{{userList.length}}</span> clients</p>
+    <h3><i class="fas fa-user-tie"></i>Clients : entreprises</h3>
   </div>
 
   <div class="container__clients">

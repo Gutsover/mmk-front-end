@@ -1,0 +1,11 @@
+@import "../../../../styles.scss";
+
+.container {
+  background-color: $blue-glace;
+  height: 88%;
+  .main {
+    display: flex;
+    flex-direction: column;
+    font-family: Lato;
+  }
+}

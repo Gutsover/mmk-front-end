@@ -22,7 +22,10 @@
     <div class="sidebar__top">
       <div class="top__menu">
         <li class="menu__item">
-          <a href="" class="item__link" routerLink="/adm/clients"
+          <a
+            class="item__link"
+            routerLink="/adv/clients"
+            [queryParams]="{ isEnterprise: false }"
             ><img
               src="../../../assets/img/icons/clients.png"
               srcset="../../../assets/img/icons/clients.svg"
@@ -30,7 +33,23 @@
               width="12"
               height="8"
               class="link__icon"
-            />Liste clients</a
+            />Particuliers</a
+          >
+        </li>
+
+        <li class="menu__item">
+          <a
+            class="item__link"
+            routerLink="/adv/clients"
+            [queryParams]="{ isEnterprise: true }"
+            ><img
+              src="../../../assets/img/icons/clients.png"
+              srcset="../../../assets/img/icons/clients.svg"
+              alt="client"
+              width="12"
+              height="8"
+              class="link__icon"
+            />Entreprises</a
           >
         </li>
         <li class="menu__item">
@@ -67,6 +86,11 @@
               height="12"
               class="link__icon"
             />Nouveau conseiller</a
+          >
+        </li>
+        <li class="menu__item">
+          <a href="" class="item__link" routerLink="/adm/transactions"
+            ><i class="fas fa-chart-pie"></i>Historique de transactions</a
           >
         </li>
       </div>

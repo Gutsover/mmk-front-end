@@ -37,6 +37,8 @@ $sidebar: linear-gradient(
   rgba(45, 52, 54, 1) 100%
 );
 $reddish: #ff6868;
+$greenish: #27ae60;
+
 $shadow: -1px 1px 5px 1px rgba(33, 36, 37, 0.1);
 // Font
 $lato: "Lato", sans-serif;
@@ -163,7 +165,7 @@ a {
 .modal {
   position: absolute;
   background-color: $whitesmoke;
-  top: 20%;
+  top: 10%;
   left: 40%;
   .modal__title {
     display: flex;
@@ -191,6 +193,11 @@ a {
       justify-content: space-between;
       flex-wrap: wrap;
       align-items: center;
+
+      error-form {
+        color: $reddish;
+        font-size: 12px;
+      }
     }
   }
   .form__body__btn {
@@ -344,6 +351,7 @@ body {
   }
   #check:checked ~ .sidebar {
     transform: translateX(0px);
+    z-index: 1000;
   }
 
   #check:checked ~ label #btn {
@@ -360,6 +368,18 @@ body {
   padding: 1rem;
   color: white;
   background-color: $reddish;
+}
+.error-form {
+  margin-left: 1rem;
+  font-size: 12px;
+  color: $reddish;
+}
+
+
+.success {
+  padding: 1rem;
+  color: white;
+  background-color: $greenish;
 }
 
 @media screen and (min-width: 1105px) {

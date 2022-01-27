@@ -3,7 +3,9 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, throwError } from 'rxjs';
 import { catchError, retry, takeWhile } from 'rxjs/operators';
 import { AppSettings } from '../AppSettings';
-import {AuthGuardService} from "./auth-guard.service";
+import { AuthGuardService } from './auth-guard.service';
+import { SnackComponent } from '../components/snack/snack.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Injectable({
   providedIn: 'root',
@@ -21,8 +23,12 @@ export class ClientService {
     });
   }
 
+  getClientAdm() {
+    this.getClientsAJAX();
+    return this.clientList$.asObservable();
+  }
   getClients() {
-    this.getClientByAdvisor(this.authguard.getCurrentUser().idEmployee)
+    this.getClientByAdvisor(this.authguard.getCurrentUser().idEmployee);
     //this.getClientsAJAX();
     return this.clientList$.asObservable();
   }
@@ -37,7 +43,11 @@ export class ClientService {
 
   getClientByAdvisor(id: Number) {
     this.http
-      .get(`${AppSettings.API_ENDPOINT}client/advisor/${this.authguard.getCurrentUser().idEmployee}`)
+      .get(
+        `${AppSettings.API_ENDPOINT}client/advisor/${
+          this.authguard.getCurrentUser().idEmployee
+        }`
+      )
       .subscribe((res) => {
         this.clientList$.next(res);
       });
@@ -50,7 +60,6 @@ export class ClientService {
   }
 
   createClient(clientInfo: any) {
-    console.log(this.authguard.getCurrentUser().idEmployee);
     const {
       name,
       firstname,
@@ -79,32 +88,68 @@ export class ClientService {
         city: city,
         zipCode: zipCode,
       },
-      advisorId: this.authguard.getCurrentUser().idEmployee
+      advisorId: this.authguard.getCurrentUser().idEmployee,
     };
-console.log(clientInfoObj)
+    console.log(clientInfoObj);
     this.http
       .post(`${AppSettings.API_ENDPOINT}client`, clientInfoObj)
       .subscribe(() => {
         this.getClients();
-      });
+        this.openSnackBar("Le client a bien été créé", "success");
+      },
+        error => this.openSnackBar("Vous avez trop de clients !", "error"));
   }
   updateClient(clientInfo: any) {
-    this.http
-      .put(`${AppSettings.API_ENDPOINT}client`, clientInfo)
-      .subscribe(() => {
-        this.getClientsAJAX();
+    this.http.put(`${AppSettings.API_ENDPOINT}client`, clientInfo).subscribe(
+      () => {
+        if (this.authguard.getCurrentUser().role.indexOf('ROLE_ADMIN') >= 0) {
+          this.getClientsAJAX();
+        } else {
+          this.getClientByAdvisor(this.authguard.getCurrentUser().idEmployee);
+        }
         this.getClientAJAX(clientInfo.id);
-      });
+        this.openSnackBar('Client modifié !', 'success');
+      },
+      (error) =>
+        this.openSnackBar(
+          'Vérifiez que les informations entrées soient valides',
+          'error'
+        )
+    );
   }
   deleteClient(id: Number) {
-    this.http
-      .delete(`${AppSettings.API_ENDPOINT}client/${id}`)
-      .subscribe(() => {
-        this.getClientsAJAX();
-      });
+    this.http.delete(`${AppSettings.API_ENDPOINT}client/${id}`).subscribe(
+      () => {
+        if (this.authguard.getCurrentUser().role.indexOf('ROLE_ADMIN') >= 0) {
+          this.getClientsAJAX();
+        } else {
+          this.getClientByAdvisor(this.authguard.getCurrentUser().idEmployee);
+        }
+        this.openSnackBar('Client supprimé !', 'success');
+      },
+      (error: any) => {
+        this.openSnackBar(
+          'Vérifiez que les comptes soient vides et les cartes désactivées',
+          'error'
+        );
+      }
+    );
   }
+
   constructor(
     private http: HttpClient,
-    private authguard: AuthGuardService
+    private authguard: AuthGuardService,
+    private _snackBar: MatSnackBar
   ) {}
+
+  openSnackBar(text: string, css: string) {
+    this._snackBar.openFromComponent(SnackComponent, {
+      data: {
+        text: text,
+        css: css,
+      },
+      horizontalPosition: 'right',
+      duration: 5 * 1000,
+    });
+  }
 }

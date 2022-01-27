@@ -38,9 +38,10 @@ export class CardItemComponent implements OnInit {
             },
             (err) => {
               console.log(err.error.message);
-              this.openSnackBar(err.error.message);
+              this.openSnackBar(err.error.message, "error");
             }
           );
+          this.openSnackBar("Carte supprimée !", "success")
         } else {
           return;
         }
@@ -50,10 +51,11 @@ export class CardItemComponent implements OnInit {
       }
     );
   }
-  openSnackBar(text: string) {
+  openSnackBar(text: string, css: string) {
     this._snackBar.openFromComponent(SnackComponent, {
       data: {
         text: text,
+        css: css
       },
       horizontalPosition: 'right',
       duration: 5 * 1000,

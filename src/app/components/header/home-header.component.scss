@@ -18,6 +18,9 @@ header {
   }
 
   .container {
+    a {
+      display: none;
+    }
     p {
       color: $black-dracula;
       font-size: 20px;

@@ -1,0 +1,19 @@
+<app-home-header></app-home-header>
+<div class="container">
+  <app-sidebar></app-sidebar>
+  <div class="main radius pad">
+    <h4>Historique des transactions</h4>
+
+    <div style="text-align: center">
+      <apx-chart
+        [series]="chartOptions.series"
+        [chart]="chartOptions.chart"
+        [dataLabels]="chartOptions.dataLabels"
+        [plotOptions]="chartOptions.plotOptions"
+        [yaxis]="chartOptions.yaxis"
+        [xaxis]="chartOptions.xaxis"
+      ></apx-chart>
+    </div>
+  </div>
+</div>
+ <app-footer></app-footer>

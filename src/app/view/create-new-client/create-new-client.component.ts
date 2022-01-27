@@ -28,7 +28,7 @@ export class CreateNewClientComponent implements OnInit {
     streetName: ['', Validators.required],
     city: ['', Validators.required],
     zipCode: ['', Validators.required],
-    phoneNumber: ['', Validators.required],
+    phoneNumber: ['', Validators.required]
   });
 
   ngOnInit(): void {}
@@ -41,6 +41,7 @@ export class CreateNewClientComponent implements OnInit {
       };
       this.clientService.createClient(newClientInfo);
       this.submitted = true;
+      this.router.navigate(['/adv/clients']);
     } else {
       console.log('form not valid');
     }

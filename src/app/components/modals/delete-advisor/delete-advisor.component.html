@@ -1,41 +1,39 @@
-<div class="modal shadow radius" id="deleteAdvisor" role="dialog" aria-labelledby="modalDeleteAdvisor" aria-describedby="dialogDesc">
-    <div class="modal__title">
-      <h5 id="modalDeleteAdvisor">Supprimer le conseiller</h5>
-      <a
-        ><img
-          src="../../../assets/img/icons/close-white.svg"
-          alt="fermer la pop-up"
-          class="clickable-icon"
-          aria-label="close-modal"
-          mat-dialog-close
-      /></a>
-    </div>
-    <div class="modal__body">
-      <form action="" class="form" id="dialogDesc">
-        <h6 class="is-bold">êtes-vous sure de vouloir supprimer ce conseiller ?</h6>
-        <p>Cette action est irrémédiable.</p>
-        <p>
-          Pour supprimer un conseiller, il faut que sa liste de clients attribués soit vide.
-        </p>
-  
-        <div class="choice">
-          <div class="choice__resp">
-            <input class="" type="checkbox" name="yes" aria-label="delete advisor"/>
-            <label for="yes" class="form__label">Supprimer le conseiller</label>
-          </div>
-  
-          <div class="choice__resp">
-            <input class="" type="checkbox" name="no" aria-label=" no delete account"/>
-            <label for="no" class="form__label">Ne pas supprimer le conseiller</label>
-          </div>
-        </div>
-  
-        <button
-          class="btn-global btn-global-orange form__body__btn" aria-label="validate your choice"
-        >
-          valider
-        </button>
-      </form>
-    </div>
+<div
+  class="modal shadow radius"
+  id="deleteClient"
+  role="dialog"
+  aria-labelledby="modalDeleteclient"
+  aria-describedby="dialogDesc"
+>
+  <div class="modal__title">
+    <h5 id="modalDeleteclient">Supprimer le compte client</h5>
+    <a
+      ><img
+        src="../../../assets/img/icons/close-white.svg"
+        alt="fermer la pop-up"
+        class="clickable-icon"
+        aria-label="close-modal"
+        mat-dialog-close
+        (click)="close()"
+    /></a>
   </div>
-  
+  <div class="modal__body">
+    <h6 class="is-bold" id="dialogDesc">
+      êtes-vous sure de vouloir supprimer ce client ?
+    </h6>
+    <p>Cette action est irrémédiable.</p>
+    <p>
+      Pour supprimer un client, il faut que les comptes existants soient vidés.
+    </p>
+
+    <div class="choice"></div>
+
+    <button
+      (click)="deleteClient()"
+      class="btn-global btn-global-orange form__body__btn"
+      aria-label="delete client"
+    >
+      J'en suis sur!
+    </button>
+  </div>
+</div>

@@ -53,7 +53,13 @@ import { SidebarAdmComponent } from './components/sidebar-adv/sidebar-adv.compon
 import { CardItemComponent } from './components/card-item/card-item.component';
 import { SnackComponent } from './components/snack/snack.component';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+
 import { SimulationComponent } from './view/simulation/simulation.component';
+
+import { PhoneFormatPipe } from './pipes/phone-format.pipe';
+import { HistoryTransactionsComponent } from './view/admin/history-transactions/history-transactions.component';
+import { NgApexchartsModule } from 'ng-apexcharts';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -99,7 +105,12 @@ import { SimulationComponent } from './view/simulation/simulation.component';
     SidebarAdmComponent,
     CardItemComponent,
     SnackComponent,
+
     SimulationComponent,
+
+    PhoneFormatPipe,
+      HistoryTransactionsComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -110,6 +121,7 @@ import { SimulationComponent } from './view/simulation/simulation.component';
     BrowserAnimationsModule,
     MatDialogModule,
     MatSnackBarModule,
+    NgApexchartsModule,
   ],
   providers: [
     {
