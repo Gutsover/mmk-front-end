@@ -351,6 +351,7 @@ body {
   }
   #check:checked ~ .sidebar {
     transform: translateX(0px);
+    z-index: 1000;
   }
 
   #check:checked ~ label #btn {
