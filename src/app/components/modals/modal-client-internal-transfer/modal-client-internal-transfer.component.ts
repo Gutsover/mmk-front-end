@@ -36,20 +36,22 @@ export class ModalClientInternalTransferComponent implements OnInit {
     switch (this.accountA) {
       case 'current':
         sender = this.currentAccount.iban;
+        receiver = this.savingAccount.iban;
         break;
       case 'saving':
         sender = this.savingAccount.iban;
+        receiver = this.currentAccount.iban;
         break;
     }
 
-    switch (this.accountB) {
-      case 'current':
-        receiver = this.currentAccount.iban;
-        break;
-      case 'saving':
-        receiver = this.savingAccount.iban;
-        break;
-    }
+    // switch (this.accountB) {
+    //   case 'current':
+    //     receiver = this.currentAccount.iban;
+    //     break;
+    //   case 'saving':
+    //     receiver = this.savingAccount.iban;
+    //     break;
+    // }
 
     this.dialogRef.close({
       ibanA: sender,
